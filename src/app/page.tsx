@@ -16,13 +16,31 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - replace with actual endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "bfe9d2f8-9842-4f5f-a8a1-12e125d6ef74",
+          subject: "New Contact Form Submission - Cortec Solutions",
+          from_name: "Cortec Solutions Website",
+          ...formData,
+        }),
+      });
 
-    setSubmitStatus("success");
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    }
+
     setIsSubmitting(false);
-    setFormData({ name: "", email: "", company: "", message: "" });
-
     setTimeout(() => setSubmitStatus("idle"), 5000);
   };
 
@@ -291,6 +309,11 @@ export default function Home() {
               {submitStatus === "success" && (
                 <p className="text-green-600 dark:text-green-400 text-center">
                   Thank you! We&apos;ll be in touch soon.
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="text-red-600 dark:text-red-400 text-center">
+                  Something went wrong. Please try again or email us directly.
                 </p>
               )}
             </form>
