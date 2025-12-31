@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <defs>
+    <!-- Main gradient -->
+    <linearGradient id="cortecGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+
+    <!-- Subtle glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Brain Cortex Icon with Circuit Pattern -->
+  <g transform="translate(100, 80)" filter="url(#glow)">
+    <!-- Outer brain shape - stylized hemisphere -->
+    <path d="M-50 0
+             C-50 -45, -25 -65, 0 -65
+             C25 -65, 50 -45, 50 0
+             C50 35, 25 55, 0 55
+             C-25 55, -50 35, -50 0Z"
+          stroke="url(#cortecGradient)"
+          stroke-width="2.5"
+          fill="none"/>
+
+    <!-- Cortex fold lines (curved circuit traces) -->
+    <!-- Top fold -->
+    <path d="M-35 -40 Q-15 -55, 5 -45 Q25 -35, 35 -45"
+          stroke="url(#cortecGradient)"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Upper middle fold -->
+    <path d="M-40 -20 Q-20 -35, 0 -25 Q20 -15, 40 -25"
+          stroke="url(#cortecGradient)"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Center fold -->
+    <path d="M-45 5 Q-25 -10, 0 0 Q25 10, 45 0"
+          stroke="url(#cortecGradient)"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Lower middle fold -->
+    <path d="M-40 25 Q-20 15, 0 25 Q20 35, 38 22"
+          stroke="url(#cortecGradient)"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Bottom fold -->
+    <path d="M-30 42 Q-10 50, 10 42 Q25 36, 32 42"
+          stroke="url(#cortecGradient)"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Circuit nodes (connection points) -->
+    <circle cx="-35" cy="-40" r="3" fill="url(#cortecGradient)"/>
+    <circle cx="5" cy="-45" r="2.5" fill="url(#cortecGradient)"/>
+    <circle cx="35" cy="-45" r="3" fill="url(#cortecGradient)"/>
+
+    <circle cx="-40" cy="-20" r="2.5" fill="url(#cortecGradient)"/>
+    <circle cx="0" cy="-25" r="3" fill="url(#cortecGradient)"/>
+    <circle cx="40" cy="-25" r="2.5" fill="url(#cortecGradient)"/>
+
+    <circle cx="-45" cy="5" r="3" fill="url(#cortecGradient)"/>
+    <circle cx="0" cy="0" r="4" fill="url(#cortecGradient)"/>
+    <circle cx="45" cy="0" r="3" fill="url(#cortecGradient)"/>
+
+    <circle cx="-40" cy="25" r="2.5" fill="url(#cortecGradient)"/>
+    <circle cx="0" cy="25" r="3" fill="url(#cortecGradient)"/>
+    <circle cx="38" cy="22" r="2.5" fill="url(#cortecGradient)"/>
+
+    <circle cx="-30" cy="42" r="2.5" fill="url(#cortecGradient)"/>
+    <circle cx="10" cy="42" r="3" fill="url(#cortecGradient)"/>
+    <circle cx="32" cy="42" r="2.5" fill="url(#cortecGradient)"/>
+
+    <!-- Vertical circuit connections -->
+    <line x1="0" y1="-45" x2="0" y2="-25" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="-25" x2="0" y2="0" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="25" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="25" x2="10" y2="42" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark: CORTEC -->
+  <text x="100" y="195"
+        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="32"
+        font-weight="700"
+        fill="url(#cortecGradient)"
+        text-anchor="middle"
+        letter-spacing="4">CORTEC</text>
+</svg>

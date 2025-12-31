@@ -14,6 +14,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cortecs.ca"),
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/logo-icon.svg",
+  },
   title: {
     default: "Cortec | Custom Software & AI Solutions in Canada",
     template: "%s | Cortec",
@@ -95,7 +99,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Cortec",
               url: "https://www.cortecs.ca",
-              logo: "https://www.cortecs.ca/og-image.svg",
+              logo: "https://www.cortecs.ca/logo.svg",
               description:
                 "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows.",
               address: {

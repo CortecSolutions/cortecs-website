@@ -342,7 +342,8 @@ export default function PortfolioPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold">
+            <Link href="/" className="flex items-center gap-3 text-2xl font-bold">
+              <img src="/logo-icon.svg" alt="Cortec" className="w-10 h-10" />
               <span className="gradient-text">Cortec</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
@@ -451,7 +452,8 @@ export default function PortfolioPage() {
       <footer className="py-12 px-6 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <Link href="/" className="text-2xl font-bold">
+            <Link href="/" className="flex items-center gap-3 text-2xl font-bold">
+              <img src="/logo-icon.svg" alt="Cortec" className="w-8 h-8" />
               <span className="gradient-text">Cortec</span>
             </Link>
             <div className="flex items-center gap-8">
