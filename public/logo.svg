@@ -7,87 +7,67 @@
     </linearGradient>
   </defs>
 
-  <!-- Brain Circuit Icon -->
+  <!-- Brain Circuit Icon (top-down oval view) -->
   <g transform="translate(100, 80)">
     <!-- Brain outline - left hemisphere -->
-    <path d="M-3 -57
-             C-3 -57, -12 -60, -27 -57
-             C-42 -54, -54 -42, -57 -27
-             C-60 -12, -57 -3, -54 7.5
-             C-51 18, -57 27, -60 36
-             C-63 45, -57 57, -42 60
-             C-27 63, -12 57, -3 48
-             L-3 -57Z"
+    <path d="M-3 -52
+             C-27 -52, -57 -38, -60 0
+             C-57 38, -27 52, -3 52"
           stroke="url(#cortecGradient)"
           stroke-width="3"
           fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
+          stroke-linecap="round"/>
 
     <!-- Brain outline - right hemisphere -->
-    <path d="M3 -57
-             C3 -57, 12 -60, 27 -57
-             C42 -54, 54 -42, 57 -27
-             C60 -12, 57 -3, 54 7.5
-             C51 18, 57 27, 60 36
-             C63 45, 57 57, 42 60
-             C27 63, 12 57, 3 48
-             L3 -57Z"
+    <path d="M3 -52
+             C27 -52, 57 -38, 60 0
+             C57 38, 27 52, 3 52"
           stroke="url(#cortecGradient)"
           stroke-width="3"
           fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
+          stroke-linecap="round"/>
 
     <!-- Center divider -->
-    <line x1="0" y1="-48" x2="0" y2="-30" stroke="url(#cortecGradient)" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="0" y1="30" x2="0" y2="48" stroke="url(#cortecGradient)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="-45" x2="0" y2="-27" stroke="url(#cortecGradient)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="27" x2="0" y2="45" stroke="url(#cortecGradient)" stroke-width="2.5" stroke-linecap="round"/>
 
     <!-- Left hemisphere circuits -->
-    <path d="M-9 -42 L-9 -30 L-27 -30" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-9" cy="-42" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="-27" cy="-30" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M-8 -36 L-8 -27 L-27 -27" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-8" cy="-36" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="-27" cy="-27" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M-9 -18 L-21 -18 L-21 -6 L-36 -6" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-9" cy="-18" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="-36" cy="-6" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M-8 -12 L-21 -12 L-21 0 L-39 0" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-8" cy="-12" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="-39" cy="0" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M-9 6 L-30 6" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <circle cx="-9" cy="6" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="-30" cy="6" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M-8 12 L-21 12 L-21 24 L-30 24" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-8" cy="12" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="-30" cy="24" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M-9 18 L-21 18 L-21 30 L-33 30" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-9" cy="18" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="-33" cy="30" r="3.5" fill="url(#cortecGradient)"/>
-
-    <path d="M-9 42 L-9 33 L-18 33" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-9" cy="42" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="-18" cy="33" r="3" fill="url(#cortecGradient)"/>
+    <path d="M-8 36 L-8 27 L-18 27" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-8" cy="36" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="-18" cy="27" r="3" fill="url(#cortecGradient)"/>
 
     <!-- Right hemisphere circuits (mirrored) -->
-    <path d="M9 -42 L9 -30 L27 -30" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="9" cy="-42" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="27" cy="-30" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M8 -36 L8 -27 L27 -27" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="8" cy="-36" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="27" cy="-27" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M9 -18 L21 -18 L21 -6 L36 -6" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="9" cy="-18" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="36" cy="-6" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M8 -12 L21 -12 L21 0 L39 0" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="8" cy="-12" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="39" cy="0" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M9 6 L30 6" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <circle cx="9" cy="6" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="30" cy="6" r="3.5" fill="url(#cortecGradient)"/>
+    <path d="M8 12 L21 12 L21 24 L30 24" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="8" cy="12" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="30" cy="24" r="3.5" fill="url(#cortecGradient)"/>
 
-    <path d="M9 18 L21 18 L21 30 L33 30" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="9" cy="18" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="33" cy="30" r="3.5" fill="url(#cortecGradient)"/>
-
-    <path d="M9 42 L9 33 L18 33" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="9" cy="42" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="18" cy="33" r="3" fill="url(#cortecGradient)"/>
+    <path d="M8 36 L8 27 L18 27" stroke="url(#cortecGradient)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="8" cy="36" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="18" cy="27" r="3" fill="url(#cortecGradient)"/>
 
     <!-- Center spine nodes -->
-    <circle cx="0" cy="-30" r="3.5" fill="url(#cortecGradient)"/>
-    <circle cx="0" cy="30" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="0" cy="-27" r="3.5" fill="url(#cortecGradient)"/>
+    <circle cx="0" cy="27" r="3.5" fill="url(#cortecGradient)"/>
   </g>
 
   <!-- Wordmark -->
