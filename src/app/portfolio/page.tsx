@@ -227,17 +227,17 @@ const solutions = [
       </svg>
     ),
   },
-  // === CREATIVE & VISUAL SERVICES ===
+  // === AI PLATFORM DEVELOPMENT ===
   {
     industry: "Marketing & Advertising",
-    title: "AI-Generated Marketing Content",
+    title: "AI Marketing Platform Development",
     description:
-      "Automated ad creative generation, personalized visual content at scale, social media assets, and dynamic product imagery for marketing teams and agencies.",
+      "Custom platforms that integrate with DALL-E, Stable Diffusion, and other AI APIs to let your marketing team generate ad creatives, social content, and product imagery on demand.",
     capabilities: [
-      "AI ad creative generation",
-      "Social media content",
-      "Personalized visuals",
-      "Dynamic product imagery",
+      "AI content generation dashboards",
+      "Brand guideline integration",
+      "Batch asset generation",
+      "Template management systems",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,14 +247,14 @@ const solutions = [
   },
   {
     industry: "Fashion & Apparel",
-    title: "AI Fashion Models & Virtual Try-On",
+    title: "Fashion AI Platform Development",
     description:
-      "AI-generated clothing models, virtual try-on experiences, product photography automation, and lookbook generation for fashion brands and retailers.",
+      "Build custom platforms for fashion brands that integrate AI model generation, virtual try-on APIs, and automated product photography workflows your team can operate.",
     capabilities: [
-      "AI clothing models",
-      "Virtual try-on tools",
-      "Automated product photos",
-      "Lookbook generation",
+      "Virtual try-on integrations",
+      "AI model generation platforms",
+      "Product photo automation",
+      "Lookbook generation tools",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,14 +264,14 @@ const solutions = [
   },
   {
     industry: "Architecture & Interior Design",
-    title: "3D Visualization & Virtual Staging",
+    title: "Visualization Platform Development",
     description:
-      "Photorealistic 3D renders, virtual property staging, architectural visualizations, and immersive walkthroughs for architects, designers, and real estate developers.",
+      "Custom platforms integrating AI rendering APIs for architects and designers to generate room visualizations, virtual staging, and design variations on demand.",
     capabilities: [
-      "3D architectural renders",
-      "Virtual staging",
-      "Interior visualizations",
-      "Immersive walkthroughs",
+      "AI staging platforms",
+      "Room visualization tools",
+      "Design variation generators",
+      "Client presentation portals",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,14 +281,14 @@ const solutions = [
   },
   {
     industry: "Product & Industrial",
-    title: "Product Visualization & Prototyping",
+    title: "Product Visualization Platforms",
     description:
-      "Photorealistic product renders, 360-degree product views, packaging mockups, and visual prototypes for product launches and e-commerce.",
+      "Build e-commerce integrations and product visualization tools that connect to AI APIs for automated product shots, background generation, and 360° view creation.",
     capabilities: [
-      "Product 3D renders",
-      "360° product views",
-      "Packaging mockups",
-      "Visual prototyping",
+      "E-commerce AI integrations",
+      "Background generation tools",
+      "Product shot automation",
+      "Asset management systems",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,14 +298,14 @@ const solutions = [
   },
   {
     industry: "Creative & Media",
-    title: "AI Video & Animation Production",
+    title: "Video Generation Platform Development",
     description:
-      "Custom AI-generated videos, motion graphics, animated explainers, promotional content, and visual effects for brands, agencies, and content creators.",
+      "Build custom platforms integrating Runway, Pika, and other AI video APIs so your creative team can generate videos, animations, and visual effects through a branded interface.",
     capabilities: [
-      "AI video generation",
-      "Motion graphics & animation",
-      "Explainer videos",
-      "Visual effects (VFX)",
+      "AI video generation dashboards",
+      "Animation workflow tools",
+      "Asset library management",
+      "Render queue systems",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -315,14 +315,14 @@ const solutions = [
   },
   {
     industry: "Entertainment & Gaming",
-    title: "Character Design & Game Assets",
+    title: "Game Asset Pipeline Tools",
     description:
-      "AI-generated character designs, game asset creation, concept art, promotional artwork, and visual content for game studios and entertainment companies.",
+      "Build internal tools for game studios that integrate AI image generation APIs for concept art workflows, asset variation generation, and promotional material creation.",
     capabilities: [
-      "Character design & art",
-      "Game asset generation",
-      "Concept art creation",
-      "Promotional visuals",
+      "Concept art generation tools",
+      "Asset variation pipelines",
+      "Style guide enforcement",
+      "Batch generation systems",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">

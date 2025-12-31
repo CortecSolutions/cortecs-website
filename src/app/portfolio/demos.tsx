@@ -1072,48 +1072,387 @@ export function FashionDemo() {
 }
 
 // ============================================
-// CREATIVE PLACEHOLDERS
+// MARKETING PLATFORM DEMO
 // ============================================
-export function CreativePlaceholder({
-  title,
-  description,
-  examples
-}: {
-  title: string;
-  description: string;
-  examples: string[];
-}) {
+export function MarketingPlatformDemo() {
+  const [selectedTemplate, setSelectedTemplate] = useState("social");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generated, setGenerated] = useState(false);
+
+  const handleGenerate = () => {
+    setIsGenerating(true);
+    setTimeout(() => {
+      setIsGenerating(false);
+      setGenerated(true);
+    }, 2000);
+  };
+
   return (
-    <div className="bg-slate-900 rounded-xl p-4 text-white">
-      <div className="text-center mb-4">
-        <div className="text-cyan-400 font-bold mb-2">{title}</div>
-        <div className="text-xs text-slate-400">{description}</div>
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Marketing Asset Platform</span>
+        <span className="text-xs bg-green-600 px-2 py-1 rounded flex items-center gap-1">
+          <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+          API Connected
+        </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        {examples.map((example, i) => (
-          <div
-            key={i}
-            className="aspect-video bg-gradient-to-br from-slate-800 to-slate-700 rounded-lg flex items-center justify-center border border-dashed border-slate-600"
+      <div className="grid grid-cols-4 gap-1 mb-4">
+        {["social", "banner", "email", "product"].map((t) => (
+          <button
+            key={t}
+            onClick={() => { setSelectedTemplate(t); setGenerated(false); }}
+            className={`px-2 py-1.5 rounded text-xs capitalize ${
+              selectedTemplate === t ? "bg-cyan-600" : "bg-slate-700"
+            }`}
           >
-            <div className="text-center p-2">
-              <div className="text-3xl mb-1 opacity-50">
-                {["🎨", "📸", "🎬", "🎮"][i % 4]}
+            {t}
+          </button>
+        ))}
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Brand Prompt Template</div>
+        <div className="text-xs text-slate-300 bg-slate-700 rounded p-2">
+          Modern {selectedTemplate} ad for tech startup, minimalist style, brand colors: cyan/blue gradient, professional...
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-3">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="aspect-square bg-slate-800 rounded flex items-center justify-center">
+            {isGenerating ? (
+              <div className="w-6 h-6 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+            ) : generated ? (
+              <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded flex items-center justify-center">
+                <span className="text-xs text-green-400">✓ v{i}</span>
               </div>
-              <div className="text-xs text-slate-400">{example}</div>
-            </div>
+            ) : (
+              <span className="text-slate-600 text-xs">Slot {i}</span>
+            )}
           </div>
         ))}
       </div>
 
-      <div className="mt-4 text-center">
-        <div className="inline-flex items-center gap-2 text-xs text-cyan-400 bg-cyan-400/10 px-3 py-2 rounded-full">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          Contact us to see live examples
+      <button
+        onClick={handleGenerate}
+        disabled={isGenerating}
+        className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 disabled:bg-slate-600 rounded text-xs font-medium"
+      >
+        {isGenerating ? "Generating 3 variations..." : "Generate Assets"}
+      </button>
+
+      <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-center">
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-cyan-400 font-bold">DALL-E 3</div>
+          <div className="text-slate-400">Image API</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-purple-400 font-bold">Stable Diffusion</div>
+          <div className="text-slate-400">Fallback API</div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ============================================
+// ARCHITECTURE PLATFORM DEMO
+// ============================================
+export function ArchitecturePlatformDemo() {
+  const [roomType, setRoomType] = useState("living");
+  const [style, setStyle] = useState("modern");
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Virtual Staging Platform</span>
+        <span className="text-xs bg-slate-700 px-2 py-1 rounded">v2.1</span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        <div>
+          <div className="text-xs text-slate-400 mb-2">Room Type</div>
+          <div className="grid grid-cols-2 gap-1">
+            {["living", "bedroom", "kitchen", "office"].map((r) => (
+              <button
+                key={r}
+                onClick={() => setRoomType(r)}
+                className={`px-2 py-1 rounded text-xs capitalize ${
+                  roomType === r ? "bg-cyan-600" : "bg-slate-700"
+                }`}
+              >
+                {r}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className="text-xs text-slate-400 mb-2">Style</div>
+          <div className="grid grid-cols-2 gap-1">
+            {["modern", "classic", "minimal", "luxury"].map((s) => (
+              <button
+                key={s}
+                onClick={() => setStyle(s)}
+                className={`px-2 py-1 rounded text-xs capitalize ${
+                  style === s ? "bg-purple-600" : "bg-slate-700"
+                }`}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-xs text-slate-400">Upload Empty Room</span>
+          <span className="text-xs text-green-400">✓ room_photo.jpg</span>
+        </div>
+        <div className="h-20 bg-slate-700 rounded flex items-center justify-center border-2 border-dashed border-slate-600">
+          <span className="text-xs text-slate-400">Preview: {style} {roomType}</span>
+        </div>
+      </div>
+
+      <button
+        onClick={() => setIsGenerating(!isGenerating)}
+        className="w-full py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 rounded text-xs font-medium"
+      >
+        {isGenerating ? "Processing..." : "Generate Staged Room"}
+      </button>
+
+      <div className="mt-3 text-xs text-slate-400 text-center">
+        Integrates with Stability AI for room transformation
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// PRODUCT VISUALIZATION PLATFORM DEMO
+// ============================================
+export function ProductPlatformDemo() {
+  const [background, setBackground] = useState("studio");
+  const [uploaded, setUploaded] = useState(false);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Product Photo Platform</span>
+        <span className="text-xs bg-orange-600 px-2 py-1 rounded">E-commerce</span>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Product Image</div>
+        <div
+          onClick={() => setUploaded(true)}
+          className="h-24 bg-slate-700 rounded flex items-center justify-center border-2 border-dashed border-slate-600 cursor-pointer hover:border-cyan-500"
+        >
+          {uploaded ? (
+            <div className="text-center">
+              <div className="text-2xl mb-1">📦</div>
+              <span className="text-xs text-green-400">product.png uploaded</span>
+            </div>
+          ) : (
+            <span className="text-xs text-slate-400">Click to upload product image</span>
+          )}
+        </div>
+      </div>
+
+      <div className="mb-3">
+        <div className="text-xs text-slate-400 mb-2">Background Style</div>
+        <div className="grid grid-cols-4 gap-1">
+          {["studio", "lifestyle", "outdoor", "gradient"].map((bg) => (
+            <button
+              key={bg}
+              onClick={() => setBackground(bg)}
+              className={`px-2 py-1.5 rounded text-xs capitalize ${
+                background === bg ? "bg-cyan-600" : "bg-slate-700"
+              }`}
+            >
+              {bg}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        <div className="bg-slate-800 rounded p-2 text-center">
+          <div className="text-xs text-slate-400">Output</div>
+          <div className="text-sm text-cyan-400">4K PNG</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2 text-center">
+          <div className="text-xs text-slate-400">Variations</div>
+          <div className="text-sm text-purple-400">4 angles</div>
+        </div>
+      </div>
+
+      <button
+        disabled={!uploaded}
+        className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 disabled:bg-slate-600 disabled:cursor-not-allowed rounded text-xs font-medium"
+      >
+        {uploaded ? "Remove Background & Generate" : "Upload Product First"}
+      </button>
+    </div>
+  );
+}
+
+// ============================================
+// VIDEO PLATFORM DEMO
+// ============================================
+export function VideoPlatformDemo() {
+  const [videoType, setVideoType] = useState("explainer");
+  const [duration, setDuration] = useState("30s");
+  const [inQueue, setInQueue] = useState(false);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Video Generation Platform</span>
+        <span className="text-xs text-green-400 flex items-center gap-1">
+          <span className="w-2 h-2 bg-green-400 rounded-full" />
+          Runway Connected
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 mb-4">
+        <div>
+          <div className="text-xs text-slate-400 mb-2">Video Type</div>
+          <select
+            value={videoType}
+            onChange={(e) => setVideoType(e.target.value)}
+            className="w-full bg-slate-700 rounded px-2 py-1.5 text-xs"
+          >
+            <option value="explainer">Explainer</option>
+            <option value="promo">Promotional</option>
+            <option value="social">Social Clip</option>
+            <option value="product">Product Demo</option>
+          </select>
+        </div>
+        <div>
+          <div className="text-xs text-slate-400 mb-2">Duration</div>
+          <div className="flex gap-1">
+            {["15s", "30s", "60s"].map((d) => (
+              <button
+                key={d}
+                onClick={() => setDuration(d)}
+                className={`flex-1 py-1.5 rounded text-xs ${
+                  duration === d ? "bg-purple-600" : "bg-slate-700"
+                }`}
+              >
+                {d}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Script/Prompt</div>
+        <textarea
+          className="w-full bg-slate-700 rounded p-2 text-xs h-16 resize-none"
+          placeholder="Describe your video concept..."
+          defaultValue="Modern tech product showcase with smooth transitions..."
+        />
+      </div>
+
+      {inQueue && (
+        <div className="bg-purple-900/30 border border-purple-500/50 rounded p-2 mb-3">
+          <div className="flex justify-between text-xs">
+            <span className="text-purple-400">Rendering...</span>
+            <span className="text-slate-400">Est. 2-3 min</span>
+          </div>
+          <div className="w-full bg-slate-700 rounded-full h-1.5 mt-2">
+            <div className="bg-purple-500 h-1.5 rounded-full w-1/3 animate-pulse" />
+          </div>
+        </div>
+      )}
+
+      <button
+        onClick={() => setInQueue(!inQueue)}
+        className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded text-xs font-medium"
+      >
+        {inQueue ? "View Queue (1 job)" : "Add to Render Queue"}
+      </button>
+    </div>
+  );
+}
+
+// ============================================
+// GAMING PLATFORM DEMO
+// ============================================
+export function GamingPlatformDemo() {
+  const [assetType, setAssetType] = useState("character");
+  const [styleGuide, setStyleGuide] = useState(true);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Game Asset Pipeline</span>
+        <span className="text-xs bg-purple-600 px-2 py-1 rounded">Studio Pro</span>
+      </div>
+
+      <div className="mb-3">
+        <div className="text-xs text-slate-400 mb-2">Asset Type</div>
+        <div className="grid grid-cols-4 gap-1">
+          {["character", "environment", "prop", "UI"].map((type) => (
+            <button
+              key={type}
+              onClick={() => setAssetType(type)}
+              className={`px-2 py-1.5 rounded text-xs capitalize ${
+                assetType === type ? "bg-cyan-600" : "bg-slate-700"
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs text-slate-400">Style Guide</span>
+          <button
+            onClick={() => setStyleGuide(!styleGuide)}
+            className={`w-8 h-4 rounded-full transition-colors ${
+              styleGuide ? "bg-green-500" : "bg-slate-600"
+            }`}
+          >
+            <div className={`w-3 h-3 bg-white rounded-full transition-transform ${
+              styleGuide ? "translate-x-4" : "translate-x-0.5"
+            }`} />
+          </button>
+        </div>
+        {styleGuide && (
+          <div className="text-xs text-green-400">
+            ✓ Fantasy RPG style guide loaded (127 reference images)
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-3">
+        <div className="bg-slate-800 rounded p-2 text-center">
+          <div className="text-lg">🎮</div>
+          <div className="text-xs text-slate-400">In Queue</div>
+          <div className="text-sm text-cyan-400">12</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2 text-center">
+          <div className="text-lg">✓</div>
+          <div className="text-xs text-slate-400">Generated</div>
+          <div className="text-sm text-green-400">847</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2 text-center">
+          <div className="text-lg">⭐</div>
+          <div className="text-xs text-slate-400">Approved</div>
+          <div className="text-sm text-purple-400">612</div>
+        </div>
+      </div>
+
+      <button className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 rounded text-xs font-medium">
+        Generate {assetType} Concept (4 variations)
+      </button>
     </div>
   );
 }
@@ -1133,40 +1472,10 @@ export const demoComponents: Record<string, React.ReactNode> = {
   "Real Estate": <RealEstateDemo />,
   "Logistics & Transportation": <LogisticsDemo />,
   "E-Learning & Training": <ELearningDemo />,
-  "Marketing & Advertising": (
-    <CreativePlaceholder
-      title="AI Marketing Content"
-      description="Automated ad creative and visual content generation"
-      examples={["Social Ads", "Banner Designs", "Product Shots", "Campaign Visuals"]}
-    />
-  ),
+  "Marketing & Advertising": <MarketingPlatformDemo />,
   "Fashion & Apparel": <FashionDemo />,
-  "Architecture & Interior Design": (
-    <CreativePlaceholder
-      title="3D Architectural Renders"
-      description="Photorealistic visualizations and virtual staging"
-      examples={["Exterior Renders", "Interior Design", "Virtual Staging", "Walkthroughs"]}
-    />
-  ),
-  "Product & Industrial": (
-    <CreativePlaceholder
-      title="Product Visualization"
-      description="3D renders and interactive product views"
-      examples={["Product Renders", "360° Views", "Packaging", "Prototypes"]}
-    />
-  ),
-  "Creative & Media": (
-    <CreativePlaceholder
-      title="AI Video Production"
-      description="Custom videos, animations, and visual effects"
-      examples={["Explainer Videos", "Motion Graphics", "VFX Shots", "Animations"]}
-    />
-  ),
-  "Entertainment & Gaming": (
-    <CreativePlaceholder
-      title="Game Art & Assets"
-      description="Character designs, concept art, and game assets"
-      examples={["Characters", "Environments", "Concept Art", "UI Assets"]}
-    />
-  ),
+  "Architecture & Interior Design": <ArchitecturePlatformDemo />,
+  "Product & Industrial": <ProductPlatformDemo />,
+  "Creative & Media": <VideoPlatformDemo />,
+  "Entertainment & Gaming": <GamingPlatformDemo />,
 };
