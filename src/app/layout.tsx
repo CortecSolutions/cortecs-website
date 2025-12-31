@@ -75,8 +75,7 @@ export const metadata: Metadata = {
     images: ["/og-image.svg"],
   },
   verification: {
-    // Add your verification codes here when you have them
-    // google: "your-google-verification-code",
+    google: "Xj4IrHQq5AJgGeZHrCsjtlnqbcO9h7uuCaLrcqc3ZQI",
   },
   alternates: {
     canonical: "https://www.cortecs.ca",
@@ -91,6 +90,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-50JBTCFSQF"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-50JBTCFSQF');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

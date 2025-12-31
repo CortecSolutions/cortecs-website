@@ -90,7 +90,6 @@ export default function Home() {
   const stats = [
     { value: "100%", label: "Custom Solutions" },
     { value: "24/7", label: "Support Available" },
-    { value: "50+", label: "Projects Delivered" },
   ];
 
   return (
@@ -113,6 +112,9 @@ export default function Home() {
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Portfolio
               </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
+                Blog
+              </a>
               <a
                 href="#contact"
                 className="gradient-bg text-white px-5 py-2.5 rounded-full hover:opacity-90 transition-all text-sm font-medium hover:shadow-lg hover:shadow-primary/25"
@@ -124,117 +126,54 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 pb-20 px-6 grid-pattern">
-        {/* Animated background orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-[100px] float pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full filter blur-[100px] float-delayed pulse-glow" />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-cyan-400/10 rounded-full filter blur-[80px] float" />
+      {/* Hero Section - Full Screen Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Full screen video background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         </div>
 
-        {/* Decorative geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-32 right-20 w-20 h-20 border border-primary/20 rounded-xl rotate-12 float" />
-          <div className="absolute top-40 right-40 w-8 h-8 bg-primary/30 rounded-full float-delayed" />
-          <div className="absolute bottom-40 left-20 w-16 h-16 border border-accent/20 rounded-full float-delayed" />
-          <div className="absolute bottom-60 left-40 w-6 h-6 bg-accent/40 rounded-sm rotate-45 float" />
-        </div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="slide-up">
-                <span className="code-accent text-sm mb-6 inline-block">
-                  {"<"}innovation{"/>"}
-                </span>
-              </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 slide-up slide-up-delay-1 tracking-tight">
-                Transform Your Business with{" "}
-                <span className="gradient-text">Intelligent Solutions</span>
-              </h1>
-              <p className="text-xl text-secondary mb-8 leading-relaxed slide-up slide-up-delay-2 max-w-xl">
-                We design, develop, and implement custom software applications, AI-powered tools,
-                and automated workflows that drive real results.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 slide-up slide-up-delay-3">
-                <a
-                  href="#contact"
-                  className="gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all text-center hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
-                >
-                  Start Your Project
-                </a>
-                <a
-                  href="#services"
-                  className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all text-center hover:-translate-y-0.5"
-                >
-                  Explore Services
-                </a>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 slide-up slide-up-delay-4">
-                {stats.map((stat, index) => (
-                  <div key={index}>
-                    <div className="text-3xl font-bold gradient-text">{stat.value}</div>
-                    <div className="text-secondary text-sm mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Hero Visual - Tech graphic */}
-            <div className="hidden lg:block relative">
-              <div className="relative w-full aspect-square">
-                {/* Central glowing orb */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full gradient-bg opacity-20 pulse-glow" />
-                  <div className="absolute w-32 h-32 rounded-full gradient-bg opacity-40 pulse-glow" style={{ animationDelay: '-2s' }} />
-                  <div className="absolute w-20 h-20 rounded-full gradient-bg opacity-60" />
-                </div>
-
-                {/* Orbiting elements */}
-                <div className="absolute inset-0 spin-slow">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full" />
-                  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full" />
-                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-4 h-4 bg-primary rounded-full" />
-                </div>
-
-                {/* Floating code cards */}
-                <div className="absolute top-8 right-8 bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg p-4 border border-slate-700 float shadow-xl">
-                  <code className="text-xs text-green-400 font-mono">
-                    <span className="text-purple-400">const</span> solution = <span className="text-cyan-400">buildAI</span>();
-                  </code>
-                </div>
-
-                <div className="absolute bottom-16 left-0 bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg p-4 border border-slate-700 float-delayed shadow-xl">
-                  <code className="text-xs text-green-400 font-mono">
-                    <span className="text-purple-400">await</span> <span className="text-cyan-400">automate</span>(workflow);
-                  </code>
-                </div>
-
-                {/* Connecting lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
-                  <circle cx="200" cy="200" r="150" fill="none" stroke="url(#gradient)" strokeWidth="1" opacity="0.2" />
-                  <circle cx="200" cy="200" r="100" fill="none" stroke="url(#gradient)" strokeWidth="1" opacity="0.3" />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0ea5e9" />
-                      <stop offset="100%" stopColor="#06b6d4" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-            </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 slide-up tracking-tight text-white">
+            Transform your Business with{" "}
+            <span className="gradient-text">Intelligent Solutions</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed slide-up slide-up-delay-1 max-w-3xl mx-auto">
+            We design, develop, and implement custom software applications, AI-powered tools,
+            and automated workflows that drive real results.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up slide-up-delay-2">
+            <a
+              href="#contact"
+              className="gradient-bg text-white px-10 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all text-center hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
+            >
+              Start Your Project
+            </a>
+            <a
+              href="#services"
+              className="border border-white/30 text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-all text-center hover:-translate-y-0.5 backdrop-blur-sm"
+            >
+              Explore Services
+            </a>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-secondary">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 z-10">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <div className="w-5 h-8 border-2 border-secondary/30 rounded-full flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-primary rounded-full animate-bounce" />
+          <div className="w-5 h-8 border-2 border-white/30 rounded-full flex items-start justify-center p-1">
+            <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
           </div>
         </div>
       </section>
@@ -459,6 +398,9 @@ export default function Home() {
               </a>
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Portfolio
+              </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm">
+                Blog
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Contact
