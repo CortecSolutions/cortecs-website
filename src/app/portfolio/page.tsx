@@ -240,7 +240,6 @@ export default function PortfolioPage() {
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold">
               <span className="gradient-text">Cortec</span>
-              <span className="text-foreground"> Solutions</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link
@@ -350,7 +349,6 @@ export default function PortfolioPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link href="/" className="text-2xl font-bold">
               <span className="gradient-text">Cortec</span>
-              <span className="text-foreground"> Solutions</span>
             </Link>
             <div className="flex items-center gap-8">
               <Link
@@ -373,7 +371,7 @@ export default function PortfolioPage() {
               </Link>
             </div>
             <div className="text-secondary text-sm">
-              © {new Date().getFullYear()} Cortec Solutions. All rights reserved.
+              © {new Date().getFullYear()} Cortec. All rights reserved.
             </div>
           </div>
         </div>

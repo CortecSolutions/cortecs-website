@@ -15,8 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cortecs.ca"),
   title: {
-    default: "Cortec Solutions | Custom Software & AI Solutions in Canada",
-    template: "%s | Cortec Solutions",
+    default: "Cortec | Custom Software & AI Solutions in Canada",
+    template: "%s | Cortec",
   },
   description:
     "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows. Expert technical consulting for digital transformation and process optimization.",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "process optimization",
     "enterprise software",
   ],
-  authors: [{ name: "Cortec Solutions" }],
-  creator: "Cortec Solutions",
-  publisher: "Cortec Solutions",
+  authors: [{ name: "Cortec" }],
+  creator: "Cortec",
+  publisher: "Cortec",
   robots: {
     index: true,
     follow: true,
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: "https://www.cortecs.ca",
-    siteName: "Cortec Solutions",
-    title: "Cortec Solutions | Custom Software & AI Solutions",
+    siteName: "Cortec",
+    title: "Cortec | Custom Software & AI Solutions",
     description:
       "Transform your business with custom software, AI-powered tools, and automated workflows. Expert technical consulting for digital transformation.",
     images: [
@@ -59,13 +59,13 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Cortec Solutions - Custom Software & AI Solutions",
+        alt: "Cortec - Custom Software & AI Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cortec Solutions | Custom Software & AI Solutions",
+    title: "Cortec | Custom Software & AI Solutions",
     description:
       "Transform your business with custom software, AI-powered tools, and automated workflows.",
     images: ["/og-image.svg"],
@@ -93,7 +93,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Cortec Solutions",
+              name: "Cortec",
               url: "https://www.cortecs.ca",
               logo: "https://www.cortecs.ca/og-image.svg",
               description:

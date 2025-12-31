@@ -24,8 +24,8 @@ export default function Home() {
         },
         body: JSON.stringify({
           access_key: "bfe9d2f8-9842-4f5f-a8a1-12e125d6ef74",
-          subject: "New Contact Form Submission - Cortec Solutions",
-          from_name: "Cortec Solutions Website",
+          subject: "New Contact Form Submission - Cortec",
+          from_name: "Cortec Website",
           ...formData,
         }),
       });
@@ -101,7 +101,6 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <a href="#" className="text-2xl font-bold tracking-tight">
               <span className="gradient-text">Cortec</span>
-              <span className="text-foreground"> Solutions</span>
             </a>
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
@@ -290,7 +289,7 @@ export default function Home() {
                 <span className="gradient-text">One Solution at a Time</span>
               </h2>
               <p className="text-secondary text-lg leading-relaxed mb-6">
-                At Cortec Solutions, we partner with businesses to navigate the complexities of
+                At Cortec, we partner with businesses to navigate the complexities of
                 digital transformation. Our team combines deep technical expertise with a
                 commitment to understanding your unique challenges.
               </p>
@@ -448,7 +447,6 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-2xl font-bold tracking-tight">
               <span className="gradient-text">Cortec</span>
-              <span className="text-foreground"> Solutions</span>
             </div>
             <div className="flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm">
@@ -465,7 +463,7 @@ export default function Home() {
               </a>
             </div>
             <div className="text-secondary text-sm">
-              © {new Date().getFullYear()} Cortec Solutions. All rights reserved.
+              © {new Date().getFullYear()} Cortec. All rights reserved.
             </div>
           </div>
         </div>
