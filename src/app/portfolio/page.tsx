@@ -4,10 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Solutions Portfolio",
   description:
-    "Explore custom software solutions, AI-generated videos and images, animations, and automation systems we build for businesses across healthcare, fashion, media, and more.",
+    "Explore custom software, automation systems, data platforms, and enterprise integrations we build for businesses across healthcare, finance, manufacturing, and more.",
 };
 
 const solutions = [
+  // === ENTERPRISE SOFTWARE & AUTOMATION ===
   {
     industry: "Healthcare",
     title: "Patient Management & Clinical Workflows",
@@ -43,19 +44,53 @@ const solutions = [
     ),
   },
   {
-    industry: "Retail & E-Commerce",
-    title: "Inventory & Customer Experience Platforms",
+    industry: "Legacy Modernization",
+    title: "System Migration & Architecture Upgrades",
     description:
-      "AI-powered inventory management, personalized recommendation engines, order fulfillment automation, and omnichannel customer experiences.",
+      "Transform outdated legacy systems into modern, scalable architectures. Database migrations, API modernization, and cloud-native refactoring.",
     capabilities: [
-      "Inventory optimization AI",
-      "Customer recommendation engines",
-      "Order management systems",
-      "POS integrations",
+      "Legacy code refactoring",
+      "Database migration",
+      "Cloud-native architecture",
+      "API modernization",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Data & Analytics",
+    title: "Enterprise BI & Predictive Analytics",
+    description:
+      "Custom business intelligence platforms, data warehousing, ETL pipelines, and machine learning models for predictive insights and decision-making.",
+    capabilities: [
+      "Custom BI dashboards",
+      "Data pipeline engineering",
+      "Predictive ML models",
+      "Data warehouse design",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "System Integration",
+    title: "API Development & Third-Party Connectors",
+    description:
+      "Custom API development, enterprise system integrations, middleware solutions, and seamless connections between disparate business applications.",
+    capabilities: [
+      "Custom REST/GraphQL APIs",
+      "ERP/CRM integrations",
+      "Middleware development",
+      "Webhook orchestration",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
       </svg>
     ),
   },
@@ -77,6 +112,23 @@ const solutions = [
     ),
   },
   {
+    industry: "Document Automation",
+    title: "Intelligent Document Processing & OCR",
+    description:
+      "Automated document extraction, invoice processing, contract analysis, and intelligent form handling using AI-powered OCR and NLP.",
+    capabilities: [
+      "Invoice/receipt processing",
+      "Contract data extraction",
+      "Intelligent form capture",
+      "Document classification",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+      </svg>
+    ),
+  },
+  {
     industry: "Professional Services",
     title: "Client Management & Workflow Automation",
     description:
@@ -90,6 +142,40 @@ const solutions = [
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Conversational AI",
+    title: "Custom Chatbots & Virtual Assistants",
+    description:
+      "AI-powered customer service bots, internal knowledge assistants, lead qualification chatbots, and voice-enabled virtual agents for enterprise.",
+    capabilities: [
+      "Customer service automation",
+      "Knowledge base assistants",
+      "Lead qualification bots",
+      "Voice AI integration",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Retail & E-Commerce",
+    title: "Inventory & Customer Experience Platforms",
+    description:
+      "AI-powered inventory management, personalized recommendation engines, order fulfillment automation, and omnichannel customer experiences.",
+    capabilities: [
+      "Inventory optimization AI",
+      "Customer recommendation engines",
+      "Order management systems",
+      "POS integrations",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
       </svg>
     ),
   },
@@ -111,39 +197,40 @@ const solutions = [
     ),
   },
   {
-    industry: "Fashion & Apparel",
-    title: "AI Fashion Models & Virtual Try-On",
+    industry: "Logistics & Transportation",
+    title: "Fleet Management & Route Optimization",
     description:
-      "AI-generated clothing models, virtual try-on experiences, product photography automation, and lookbook generation for fashion brands and retailers.",
+      "Real-time fleet tracking, AI-powered route optimization, delivery scheduling systems, and logistics analytics for transportation companies.",
     capabilities: [
-      "AI clothing models",
-      "Virtual try-on tools",
-      "Automated product photos",
-      "Lookbook generation",
+      "GPS fleet tracking",
+      "Route optimization AI",
+      "Delivery scheduling",
+      "Logistics dashboards",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
       </svg>
     ),
   },
   {
-    industry: "Creative & Media",
-    title: "AI Video & Animation Production",
+    industry: "E-Learning & Training",
+    title: "LMS Platforms & Training Automation",
     description:
-      "Custom AI-generated videos, motion graphics, animated explainers, promotional content, and visual effects for brands, agencies, and content creators.",
+      "Custom learning management systems, employee training platforms, progress tracking, certification management, and interactive assessment tools.",
     capabilities: [
-      "AI video generation",
-      "Motion graphics & animation",
-      "Explainer videos",
-      "Visual effects (VFX)",
+      "Custom LMS development",
+      "Progress tracking systems",
+      "Certification automation",
+      "Assessment engines",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
       </svg>
     ),
   },
+  // === CREATIVE & VISUAL SERVICES ===
   {
     industry: "Marketing & Advertising",
     title: "AI-Generated Marketing Content",
@@ -162,19 +249,19 @@ const solutions = [
     ),
   },
   {
-    industry: "E-Learning & Training",
-    title: "Animated Educational Content",
+    industry: "Fashion & Apparel",
+    title: "AI Fashion Models & Virtual Try-On",
     description:
-      "Interactive training videos, animated course content, educational explainers, and visual learning materials for corporate training and online education.",
+      "AI-generated clothing models, virtual try-on experiences, product photography automation, and lookbook generation for fashion brands and retailers.",
     capabilities: [
-      "Training video production",
-      "Animated tutorials",
-      "Interactive learning modules",
-      "Course content creation",
+      "AI clothing models",
+      "Virtual try-on tools",
+      "Automated product photos",
+      "Lookbook generation",
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
       </svg>
     ),
   },
@@ -196,23 +283,6 @@ const solutions = [
     ),
   },
   {
-    industry: "Entertainment & Gaming",
-    title: "Character Design & Game Assets",
-    description:
-      "AI-generated character designs, game asset creation, concept art, promotional artwork, and visual content for game studios and entertainment companies.",
-    capabilities: [
-      "Character design & art",
-      "Game asset generation",
-      "Concept art creation",
-      "Promotional visuals",
-    ],
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
-      </svg>
-    ),
-  },
-  {
     industry: "Product & Industrial",
     title: "Product Visualization & Prototyping",
     description:
@@ -226,6 +296,40 @@ const solutions = [
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Creative & Media",
+    title: "AI Video & Animation Production",
+    description:
+      "Custom AI-generated videos, motion graphics, animated explainers, promotional content, and visual effects for brands, agencies, and content creators.",
+    capabilities: [
+      "AI video generation",
+      "Motion graphics & animation",
+      "Explainer videos",
+      "Visual effects (VFX)",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Entertainment & Gaming",
+    title: "Character Design & Game Assets",
+    description:
+      "AI-generated character designs, game asset creation, concept art, promotional artwork, and visual content for game studios and entertainment companies.",
+    capabilities: [
+      "Character design & art",
+      "Game asset generation",
+      "Concept art creation",
+      "Promotional visuals",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
       </svg>
     ),
   },
@@ -272,8 +376,8 @@ export default function PortfolioPage() {
             Solutions <span className="gradient-text">Portfolio</span>
           </h1>
           <p className="text-xl text-secondary max-w-3xl">
-            We build custom software, AI-generated videos and images, animations, and automation
-            systems tailored to your industry. Explore the solutions we create for businesses like yours.
+            We build custom software, automation systems, data platforms, and enterprise integrations
+            tailored to your industry—plus AI-generated videos, images, and animations for your creative needs.
           </p>
         </div>
       </section>
