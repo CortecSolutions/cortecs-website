@@ -1,77 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
   <!-- White version for dark backgrounds -->
   <g transform="translate(100, 80)">
-    <!-- Outer brain shape -->
-    <path d="M-50 0
-             C-50 -45, -25 -65, 0 -65
-             C25 -65, 50 -45, 50 0
-             C50 35, 25 55, 0 55
-             C-25 55, -50 35, -50 0Z"
+    <!-- Brain outline - left hemisphere -->
+    <path d="M-3 -57
+             C-3 -57, -12 -60, -27 -57
+             C-42 -54, -54 -42, -57 -27
+             C-60 -12, -57 -3, -54 7.5
+             C-51 18, -57 27, -60 36
+             C-63 45, -57 57, -42 60
+             C-27 63, -12 57, -3 48
+             L-3 -57Z"
           stroke="#ffffff"
-          stroke-width="2.5"
-          fill="none"/>
-
-    <!-- Cortex fold lines -->
-    <path d="M-35 -40 Q-15 -55, 5 -45 Q25 -35, 35 -45"
-          stroke="#ffffff"
-          stroke-width="2"
+          stroke-width="3"
           fill="none"
-          stroke-linecap="round"/>
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
 
-    <path d="M-40 -20 Q-20 -35, 0 -25 Q20 -15, 40 -25"
+    <!-- Brain outline - right hemisphere -->
+    <path d="M3 -57
+             C3 -57, 12 -60, 27 -57
+             C42 -54, 54 -42, 57 -27
+             C60 -12, 57 -3, 54 7.5
+             C51 18, 57 27, 60 36
+             C63 45, 57 57, 42 60
+             C27 63, 12 57, 3 48
+             L3 -57Z"
           stroke="#ffffff"
-          stroke-width="2"
+          stroke-width="3"
           fill="none"
-          stroke-linecap="round"/>
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
 
-    <path d="M-45 5 Q-25 -10, 0 0 Q25 10, 45 0"
-          stroke="#ffffff"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"/>
+    <!-- Center divider -->
+    <line x1="0" y1="-48" x2="0" y2="-30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="30" x2="0" y2="48" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
 
-    <path d="M-40 25 Q-20 15, 0 25 Q20 35, 38 22"
-          stroke="#ffffff"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"/>
+    <!-- Left hemisphere circuits -->
+    <path d="M-9 -42 L-9 -30 L-27 -30" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-9" cy="-42" r="3.5" fill="#ffffff"/>
+    <circle cx="-27" cy="-30" r="3.5" fill="#ffffff"/>
 
-    <path d="M-30 42 Q-10 50, 10 42 Q25 36, 32 42"
-          stroke="#ffffff"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"/>
+    <path d="M-9 -18 L-21 -18 L-21 -6 L-36 -6" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-9" cy="-18" r="3.5" fill="#ffffff"/>
+    <circle cx="-36" cy="-6" r="3.5" fill="#ffffff"/>
 
-    <!-- Circuit nodes -->
-    <circle cx="-35" cy="-40" r="3" fill="#ffffff"/>
-    <circle cx="5" cy="-45" r="2.5" fill="#ffffff"/>
-    <circle cx="35" cy="-45" r="3" fill="#ffffff"/>
+    <path d="M-9 6 L-30 6" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="-9" cy="6" r="3.5" fill="#ffffff"/>
+    <circle cx="-30" cy="6" r="3.5" fill="#ffffff"/>
 
-    <circle cx="-40" cy="-20" r="2.5" fill="#ffffff"/>
-    <circle cx="0" cy="-25" r="3" fill="#ffffff"/>
-    <circle cx="40" cy="-25" r="2.5" fill="#ffffff"/>
+    <path d="M-9 18 L-21 18 L-21 30 L-33 30" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-9" cy="18" r="3.5" fill="#ffffff"/>
+    <circle cx="-33" cy="30" r="3.5" fill="#ffffff"/>
 
-    <circle cx="-45" cy="5" r="3" fill="#ffffff"/>
-    <circle cx="0" cy="0" r="4" fill="#ffffff"/>
-    <circle cx="45" cy="0" r="3" fill="#ffffff"/>
+    <path d="M-9 42 L-9 33 L-18 33" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-9" cy="42" r="3.5" fill="#ffffff"/>
+    <circle cx="-18" cy="33" r="3" fill="#ffffff"/>
 
-    <circle cx="-40" cy="25" r="2.5" fill="#ffffff"/>
-    <circle cx="0" cy="25" r="3" fill="#ffffff"/>
-    <circle cx="38" cy="22" r="2.5" fill="#ffffff"/>
+    <!-- Right hemisphere circuits (mirrored) -->
+    <path d="M9 -42 L9 -30 L27 -30" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="-42" r="3.5" fill="#ffffff"/>
+    <circle cx="27" cy="-30" r="3.5" fill="#ffffff"/>
 
-    <circle cx="-30" cy="42" r="2.5" fill="#ffffff"/>
-    <circle cx="10" cy="42" r="3" fill="#ffffff"/>
-    <circle cx="32" cy="42" r="2.5" fill="#ffffff"/>
+    <path d="M9 -18 L21 -18 L21 -6 L36 -6" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="-18" r="3.5" fill="#ffffff"/>
+    <circle cx="36" cy="-6" r="3.5" fill="#ffffff"/>
 
-    <!-- Vertical connections -->
-    <line x1="0" y1="-45" x2="0" y2="-25" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="0" y1="-25" x2="0" y2="0" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="0" y1="0" x2="0" y2="25" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="0" y1="25" x2="10" y2="42" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M9 6 L30 6" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="9" cy="6" r="3.5" fill="#ffffff"/>
+    <circle cx="30" cy="6" r="3.5" fill="#ffffff"/>
+
+    <path d="M9 18 L21 18 L21 30 L33 30" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="18" r="3.5" fill="#ffffff"/>
+    <circle cx="33" cy="30" r="3.5" fill="#ffffff"/>
+
+    <path d="M9 42 L9 33 L18 33" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="42" r="3.5" fill="#ffffff"/>
+    <circle cx="18" cy="33" r="3" fill="#ffffff"/>
+
+    <!-- Center spine nodes -->
+    <circle cx="0" cy="-30" r="3.5" fill="#ffffff"/>
+    <circle cx="0" cy="30" r="3.5" fill="#ffffff"/>
   </g>
 
   <!-- Wordmark -->
-  <text x="100" y="195"
+  <text x="100" y="200"
         font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
         font-size="32"
         font-weight="700"
