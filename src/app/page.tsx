@@ -87,29 +87,35 @@ export default function Home() {
     },
   ];
 
+  const stats = [
+    { value: "100%", label: "Custom Solutions" },
+    { value: "24/7", label: "Support Available" },
+    { value: "50+", label: "Projects Delivered" },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200/50 dark:border-slate-800/50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <a href="#" className="text-2xl font-bold">
+            <a href="#" className="text-2xl font-bold tracking-tight">
               <span className="gradient-text">Cortec</span>
               <span className="text-foreground"> Solutions</span>
             </a>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-secondary hover:text-foreground transition-colors">
+              <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Services
               </a>
-              <a href="#about" className="text-secondary hover:text-foreground transition-colors">
+              <a href="#about" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 About
               </a>
-              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
+              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Portfolio
               </a>
               <a
                 href="#contact"
-                className="gradient-bg text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
+                className="gradient-bg text-white px-5 py-2.5 rounded-full hover:opacity-90 transition-all text-sm font-medium hover:shadow-lg hover:shadow-primary/25"
               >
                 Get in Touch
               </a>
@@ -119,65 +125,167 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Transform Your Business with{" "}
-              <span className="gradient-text">Intelligent Solutions</span>
-            </h1>
-            <p className="text-xl text-secondary mb-8 leading-relaxed">
-              We design, develop, and implement custom software applications, AI-powered tools,
-              and automated workflows that drive real results for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity text-center"
-              >
-                Start Your Project
-              </a>
-              <a
-                href="#services"
-                className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-center"
-              >
-                Explore Services
-              </a>
+      <section className="relative min-h-screen flex items-center pt-20 pb-20 px-6 grid-pattern">
+        {/* Animated background orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-[100px] float pulse-glow" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full filter blur-[100px] float-delayed pulse-glow" />
+          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-cyan-400/10 rounded-full filter blur-[80px] float" />
+        </div>
+
+        {/* Decorative geometric shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-32 right-20 w-20 h-20 border border-primary/20 rounded-xl rotate-12 float" />
+          <div className="absolute top-40 right-40 w-8 h-8 bg-primary/30 rounded-full float-delayed" />
+          <div className="absolute bottom-40 left-20 w-16 h-16 border border-accent/20 rounded-full float-delayed" />
+          <div className="absolute bottom-60 left-40 w-6 h-6 bg-accent/40 rounded-sm rotate-45 float" />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="slide-up">
+                <span className="code-accent text-sm mb-6 inline-block">
+                  {"<"}innovation{"/>"}
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 slide-up slide-up-delay-1 tracking-tight">
+                Transform Your Business with{" "}
+                <span className="gradient-text">Intelligent Solutions</span>
+              </h1>
+              <p className="text-xl text-secondary mb-8 leading-relaxed slide-up slide-up-delay-2 max-w-xl">
+                We design, develop, and implement custom software applications, AI-powered tools,
+                and automated workflows that drive real results.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 slide-up slide-up-delay-3">
+                <a
+                  href="#contact"
+                  className="gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all text-center hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
+                >
+                  Start Your Project
+                </a>
+                <a
+                  href="#services"
+                  className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all text-center hover:-translate-y-0.5"
+                >
+                  Explore Services
+                </a>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 slide-up slide-up-delay-4">
+                {stats.map((stat, index) => (
+                  <div key={index}>
+                    <div className="text-3xl font-bold gradient-text">{stat.value}</div>
+                    <div className="text-secondary text-sm mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Hero Visual - Tech graphic */}
+            <div className="hidden lg:block relative">
+              <div className="relative w-full aspect-square">
+                {/* Central glowing orb */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-48 h-48 rounded-full gradient-bg opacity-20 pulse-glow" />
+                  <div className="absolute w-32 h-32 rounded-full gradient-bg opacity-40 pulse-glow" style={{ animationDelay: '-2s' }} />
+                  <div className="absolute w-20 h-20 rounded-full gradient-bg opacity-60" />
+                </div>
+
+                {/* Orbiting elements */}
+                <div className="absolute inset-0 spin-slow">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full" />
+                  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full" />
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-4 h-4 bg-primary rounded-full" />
+                </div>
+
+                {/* Floating code cards */}
+                <div className="absolute top-8 right-8 bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg p-4 border border-slate-700 float shadow-xl">
+                  <code className="text-xs text-green-400 font-mono">
+                    <span className="text-purple-400">const</span> solution = <span className="text-cyan-400">buildAI</span>();
+                  </code>
+                </div>
+
+                <div className="absolute bottom-16 left-0 bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg p-4 border border-slate-700 float-delayed shadow-xl">
+                  <code className="text-xs text-green-400 font-mono">
+                    <span className="text-purple-400">await</span> <span className="text-cyan-400">automate</span>(workflow);
+                  </code>
+                </div>
+
+                {/* Connecting lines */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+                  <circle cx="200" cy="200" r="150" fill="none" stroke="url(#gradient)" strokeWidth="1" opacity="0.2" />
+                  <circle cx="200" cy="200" r="100" fill="none" stroke="url(#gradient)" strokeWidth="1" opacity="0.3" />
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0ea5e9" />
+                      <stop offset="100%" stopColor="#06b6d4" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-secondary">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <div className="w-5 h-8 border-2 border-secondary/30 rounded-full flex items-start justify-center p-1">
+            <div className="w-1 h-2 bg-primary rounded-full animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-6xl mx-auto">
+      <section id="services" className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/50 dark:to-background" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <span className="code-accent text-sm mb-4 inline-block">Our Expertise</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">What We Build</h2>
             <p className="text-secondary text-lg max-w-2xl mx-auto">
               Comprehensive technical solutions tailored to accelerate your digital transformation
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700"
+                className="group bg-white dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/50 card-hover neon-border"
               >
-                <div className="text-primary mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                 <p className="text-secondary leading-relaxed">{service.description}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <a
+              href="/portfolio"
+              className="inline-flex items-center gap-2 text-primary hover:gap-4 transition-all font-medium"
+            >
+              View our solutions portfolio
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section id="about" className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6">
+              <span className="code-accent text-sm mb-4 inline-block">About Us</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                 Building the Future,{" "}
                 <span className="gradient-text">One Solution at a Time</span>
               </h2>
@@ -190,41 +298,45 @@ export default function Home() {
                 From concept to deployment, we deliver solutions that are not just technically
                 sound but strategically aligned with your business goals.
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <div className="text-3xl font-bold gradient-text">100%</div>
-                  <div className="text-secondary">Custom Solutions</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold gradient-text">24/7</div>
-                  <div className="text-secondary">Support Available</div>
-                </div>
-              </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 gradient-bg text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-all hover:shadow-lg hover:shadow-primary/25"
+              >
+                Work with us
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
+            <div className="gradient-border p-8 bg-white dark:bg-slate-900">
               <h3 className="text-2xl font-semibold mb-6">Why Choose Us?</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-5">
                 {[
-                  "Tailored solutions designed for your specific needs",
-                  "Transparent communication throughout every project",
-                  "Modern tech stack with future-proof architecture",
-                  "Dedicated support and maintenance services",
+                  { title: "Tailored Solutions", desc: "Designed for your specific needs" },
+                  { title: "Transparent Communication", desc: "Throughout every project" },
+                  { title: "Modern Tech Stack", desc: "Future-proof architecture" },
+                  { title: "Dedicated Support", desc: "Maintenance and ongoing care" },
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <svg
-                      className="w-6 h-6 text-primary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-secondary">{item}</span>
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-medium">{item.title}</div>
+                      <div className="text-secondary text-sm">{item.desc}</div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -234,11 +346,13 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-6xl mx-auto">
+      <section id="contact" className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/50 dark:to-background" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Let&apos;s Work Together</h2>
+              <span className="code-accent text-sm mb-4 inline-block">Contact</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Let&apos;s Work Together</h2>
               <p className="text-secondary text-lg">
                 Ready to transform your business? Tell us about your project and we&apos;ll get back
                 to you within 24 hours.
@@ -253,10 +367,11 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                     placeholder="Your name"
                   />
                 </div>
@@ -267,24 +382,26 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
               <div>
                 <label htmlFor="company" className="block text-sm font-medium mb-2">
-                  Company (Optional)
+                  Company <span className="text-secondary">(Optional)</span>
                 </label>
                 <input
                   type="text"
                   id="company"
+                  name="company"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                   placeholder="Your company"
                 />
               </div>
@@ -294,23 +411,24 @@ export default function Home() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full gradient-bg text-white py-4 rounded-lg text-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-medium hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:shadow-primary/25"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
               {submitStatus === "success" && (
-                <p className="text-green-600 dark:text-green-400 text-center">
+                <p className="text-green-600 dark:text-green-400 text-center font-medium">
                   Thank you! We&apos;ll be in touch soon.
                 </p>
               )}
@@ -328,21 +446,21 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold tracking-tight">
               <span className="gradient-text">Cortec</span>
               <span className="text-foreground"> Solutions</span>
             </div>
             <div className="flex items-center gap-8">
-              <a href="#services" className="text-secondary hover:text-foreground transition-colors">
+              <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Services
               </a>
-              <a href="#about" className="text-secondary hover:text-foreground transition-colors">
+              <a href="#about" className="text-secondary hover:text-foreground transition-colors text-sm">
                 About
               </a>
-              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
+              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Portfolio
               </a>
-              <a href="#contact" className="text-secondary hover:text-foreground transition-colors">
+              <a href="#contact" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Contact
               </a>
             </div>
