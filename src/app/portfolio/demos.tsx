@@ -938,6 +938,140 @@ export function ELearningDemo() {
 }
 
 // ============================================
+// FASHION - Virtual Try-On Demo
+// ============================================
+export function FashionDemo() {
+  const [selectedColor, setSelectedColor] = useState("navy");
+  const [selectedStyle, setSelectedStyle] = useState("blazer");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generated, setGenerated] = useState(false);
+
+  const colors = [
+    { name: "navy", hex: "#1e3a5f" },
+    { name: "black", hex: "#1a1a1a" },
+    { name: "burgundy", hex: "#722f37" },
+    { name: "cream", hex: "#f5f5dc" },
+  ];
+
+  const styles = ["blazer", "dress", "jacket", "sweater"];
+
+  const handleGenerate = () => {
+    setIsGenerating(true);
+    setGenerated(false);
+    setTimeout(() => {
+      setIsGenerating(false);
+      setGenerated(true);
+    }, 2000);
+  };
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">AI Fashion Studio</span>
+        <span className="text-xs bg-purple-600 px-2 py-1 rounded">Pro</span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {/* Model Preview */}
+        <div className="bg-slate-800 rounded-lg p-4 flex flex-col items-center justify-center min-h-[200px]">
+          {isGenerating ? (
+            <div className="text-center">
+              <div className="w-12 h-12 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              <div className="text-xs text-slate-400">Generating AI model...</div>
+            </div>
+          ) : generated ? (
+            <div className="text-center">
+              <div
+                className="w-20 h-32 rounded-lg mb-3 mx-auto relative overflow-hidden"
+                style={{ backgroundColor: colors.find(c => c.name === selectedColor)?.hex }}
+              >
+                {/* Simplified garment shape */}
+                <div className="absolute inset-x-2 top-2 bottom-8 rounded-t-lg bg-white/10" />
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-amber-200 border-2 border-amber-300" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 text-xs text-white/60 mt-1">
+                  {selectedStyle}
+                </div>
+              </div>
+              <div className="text-xs text-green-400">✓ Generated</div>
+              <div className="text-xs text-slate-400 capitalize mt-1">
+                {selectedColor} {selectedStyle}
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-slate-400">
+              <svg className="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+              </svg>
+              <div className="text-xs">Select options & generate</div>
+            </div>
+          )}
+        </div>
+
+        {/* Controls */}
+        <div className="space-y-4">
+          <div>
+            <div className="text-xs text-slate-400 mb-2">Color</div>
+            <div className="flex gap-2">
+              {colors.map((color) => (
+                <button
+                  key={color.name}
+                  onClick={() => { setSelectedColor(color.name); setGenerated(false); }}
+                  className={`w-8 h-8 rounded-full border-2 transition-all ${
+                    selectedColor === color.name ? "border-cyan-400 scale-110" : "border-slate-600"
+                  }`}
+                  style={{ backgroundColor: color.hex }}
+                  title={color.name}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs text-slate-400 mb-2">Style</div>
+            <div className="grid grid-cols-2 gap-1">
+              {styles.map((style) => (
+                <button
+                  key={style}
+                  onClick={() => { setSelectedStyle(style); setGenerated(false); }}
+                  className={`px-2 py-1 rounded text-xs capitalize transition-colors ${
+                    selectedStyle === style ? "bg-cyan-600" : "bg-slate-700 hover:bg-slate-600"
+                  }`}
+                >
+                  {style}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={handleGenerate}
+            disabled={isGenerating}
+            className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 disabled:opacity-50 rounded text-xs font-medium transition-all"
+          >
+            {isGenerating ? "Generating..." : "Generate AI Model"}
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-cyan-400 font-bold">2.3s</div>
+          <div className="text-slate-400">Avg Gen Time</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-green-400 font-bold">4K</div>
+          <div className="text-slate-400">Resolution</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-purple-400 font-bold">50+</div>
+          <div className="text-slate-400">Poses</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
 // CREATIVE PLACEHOLDERS
 // ============================================
 export function CreativePlaceholder({
@@ -1006,13 +1140,7 @@ export const demoComponents: Record<string, React.ReactNode> = {
       examples={["Social Ads", "Banner Designs", "Product Shots", "Campaign Visuals"]}
     />
   ),
-  "Fashion & Apparel": (
-    <CreativePlaceholder
-      title="AI Fashion Visuals"
-      description="AI-generated models and virtual try-on experiences"
-      examples={["AI Models", "Virtual Try-On", "Lookbooks", "Product Photos"]}
-    />
-  ),
+  "Fashion & Apparel": <FashionDemo />,
   "Architecture & Interior Design": (
     <CreativePlaceholder
       title="3D Architectural Renders"
