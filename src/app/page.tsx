@@ -104,8 +104,8 @@ export default function Home() {
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
               </a>
-              <a href="/blog" className="text-secondary hover:text-foreground transition-colors">
-                Blog
+              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
+                Portfolio
               </a>
               <a
                 href="#contact"
@@ -339,8 +339,8 @@ export default function Home() {
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
               </a>
-              <a href="/blog" className="text-secondary hover:text-foreground transition-colors">
-                Blog
+              <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
+                Portfolio
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors">
                 Contact
