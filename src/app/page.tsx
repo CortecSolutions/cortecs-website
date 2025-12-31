@@ -104,6 +104,9 @@ export default function Home() {
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
               </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors">
+                Blog
+              </a>
               <a
                 href="#contact"
                 className="gradient-bg text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
@@ -335,6 +338,9 @@ export default function Home() {
               </a>
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
+              </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors">
+                Blog
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors">
                 Contact
