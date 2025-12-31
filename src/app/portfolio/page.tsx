@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Solutions Portfolio",
   description:
-    "Explore custom software solutions, AI integrations, and automation systems we build for businesses across healthcare, finance, retail, manufacturing, and more.",
+    "Explore custom software solutions, AI-generated videos and images, animations, and automation systems we build for businesses across healthcare, fashion, media, and more.",
 };
 
 const solutions = [
@@ -110,6 +110,125 @@ const solutions = [
       </svg>
     ),
   },
+  {
+    industry: "Fashion & Apparel",
+    title: "AI Fashion Models & Virtual Try-On",
+    description:
+      "AI-generated clothing models, virtual try-on experiences, product photography automation, and lookbook generation for fashion brands and retailers.",
+    capabilities: [
+      "AI clothing models",
+      "Virtual try-on tools",
+      "Automated product photos",
+      "Lookbook generation",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Creative & Media",
+    title: "AI Video & Animation Production",
+    description:
+      "Custom AI-generated videos, motion graphics, animated explainers, promotional content, and visual effects for brands, agencies, and content creators.",
+    capabilities: [
+      "AI video generation",
+      "Motion graphics & animation",
+      "Explainer videos",
+      "Visual effects (VFX)",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Marketing & Advertising",
+    title: "AI-Generated Marketing Content",
+    description:
+      "Automated ad creative generation, personalized visual content at scale, social media assets, and dynamic product imagery for marketing teams and agencies.",
+    capabilities: [
+      "AI ad creative generation",
+      "Social media content",
+      "Personalized visuals",
+      "Dynamic product imagery",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" />
+      </svg>
+    ),
+  },
+  {
+    industry: "E-Learning & Training",
+    title: "Animated Educational Content",
+    description:
+      "Interactive training videos, animated course content, educational explainers, and visual learning materials for corporate training and online education.",
+    capabilities: [
+      "Training video production",
+      "Animated tutorials",
+      "Interactive learning modules",
+      "Course content creation",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Architecture & Interior Design",
+    title: "3D Visualization & Virtual Staging",
+    description:
+      "Photorealistic 3D renders, virtual property staging, architectural visualizations, and immersive walkthroughs for architects, designers, and real estate developers.",
+    capabilities: [
+      "3D architectural renders",
+      "Virtual staging",
+      "Interior visualizations",
+      "Immersive walkthroughs",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Entertainment & Gaming",
+    title: "Character Design & Game Assets",
+    description:
+      "AI-generated character designs, game asset creation, concept art, promotional artwork, and visual content for game studios and entertainment companies.",
+    capabilities: [
+      "Character design & art",
+      "Game asset generation",
+      "Concept art creation",
+      "Promotional visuals",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
+      </svg>
+    ),
+  },
+  {
+    industry: "Product & Industrial",
+    title: "Product Visualization & Prototyping",
+    description:
+      "Photorealistic product renders, 360-degree product views, packaging mockups, and visual prototypes for product launches and e-commerce.",
+    capabilities: [
+      "Product 3D renders",
+      "360° product views",
+      "Packaging mockups",
+      "Visual prototyping",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+    ),
+  },
 ];
 
 export default function PortfolioPage() {
@@ -154,8 +273,8 @@ export default function PortfolioPage() {
             Solutions <span className="gradient-text">Portfolio</span>
           </h1>
           <p className="text-xl text-secondary max-w-3xl">
-            We build custom software, AI integrations, and automation systems tailored to
-            your industry. Explore the types of solutions we create for businesses like yours.
+            We build custom software, AI-generated videos and images, animations, and automation
+            systems tailored to your industry. Explore the solutions we create for businesses like yours.
           </p>
         </div>
       </section>
