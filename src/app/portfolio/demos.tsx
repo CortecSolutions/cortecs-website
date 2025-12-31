@@ -1,0 +1,1044 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+// ============================================
+// HEALTHCARE - Patient Portal Dashboard Demo
+// ============================================
+export function HealthcareDemo() {
+  const [activeTab, setActiveTab] = useState("overview");
+  const appointments = [
+    { time: "9:00 AM", patient: "Sarah Johnson", type: "Check-up", status: "confirmed" },
+    { time: "10:30 AM", patient: "Michael Chen", type: "Follow-up", status: "confirmed" },
+    { time: "2:00 PM", patient: "Emily Davis", type: "Consultation", status: "pending" },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-red-500" />
+          <div className="w-3 h-3 rounded-full bg-yellow-500" />
+          <div className="w-3 h-3 rounded-full bg-green-500" />
+        </div>
+        <span className="text-slate-400 text-xs">Patient Portal v2.4</span>
+      </div>
+
+      <div className="flex gap-1 mb-4">
+        {["overview", "appointments", "messages"].map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`px-3 py-1 rounded text-xs capitalize transition-colors ${
+              activeTab === tab ? "bg-cyan-600" : "bg-slate-700 hover:bg-slate-600"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "overview" && (
+        <div className="space-y-3">
+          <div className="grid grid-cols-3 gap-2">
+            <div className="bg-slate-800 rounded p-3 text-center">
+              <div className="text-2xl font-bold text-cyan-400">24</div>
+              <div className="text-xs text-slate-400">Today&apos;s Patients</div>
+            </div>
+            <div className="bg-slate-800 rounded p-3 text-center">
+              <div className="text-2xl font-bold text-green-400">18</div>
+              <div className="text-xs text-slate-400">Confirmed</div>
+            </div>
+            <div className="bg-slate-800 rounded p-3 text-center">
+              <div className="text-2xl font-bold text-yellow-400">6</div>
+              <div className="text-xs text-slate-400">Pending</div>
+            </div>
+          </div>
+          <div className="bg-slate-800 rounded p-3">
+            <div className="text-xs text-slate-400 mb-2">Next Appointment</div>
+            <div className="flex justify-between items-center">
+              <span>Sarah Johnson - Check-up</span>
+              <span className="text-cyan-400">9:00 AM</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {activeTab === "appointments" && (
+        <div className="space-y-2">
+          {appointments.map((apt, i) => (
+            <div key={i} className="bg-slate-800 rounded p-3 flex justify-between items-center">
+              <div>
+                <div className="font-medium">{apt.patient}</div>
+                <div className="text-xs text-slate-400">{apt.type}</div>
+              </div>
+              <div className="text-right">
+                <div className="text-cyan-400">{apt.time}</div>
+                <div className={`text-xs ${apt.status === "confirmed" ? "text-green-400" : "text-yellow-400"}`}>
+                  {apt.status}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === "messages" && (
+        <div className="space-y-2">
+          <div className="bg-slate-800 rounded p-3">
+            <div className="flex justify-between mb-1">
+              <span className="text-cyan-400">Dr. Williams</span>
+              <span className="text-xs text-slate-400">2h ago</span>
+            </div>
+            <div className="text-xs text-slate-300">Lab results are ready for review...</div>
+          </div>
+          <div className="bg-slate-800 rounded p-3">
+            <div className="flex justify-between mb-1">
+              <span className="text-cyan-400">System</span>
+              <span className="text-xs text-slate-400">5h ago</span>
+            </div>
+            <div className="text-xs text-slate-300">Appointment reminder sent to patients...</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ============================================
+// FINANCE - Analytics Dashboard Demo
+// ============================================
+export function FinanceDemo() {
+  const [animatedValues, setAnimatedValues] = useState({ revenue: 0, transactions: 0, compliance: 0 });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimatedValues({ revenue: 2.4, transactions: 15847, compliance: 98.5 });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Financial Dashboard</span>
+        <span className="text-xs text-green-400 flex items-center gap-1">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          Live
+        </span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="bg-slate-800 rounded p-3">
+          <div className="text-xs text-slate-400">Revenue (M)</div>
+          <div className="text-xl font-bold text-green-400">${animatedValues.revenue.toFixed(1)}</div>
+          <div className="text-xs text-green-400">↑ 12.5%</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3">
+          <div className="text-xs text-slate-400">Transactions</div>
+          <div className="text-xl font-bold text-cyan-400">{animatedValues.transactions.toLocaleString()}</div>
+          <div className="text-xs text-cyan-400">Today</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3">
+          <div className="text-xs text-slate-400">Compliance</div>
+          <div className="text-xl font-bold text-purple-400">{animatedValues.compliance}%</div>
+          <div className="text-xs text-green-400">✓ Passing</div>
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Transaction Volume (24h)</div>
+        <div className="flex items-end gap-1 h-16">
+          {[40, 65, 45, 80, 55, 90, 70, 85, 60, 75, 95, 80].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 bg-cyan-500/60 rounded-t transition-all duration-500"
+              style={{ height: `${h}%`, transitionDelay: `${i * 50}ms` }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3">
+        <div className="text-xs text-slate-400 mb-2">Risk Alerts</div>
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-yellow-400">⚠ 2 Suspicious patterns detected</span>
+          <button className="text-cyan-400 hover:underline">Review</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// LEGACY MODERNIZATION - Before/After Demo
+// ============================================
+export function LegacyDemo() {
+  const [showAfter, setShowAfter] = useState(false);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">System Architecture</span>
+        <button
+          onClick={() => setShowAfter(!showAfter)}
+          className={`px-3 py-1 rounded text-xs transition-colors ${
+            showAfter ? "bg-green-600" : "bg-slate-700"
+          }`}
+        >
+          {showAfter ? "After Migration" : "Before Migration"}
+        </button>
+      </div>
+
+      <div className="relative">
+        {!showAfter ? (
+          <div className="space-y-3">
+            <div className="bg-red-900/30 border border-red-500/50 rounded p-3">
+              <div className="text-red-400 text-xs mb-1">⚠ Legacy Monolith</div>
+              <div className="text-xs text-slate-400">COBOL • On-premise • Single DB</div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-px h-6 bg-slate-600" />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-yellow-900/30 border border-yellow-500/50 rounded p-2 text-center">
+                <div className="text-yellow-400 text-xs">Slow Queries</div>
+              </div>
+              <div className="bg-yellow-900/30 border border-yellow-500/50 rounded p-2 text-center">
+                <div className="text-yellow-400 text-xs">No Scaling</div>
+              </div>
+            </div>
+            <div className="text-center text-xs text-red-400 mt-2">
+              Avg Response: 4.2s | Uptime: 94%
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            <div className="grid grid-cols-3 gap-2">
+              <div className="bg-green-900/30 border border-green-500/50 rounded p-2 text-center">
+                <div className="text-green-400 text-xs">API Gateway</div>
+              </div>
+              <div className="bg-green-900/30 border border-green-500/50 rounded p-2 text-center">
+                <div className="text-green-400 text-xs">Auth Service</div>
+              </div>
+              <div className="bg-green-900/30 border border-green-500/50 rounded p-2 text-center">
+                <div className="text-green-400 text-xs">Cache Layer</div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-32 h-px bg-cyan-500" />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-cyan-900/30 border border-cyan-500/50 rounded p-2 text-center">
+                <div className="text-cyan-400 text-xs">Microservices</div>
+              </div>
+              <div className="bg-cyan-900/30 border border-cyan-500/50 rounded p-2 text-center">
+                <div className="text-cyan-400 text-xs">Cloud DB</div>
+              </div>
+            </div>
+            <div className="text-center text-xs text-green-400 mt-2">
+              Avg Response: 120ms | Uptime: 99.9%
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// DATA & ANALYTICS - BI Dashboard Demo
+// ============================================
+export function DataAnalyticsDemo() {
+  const [selectedMetric, setSelectedMetric] = useState("sales");
+
+  const metrics = {
+    sales: { value: "$1.2M", change: "+18%", color: "cyan" },
+    users: { value: "45.2K", change: "+24%", color: "green" },
+    conversion: { value: "3.8%", change: "+0.5%", color: "purple" },
+  };
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Analytics Platform</span>
+        <select
+          className="bg-slate-700 rounded px-2 py-1 text-xs"
+          value={selectedMetric}
+          onChange={(e) => setSelectedMetric(e.target.value)}
+        >
+          <option value="sales">Sales</option>
+          <option value="users">Users</option>
+          <option value="conversion">Conversion</option>
+        </select>
+      </div>
+
+      <div className="bg-slate-800 rounded p-4 mb-3">
+        <div className="text-xs text-slate-400 mb-1">
+          {selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1)}
+        </div>
+        <div className={`text-3xl font-bold text-${metrics[selectedMetric as keyof typeof metrics].color}-400`}>
+          {metrics[selectedMetric as keyof typeof metrics].value}
+        </div>
+        <div className="text-xs text-green-400">
+          {metrics[selectedMetric as keyof typeof metrics].change} vs last month
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Trend Analysis</div>
+        <svg viewBox="0 0 200 60" className="w-full h-16">
+          <path
+            d="M0,50 Q30,45 50,35 T100,25 T150,20 T200,10"
+            fill="none"
+            stroke="#22d3ee"
+            strokeWidth="2"
+          />
+          <path
+            d="M0,50 Q30,45 50,35 T100,25 T150,20 T200,10 L200,60 L0,60 Z"
+            fill="url(#gradient)"
+            opacity="0.3"
+          />
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#22d3ee" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-xs text-slate-400">Prediction</div>
+          <div className="text-sm text-purple-400">↑ 22% next Q</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-xs text-slate-400">Confidence</div>
+          <div className="text-sm text-green-400">94.2%</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// SYSTEM INTEGRATION - API Flow Demo
+// ============================================
+export function SystemIntegrationDemo() {
+  const [activeFlow, setActiveFlow] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveFlow((prev) => (prev + 1) % 4);
+    }, 1500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const systems = ["CRM", "API Gateway", "ERP", "Database"];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">API Integration Hub</span>
+        <span className="text-xs text-green-400 flex items-center gap-1">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          Syncing
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between mb-4">
+        {systems.map((system, i) => (
+          <div key={system} className="flex items-center">
+            <div
+              className={`w-16 h-16 rounded-lg flex items-center justify-center text-xs text-center transition-all ${
+                activeFlow === i
+                  ? "bg-cyan-600 scale-110"
+                  : "bg-slate-700"
+              }`}
+            >
+              {system}
+            </div>
+            {i < systems.length - 1 && (
+              <div className={`w-4 h-0.5 transition-colors ${
+                activeFlow > i ? "bg-cyan-500" : "bg-slate-600"
+              }`} />
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Recent API Calls</div>
+        <div className="space-y-1 text-xs">
+          <div className="flex justify-between">
+            <span className="text-green-400">POST /api/orders</span>
+            <span className="text-slate-400">23ms</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-green-400">GET /api/inventory</span>
+            <span className="text-slate-400">45ms</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-green-400">PUT /api/customers</span>
+            <span className="text-slate-400">31ms</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 text-center">
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-lg font-bold text-cyan-400">99.9%</div>
+          <div className="text-xs text-slate-400">Uptime</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-lg font-bold text-green-400">28ms</div>
+          <div className="text-xs text-slate-400">Avg Latency</div>
+        </div>
+        <div className="bg-slate-800 rounded p-2">
+          <div className="text-lg font-bold text-purple-400">1.2M</div>
+          <div className="text-xs text-slate-400">Calls/Day</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// MANUFACTURING - IoT Dashboard Demo
+// ============================================
+export function ManufacturingDemo() {
+  const [sensorData, setSensorData] = useState({ temp: 72, pressure: 45, efficiency: 94 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSensorData({
+        temp: 70 + Math.random() * 5,
+        pressure: 43 + Math.random() * 4,
+        efficiency: 92 + Math.random() * 6,
+      });
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Production Monitor</span>
+        <span className="text-xs text-green-400">● All Systems Normal</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xs text-slate-400 mb-1">Temperature</div>
+          <div className="text-xl font-bold text-orange-400">{sensorData.temp.toFixed(1)}°F</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xs text-slate-400 mb-1">Pressure</div>
+          <div className="text-xl font-bold text-cyan-400">{sensorData.pressure.toFixed(1)} PSI</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xs text-slate-400 mb-1">Efficiency</div>
+          <div className="text-xl font-bold text-green-400">{sensorData.efficiency.toFixed(1)}%</div>
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3">
+        <div className="text-xs text-slate-400 mb-2">Production Lines</div>
+        <div className="space-y-2">
+          {["Line A", "Line B", "Line C"].map((line, i) => (
+            <div key={line} className="flex items-center gap-2">
+              <span className="text-xs w-12">{line}</span>
+              <div className="flex-1 bg-slate-700 rounded-full h-2">
+                <div
+                  className="bg-green-500 h-2 rounded-full transition-all"
+                  style={{ width: `${85 + i * 5}%` }}
+                />
+              </div>
+              <span className="text-xs text-green-400">{85 + i * 5}%</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-yellow-900/30 border border-yellow-500/50 rounded p-2 text-xs">
+        <span className="text-yellow-400">⚠ Predictive Alert:</span>
+        <span className="text-slate-300 ml-1">Motor B3 maintenance due in 48h</span>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// DOCUMENT AUTOMATION - OCR Demo
+// ============================================
+export function DocumentDemo() {
+  const [processing, setProcessing] = useState(false);
+  const [extracted, setExtracted] = useState(false);
+
+  const handleProcess = () => {
+    setProcessing(true);
+    setExtracted(false);
+    setTimeout(() => {
+      setProcessing(false);
+      setExtracted(true);
+    }, 2000);
+  };
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Document Processor</span>
+        <button
+          onClick={handleProcess}
+          disabled={processing}
+          className="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 disabled:bg-slate-600 rounded text-xs transition-colors"
+        >
+          {processing ? "Processing..." : "Process Invoice"}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <div className="bg-slate-800 rounded p-3">
+          <div className="text-xs text-slate-400 mb-2">Input Document</div>
+          <div className="bg-white rounded p-2 text-slate-900 text-xs space-y-1">
+            <div className="font-bold">INVOICE #4521</div>
+            <div className="text-slate-500">Date: Dec 15, 2024</div>
+            <div className="border-t pt-1 mt-1">
+              <div>Widget Pro x5 ... $250</div>
+              <div>Service Fee ... $50</div>
+              <div className="font-bold border-t mt-1 pt-1">Total: $300</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-slate-800 rounded p-3">
+          <div className="text-xs text-slate-400 mb-2">Extracted Data</div>
+          {processing ? (
+            <div className="flex items-center justify-center h-24">
+              <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : extracted ? (
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span className="text-slate-400">Invoice #:</span>
+                <span className="text-green-400">4521</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Date:</span>
+                <span className="text-green-400">2024-12-15</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Vendor:</span>
+                <span className="text-green-400">Auto-detected</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Total:</span>
+                <span className="text-green-400">$300.00</span>
+              </div>
+              <div className="text-xs text-green-400 mt-2">✓ Ready for ERP sync</div>
+            </div>
+          ) : (
+            <div className="text-xs text-slate-500 text-center py-6">
+              Click &quot;Process Invoice&quot; to extract data
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// PROFESSIONAL SERVICES - CRM Demo
+// ============================================
+export function ProfessionalServicesDemo() {
+  const [view, setView] = useState("pipeline");
+
+  const deals = [
+    { name: "Enterprise License", value: "$45K", stage: "proposal", probability: 75 },
+    { name: "Consulting Project", value: "$28K", stage: "negotiation", probability: 60 },
+    { name: "Support Contract", value: "$12K", stage: "closing", probability: 90 },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">CRM Dashboard</span>
+        <div className="flex gap-1">
+          {["pipeline", "clients"].map((v) => (
+            <button
+              key={v}
+              onClick={() => setView(v)}
+              className={`px-2 py-1 rounded text-xs capitalize ${
+                view === v ? "bg-cyan-600" : "bg-slate-700"
+              }`}
+            >
+              {v}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {view === "pipeline" && (
+        <>
+          <div className="grid grid-cols-4 gap-1 mb-3 text-xs text-center">
+            {["Lead", "Proposal", "Negotiation", "Closing"].map((stage, i) => (
+              <div key={stage} className="bg-slate-800 rounded p-2">
+                <div className="text-slate-400">{stage}</div>
+                <div className="text-cyan-400 font-bold">{[8, 5, 3, 2][i]}</div>
+              </div>
+            ))}
+          </div>
+          <div className="space-y-2">
+            {deals.map((deal, i) => (
+              <div key={i} className="bg-slate-800 rounded p-2 flex justify-between items-center">
+                <div>
+                  <div className="text-sm">{deal.name}</div>
+                  <div className="text-xs text-slate-400">{deal.stage}</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-green-400">{deal.value}</div>
+                  <div className="text-xs text-slate-400">{deal.probability}%</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {view === "clients" && (
+        <div className="space-y-2">
+          {["Acme Corp", "TechStart Inc", "Global Services"].map((client, i) => (
+            <div key={i} className="bg-slate-800 rounded p-3 flex justify-between items-center">
+              <div>
+                <div className="font-medium">{client}</div>
+                <div className="text-xs text-slate-400">Active since 202{1 + i}</div>
+              </div>
+              <div className="text-xs text-green-400">● Active</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ============================================
+// CONVERSATIONAL AI - Chatbot Demo
+// ============================================
+export function ConversationalAIDemo() {
+  const [messages, setMessages] = useState([
+    { role: "bot", text: "Hi! I'm your AI assistant. How can I help you today?" },
+  ]);
+  const [input, setInput] = useState("");
+
+  const responses: Record<string, string> = {
+    pricing: "Our plans start at $99/month for small teams. Enterprise pricing is custom. Would you like me to connect you with sales?",
+    demo: "I'd be happy to schedule a demo! What day works best for you this week?",
+    support: "I can help with most issues right here. What seems to be the problem?",
+    default: "I understand. Let me connect you with a team member who can help with that specific request.",
+  };
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+
+    const userMessage = input.toLowerCase();
+    setMessages((prev) => [...prev, { role: "user", text: input }]);
+    setInput("");
+
+    setTimeout(() => {
+      let response = responses.default;
+      if (userMessage.includes("price") || userMessage.includes("cost")) response = responses.pricing;
+      else if (userMessage.includes("demo")) response = responses.demo;
+      else if (userMessage.includes("help") || userMessage.includes("support")) response = responses.support;
+
+      setMessages((prev) => [...prev, { role: "bot", text: response }]);
+    }, 1000);
+  };
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-cyan-400 font-bold">AI Assistant</span>
+        <span className="text-xs text-green-400">● Online</span>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 h-40 overflow-y-auto mb-3 space-y-2">
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`max-w-[80%] rounded-lg px-3 py-2 text-xs ${
+                msg.role === "user"
+                  ? "bg-cyan-600"
+                  : "bg-slate-700"
+              }`}
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex gap-2">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+          placeholder="Try: pricing, demo, support..."
+          className="flex-1 bg-slate-800 rounded px-3 py-2 text-xs outline-none focus:ring-1 focus:ring-cyan-500"
+        />
+        <button
+          onClick={handleSend}
+          className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 rounded text-xs transition-colors"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// RETAIL - Inventory Dashboard Demo
+// ============================================
+export function RetailDemo() {
+  const products = [
+    { name: "Wireless Headphones", stock: 245, status: "healthy", trend: "+12%" },
+    { name: "Smart Watch Pro", stock: 23, status: "low", trend: "+45%" },
+    { name: "USB-C Hub", stock: 189, status: "healthy", trend: "+8%" },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Inventory Manager</span>
+        <span className="text-xs bg-slate-700 px-2 py-1 rounded">Last sync: 2m ago</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-2xl font-bold text-cyan-400">1,247</div>
+          <div className="text-xs text-slate-400">Total SKUs</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-2xl font-bold text-yellow-400">12</div>
+          <div className="text-xs text-slate-400">Low Stock</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-2xl font-bold text-green-400">98%</div>
+          <div className="text-xs text-slate-400">Fill Rate</div>
+        </div>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3">
+        <div className="text-xs text-slate-400 mb-2">Top Products</div>
+        <div className="space-y-2">
+          {products.map((product, i) => (
+            <div key={i} className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="text-sm">{product.name}</div>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className={product.status === "low" ? "text-yellow-400" : "text-slate-400"}>
+                    {product.stock} units
+                  </span>
+                  <span className="text-green-400">{product.trend}</span>
+                </div>
+              </div>
+              {product.status === "low" && (
+                <button className="text-xs bg-yellow-600 px-2 py-1 rounded">Reorder</button>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// REAL ESTATE - Property Dashboard Demo
+// ============================================
+export function RealEstateDemo() {
+  const properties = [
+    { address: "123 Oak Street", price: "$450K", status: "active", leads: 12 },
+    { address: "456 Maple Ave", price: "$325K", status: "pending", leads: 8 },
+    { address: "789 Pine Blvd", price: "$520K", status: "active", leads: 5 },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Property Manager</span>
+        <span className="text-xs text-green-400">24 Active Listings</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-cyan-400">$8.2M</div>
+          <div className="text-xs text-slate-400">Total Value</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-green-400">47</div>
+          <div className="text-xs text-slate-400">New Leads</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-purple-400">8</div>
+          <div className="text-xs text-slate-400">Tours Scheduled</div>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        {properties.map((prop, i) => (
+          <div key={i} className="bg-slate-800 rounded p-3 flex justify-between items-center">
+            <div>
+              <div className="font-medium">{prop.address}</div>
+              <div className="text-sm text-cyan-400">{prop.price}</div>
+            </div>
+            <div className="text-right">
+              <div className={`text-xs px-2 py-1 rounded ${
+                prop.status === "active" ? "bg-green-600" : "bg-yellow-600"
+              }`}>
+                {prop.status}
+              </div>
+              <div className="text-xs text-slate-400 mt-1">{prop.leads} leads</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// LOGISTICS - Fleet Tracking Demo
+// ============================================
+export function LogisticsDemo() {
+  const [selectedVehicle, setSelectedVehicle] = useState(0);
+
+  const vehicles = [
+    { id: "TRK-001", driver: "John D.", status: "en-route", eta: "2:45 PM", progress: 65 },
+    { id: "TRK-002", driver: "Sarah M.", status: "loading", eta: "4:30 PM", progress: 15 },
+    { id: "TRK-003", driver: "Mike R.", status: "delivered", eta: "Complete", progress: 100 },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Fleet Tracker</span>
+        <span className="text-xs text-green-400 flex items-center gap-1">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          Live GPS
+        </span>
+      </div>
+
+      <div className="bg-slate-800 rounded p-3 mb-3 h-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <svg viewBox="0 0 200 100" className="w-full h-full">
+            <path d="M10,50 Q50,20 100,50 T190,50" stroke="#22d3ee" strokeWidth="2" fill="none" />
+            <circle cx={10 + vehicles[selectedVehicle].progress * 1.8} cy="50" r="6" fill="#22d3ee" />
+          </svg>
+        </div>
+        <div className="relative z-10">
+          <div className="text-xs text-slate-400">Route Progress</div>
+          <div className="text-lg font-bold text-cyan-400">{vehicles[selectedVehicle].progress}%</div>
+          <div className="text-xs text-slate-400">ETA: {vehicles[selectedVehicle].eta}</div>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        {vehicles.map((v, i) => (
+          <div
+            key={i}
+            onClick={() => setSelectedVehicle(i)}
+            className={`bg-slate-800 rounded p-2 flex justify-between items-center cursor-pointer transition-colors ${
+              selectedVehicle === i ? "ring-1 ring-cyan-500" : ""
+            }`}
+          >
+            <div>
+              <div className="font-medium">{v.id}</div>
+              <div className="text-xs text-slate-400">{v.driver}</div>
+            </div>
+            <div className="text-right">
+              <div className={`text-xs px-2 py-1 rounded ${
+                v.status === "en-route" ? "bg-cyan-600" :
+                v.status === "loading" ? "bg-yellow-600" : "bg-green-600"
+              }`}>
+                {v.status}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// E-LEARNING - LMS Demo
+// ============================================
+export function ELearningDemo() {
+  const courses = [
+    { name: "Security Fundamentals", progress: 85, enrolled: 234 },
+    { name: "Leadership Training", progress: 62, enrolled: 156 },
+    { name: "Compliance 2024", progress: 100, enrolled: 445 },
+  ];
+
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white font-mono text-sm">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-cyan-400 font-bold">Learning Platform</span>
+        <span className="text-xs bg-green-600 px-2 py-1 rounded">Pro Plan</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-cyan-400">24</div>
+          <div className="text-xs text-slate-400">Courses</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-green-400">892</div>
+          <div className="text-xs text-slate-400">Learners</div>
+        </div>
+        <div className="bg-slate-800 rounded p-3 text-center">
+          <div className="text-xl font-bold text-purple-400">76%</div>
+          <div className="text-xs text-slate-400">Completion</div>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        {courses.map((course, i) => (
+          <div key={i} className="bg-slate-800 rounded p-3">
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <div className="font-medium">{course.name}</div>
+                <div className="text-xs text-slate-400">{course.enrolled} enrolled</div>
+              </div>
+              {course.progress === 100 && (
+                <span className="text-xs bg-green-600 px-2 py-1 rounded">Complete</span>
+              )}
+            </div>
+            <div className="w-full bg-slate-700 rounded-full h-2">
+              <div
+                className={`h-2 rounded-full transition-all ${
+                  course.progress === 100 ? "bg-green-500" : "bg-cyan-500"
+                }`}
+                style={{ width: `${course.progress}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================
+// CREATIVE PLACEHOLDERS
+// ============================================
+export function CreativePlaceholder({
+  title,
+  description,
+  examples
+}: {
+  title: string;
+  description: string;
+  examples: string[];
+}) {
+  return (
+    <div className="bg-slate-900 rounded-xl p-4 text-white">
+      <div className="text-center mb-4">
+        <div className="text-cyan-400 font-bold mb-2">{title}</div>
+        <div className="text-xs text-slate-400">{description}</div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        {examples.map((example, i) => (
+          <div
+            key={i}
+            className="aspect-video bg-gradient-to-br from-slate-800 to-slate-700 rounded-lg flex items-center justify-center border border-dashed border-slate-600"
+          >
+            <div className="text-center p-2">
+              <div className="text-3xl mb-1 opacity-50">
+                {["🎨", "📸", "🎬", "🎮"][i % 4]}
+              </div>
+              <div className="text-xs text-slate-400">{example}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 text-center">
+        <div className="inline-flex items-center gap-2 text-xs text-cyan-400 bg-cyan-400/10 px-3 py-2 rounded-full">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Contact us to see live examples
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Export demo mapping
+export const demoComponents: Record<string, React.ReactNode> = {
+  "Healthcare": <HealthcareDemo />,
+  "Finance & Banking": <FinanceDemo />,
+  "Legacy Modernization": <LegacyDemo />,
+  "Data & Analytics": <DataAnalyticsDemo />,
+  "System Integration": <SystemIntegrationDemo />,
+  "Manufacturing": <ManufacturingDemo />,
+  "Document Automation": <DocumentDemo />,
+  "Professional Services": <ProfessionalServicesDemo />,
+  "Conversational AI": <ConversationalAIDemo />,
+  "Retail & E-Commerce": <RetailDemo />,
+  "Real Estate": <RealEstateDemo />,
+  "Logistics & Transportation": <LogisticsDemo />,
+  "E-Learning & Training": <ELearningDemo />,
+  "Marketing & Advertising": (
+    <CreativePlaceholder
+      title="AI Marketing Content"
+      description="Automated ad creative and visual content generation"
+      examples={["Social Ads", "Banner Designs", "Product Shots", "Campaign Visuals"]}
+    />
+  ),
+  "Fashion & Apparel": (
+    <CreativePlaceholder
+      title="AI Fashion Visuals"
+      description="AI-generated models and virtual try-on experiences"
+      examples={["AI Models", "Virtual Try-On", "Lookbooks", "Product Photos"]}
+    />
+  ),
+  "Architecture & Interior Design": (
+    <CreativePlaceholder
+      title="3D Architectural Renders"
+      description="Photorealistic visualizations and virtual staging"
+      examples={["Exterior Renders", "Interior Design", "Virtual Staging", "Walkthroughs"]}
+    />
+  ),
+  "Product & Industrial": (
+    <CreativePlaceholder
+      title="Product Visualization"
+      description="3D renders and interactive product views"
+      examples={["Product Renders", "360° Views", "Packaging", "Prototypes"]}
+    />
+  ),
+  "Creative & Media": (
+    <CreativePlaceholder
+      title="AI Video Production"
+      description="Custom videos, animations, and visual effects"
+      examples={["Explainer Videos", "Motion Graphics", "VFX Shots", "Animations"]}
+    />
+  ),
+  "Entertainment & Gaming": (
+    <CreativePlaceholder
+      title="Game Art & Assets"
+      description="Character designs, concept art, and game assets"
+      examples={["Characters", "Environments", "Concept Art", "UI Assets"]}
+    />
+  ),
+};

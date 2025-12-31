@@ -1,11 +1,8 @@
-import { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Solutions Portfolio",
-  description:
-    "Explore custom software, automation systems, data platforms, and enterprise integrations we build for businesses across healthcare, finance, manufacturing, and more.",
-};
+import { useState } from "react";
+import Link from "next/link";
+import { demoComponents } from "./demos";
 
 const solutions = [
   // === ENTERPRISE SOFTWARE & AUTOMATION ===
@@ -335,7 +332,102 @@ const solutions = [
   },
 ];
 
+function SolutionCard({
+  solution,
+  isExpanded,
+  onToggle,
+}: {
+  solution: typeof solutions[0];
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div
+      className={`bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-lg transition-all border border-slate-100 dark:border-slate-700 overflow-hidden ${
+        isExpanded ? "md:col-span-2" : ""
+      }`}
+    >
+      <div className="p-8">
+        <div className="flex items-start justify-between mb-4">
+          <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wide">
+            {solution.industry}
+          </span>
+          <div className="text-primary opacity-80 group-hover:opacity-100 transition-opacity">
+            {solution.icon}
+          </div>
+        </div>
+        <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+          {solution.title}
+        </h2>
+        <p className="text-secondary mb-6 leading-relaxed">
+          {solution.description}
+        </p>
+        <div className="border-t border-slate-100 dark:border-slate-700 pt-4">
+          <p className="text-xs font-medium text-secondary uppercase tracking-wide mb-3">
+            Capabilities
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {solution.capabilities.map((cap, i) => (
+              <span
+                key={i}
+                className="text-sm text-secondary bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"
+              >
+                {cap}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Toggle Button */}
+        <button
+          onClick={onToggle}
+          className="mt-6 w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white rounded-lg transition-all text-sm font-medium"
+        >
+          {isExpanded ? (
+            <>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Close Demo
+            </>
+          ) : (
+            <>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              View Demo
+            </>
+          )}
+        </button>
+      </div>
+
+      {/* Demo Section */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ${
+          isExpanded ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="p-6 pt-0 border-t border-slate-100 dark:border-slate-700">
+          <div className="mt-6">
+            <h3 className="text-sm font-semibold text-secondary uppercase tracking-wide mb-4">
+              Interactive Preview
+            </h3>
+            {demoComponents[solution.industry]}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioPage() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -380,6 +472,9 @@ export default function PortfolioPage() {
             We build custom software, automation systems, data platforms, and enterprise integrations
             tailored to your industry—plus AI-generated videos, images, and animations for your creative needs.
           </p>
+          <p className="text-sm text-primary mt-4">
+            Click &quot;View Demo&quot; on any card to see an interactive preview of our capabilities.
+          </p>
         </div>
       </section>
 
@@ -388,42 +483,12 @@ export default function PortfolioPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {solutions.map((solution, index) => (
-              <div
+              <SolutionCard
                 key={index}
-                className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-lg transition-all border border-slate-100 dark:border-slate-700 overflow-hidden group"
-              >
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wide">
-                      {solution.industry}
-                    </span>
-                    <div className="text-primary opacity-80 group-hover:opacity-100 transition-opacity">
-                      {solution.icon}
-                    </div>
-                  </div>
-                  <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {solution.title}
-                  </h2>
-                  <p className="text-secondary mb-6 leading-relaxed">
-                    {solution.description}
-                  </p>
-                  <div className="border-t border-slate-100 dark:border-slate-700 pt-4">
-                    <p className="text-xs font-medium text-secondary uppercase tracking-wide mb-3">
-                      Capabilities
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {solution.capabilities.map((cap, i) => (
-                        <span
-                          key={i}
-                          className="text-sm text-secondary bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"
-                        >
-                          {cap}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                solution={solution}
+                isExpanded={expandedIndex === index}
+                onToggle={() => handleToggle(index)}
+              />
             ))}
           </div>
         </div>
