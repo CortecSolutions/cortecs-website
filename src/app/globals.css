@@ -228,7 +228,7 @@ html {
 /* Gradient border */
 .gradient-border {
   position: relative;
-  background: var(--background);
+  background: #0f172a;
   border-radius: 1rem;
 }
 
@@ -244,4 +244,10 @@ html {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-border > * {
+  position: relative;
+  z-index: 1;
 }

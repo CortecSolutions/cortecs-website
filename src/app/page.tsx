@@ -44,11 +44,21 @@ export default function Home() {
     setTimeout(() => setSubmitStatus("idle"), 5000);
   };
 
-  const services = [
+  const steps = [
     {
-      title: "Custom Software Development",
+      title: "Concept",
       description:
-        "End-to-end design, development, and implementation of tailored software applications that solve your unique business challenges.",
+        "Share your idea or a problem you are trying to solve.",
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Solution",
+      description:
+        "Custom application designed to meet your needs.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -56,32 +66,12 @@ export default function Home() {
       ),
     },
     {
-      title: "AI-Powered Solutions",
+      title: "Results",
       description:
-        "Intelligent tools and systems leveraging machine learning and AI to automate decisions, analyze data, and enhance productivity.",
+        "Your app, your code, no recurring fees.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Business Workflow Automation",
-      description:
-        "Streamline operations with automated workflows that reduce manual tasks, minimize errors, and accelerate your processes.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-      ),
-    },
-    {
-      title: "Technical Consulting",
-      description:
-        "Strategic guidance for digital transformation, process optimization, and technology modernization to keep you ahead.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
     },
@@ -100,20 +90,17 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
               <img src="/logo-icon.svg" alt="Cortec" className="w-10 h-10" />
-              <span className="gradient-text">Cortec</span>
+              <span className="gradient-text">Cortec.</span>
             </a>
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Services
-              </a>
-              <a href="#about" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 About
               </a>
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Portfolio
+                Services
               </a>
               <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Blog
+                Articles
               </a>
               <a
                 href="#contact"
@@ -145,13 +132,12 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 slide-up tracking-tight text-white">
-            Transform your Business with{" "}
-            <span className="gradient-text">Intelligent Solutions</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 slide-up tracking-tight text-white">
+            Custom solutions,{" "}
+            <span className="gradient-text">made for you</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed slide-up slide-up-delay-1 max-w-3xl mx-auto">
-            We design, develop, and implement custom software applications, AI-powered tools,
-            and automated workflows that drive real results.
+            I design and develop custom iOS and web applications for small businesses and consumers. One developer, one point of contact for a seamless experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up slide-up-delay-2">
             <a
@@ -183,32 +169,31 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/50 dark:to-background" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <span className="code-accent text-sm mb-4 inline-block">Our Expertise</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">What We Build</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">How it works</h2>
             <p className="text-secondary text-lg max-w-2xl mx-auto">
-              Comprehensive technical solutions tailored to accelerate your digital transformation
+              Simple process, real results
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
+          <div className="grid md:grid-cols-3 gap-6">
+            {steps.map((step, index) => (
               <div
                 key={index}
-                className="group bg-white dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/50 card-hover neon-border"
+                className="group bg-white dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-700/50 card-hover neon-border text-center"
               >
-                <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-                  {service.icon}
+                <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform mx-auto">
+                  {step.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-secondary leading-relaxed">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
+                <p className="text-secondary leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-12">
             <a
-              href="/portfolio"
-              className="inline-flex items-center gap-2 text-primary hover:gap-4 transition-all font-medium"
+              href="#contact"
+              className="inline-flex items-center gap-2 text-primary hover:gap-4 transition-all font-medium text-xl"
             >
-              View our solutions portfolio
+              Contact
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -223,38 +208,31 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="code-accent text-sm mb-4 inline-block">About Us</span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                Building the Future,{" "}
-                <span className="gradient-text">One Solution at a Time</span>
+                Quality work,{" "}
+                <span className="gradient-text">personal service</span>
               </h2>
-              <p className="text-secondary text-lg leading-relaxed mb-6">
-                At Cortec, we partner with businesses to navigate the complexities of
-                digital transformation. Our team combines deep technical expertise with a
-                commitment to understanding your unique challenges.
+              <p className="text-secondary text-xl leading-relaxed mb-6">
+                I started Cortec to make custom application development simplified and more accessible to small businesses and consumers.
               </p>
-              <p className="text-secondary text-lg leading-relaxed mb-8">
-                From concept to deployment, we deliver solutions that are not just technically
-                sound but strategically aligned with your business goals.
+              <p className="text-secondary text-xl leading-relaxed mb-8">
+                24/7 365 customer service that creates a personal experience in a world of automation.
               </p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 gradient-bg text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-all hover:shadow-lg hover:shadow-primary/25"
+                className="inline-flex items-center gradient-bg text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition-all hover:shadow-lg hover:shadow-primary/25"
               >
-                Work with us
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                Contact
               </a>
             </div>
-            <div className="gradient-border p-8 bg-white dark:bg-slate-900">
-              <h3 className="text-2xl font-semibold mb-6">Why Choose Us?</h3>
+            <div className="gradient-border p-8 bg-slate-900 relative z-10">
+              <h3 className="text-4xl font-bold mb-8 text-white">Why Cortec</h3>
               <ul className="space-y-5">
                 {[
-                  { title: "Tailored Solutions", desc: "Designed for your specific needs" },
-                  { title: "Transparent Communication", desc: "Throughout every project" },
-                  { title: "Modern Tech Stack", desc: "Future-proof architecture" },
-                  { title: "Dedicated Support", desc: "Maintenance and ongoing care" },
+                  { title: "Direct Communication", desc: "One point of contact, start to finish" },
+                  { title: "Transparent Pricing", desc: "Reasonable pricing, no subscription or hidden fees" },
+                  { title: "Fast Turnaround", desc: "Lean process, quick delivery" },
+                  { title: "Ongoing Support", desc: "Here when you need me after launch" },
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -273,8 +251,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-medium">{item.title}</div>
-                      <div className="text-secondary text-sm">{item.desc}</div>
+                      <div className="font-semibold text-xl text-white">{item.title}</div>
+                      <div className="text-white/80 text-lg">{item.desc}</div>
                     </div>
                   </li>
                 ))}
@@ -290,11 +268,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <span className="code-accent text-sm mb-4 inline-block">Contact</span>
               <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Let&apos;s Work Together</h2>
               <p className="text-secondary text-lg">
-                Ready to transform your business? Tell us about your project and we&apos;ll get back
-                to you within 24 hours.
+                Ready to create? Tell us about your project and we&apos;ll get back to you within the hour.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -387,20 +363,17 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <a href="#" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
               <img src="/logo-icon.svg" alt="Cortec" className="w-8 h-8" />
-              <span className="gradient-text">Cortec</span>
+              <span className="gradient-text">Cortec.</span>
             </a>
             <div className="flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Services
-              </a>
-              <a href="#about" className="text-secondary hover:text-foreground transition-colors text-sm">
                 About
               </a>
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Portfolio
+                Services
               </a>
               <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Blog
+                Articles
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Contact
