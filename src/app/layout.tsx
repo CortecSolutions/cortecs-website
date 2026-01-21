@@ -23,22 +23,24 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   title: {
-    default: "Cortec | Custom Software & AI Solutions in Canada",
+    default: "Cortec | Custom Tech Solutions",
     template: "%s | Cortec",
   },
   description:
-    "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows. Expert technical consulting for digital transformation and process optimization.",
+    "I like solving problems with technology. Projects ranging from self-reflection tools to network security. Some polished, some experiments, all real.",
   keywords: [
-    "custom software development",
-    "AI solutions",
-    "business automation",
-    "digital transformation",
-    "technical consulting",
-    "workflow automation",
-    "software development Canada",
-    "AI-powered tools",
-    "process optimization",
-    "enterprise software",
+    "custom software",
+    "network security",
+    "penetration testing",
+    "wifi security",
+    "self reflection tool",
+    "personal development",
+    "tech solutions",
+    "small business security",
+    "security assessment",
+    "custom development",
+    "raspberry pi",
+    "automation",
   ],
   authors: [{ name: "Cortec" }],
   creator: "Cortec",
@@ -59,23 +61,23 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://www.cortecs.ca",
     siteName: "Cortec",
-    title: "Cortec | Custom Software & AI Solutions",
+    title: "Cortec | Custom Tech Solutions",
     description:
-      "Transform your business with custom software, AI-powered tools, and automated workflows. Expert technical consulting for digital transformation.",
+      "I like solving problems with technology. Projects from self-reflection tools to network security.",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Cortec - Custom Software & AI Solutions",
+        alt: "Cortec - Custom Tech Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cortec | Custom Software & AI Solutions",
+    title: "Cortec | Custom Tech Solutions",
     description:
-      "Transform your business with custom software, AI-powered tools, and automated workflows.",
+      "I like solving problems with technology. Projects from self-reflection tools to network security.",
     images: ["/og-image.svg"],
   },
   verification: {
@@ -116,24 +118,66 @@ export default function RootLayout({
               url: "https://www.cortecs.ca",
               logo: "https://www.cortecs.ca/logo.svg",
               description:
-                "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows.",
+                "Custom tech solutions - from self-reflection tools to network security assessments.",
               address: {
                 "@type": "PostalAddress",
+                addressRegion: "ON",
                 addressCountry: "CA",
               },
               sameAs: [],
               contactPoint: {
                 "@type": "ContactPoint",
-                contactType: "sales",
-                url: "https://www.cortecs.ca/#contact",
+                contactType: "customer service",
+                email: "mgrandy@rogers.com",
               },
-              serviceType: [
-                "Custom Software Development",
-                "AI Solutions",
-                "Business Workflow Automation",
-                "Technical Consulting",
-                "Digital Transformation",
-              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Reflect Drive",
+              description: "A USB drive with a complete self-reflection system. Plug in when you need to think. Unplug when you're done. No trace left behind.",
+              brand: {
+                "@type": "Brand",
+                name: "Cortec",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "79.00",
+                priceCurrency: "CAD",
+                availability: "https://schema.org/InStock",
+                url: "https://www.cortecs.ca/reflect",
+                shippingDetails: {
+                  "@type": "OfferShippingDetails",
+                  shippingDestination: {
+                    "@type": "DefinedRegion",
+                    addressCountry: "CA",
+                  },
+                  deliveryTime: {
+                    "@type": "ShippingDeliveryTime",
+                    businessDays: {
+                      "@type": "OpeningHoursSpecification",
+                      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    },
+                    transitTime: {
+                      "@type": "QuantitativeValue",
+                      minValue: 3,
+                      maxValue: 7,
+                      unitCode: "d",
+                    },
+                  },
+                  shippingRate: {
+                    "@type": "MonetaryAmount",
+                    value: "0",
+                    currency: "CAD",
+                  },
+                },
+              },
+              category: "Personal Development",
             }),
           }}
         />
