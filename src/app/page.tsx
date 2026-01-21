@@ -56,11 +56,11 @@ export default function Home() {
     {
       title: "Harvester Security",
       category: "Network Security",
-      description: "WiFi reconnaissance and network security assessments for small businesses. Find vulnerabilities before someone else does. Wardriving, penetration testing, remediation.",
+      description: "Authorized security assessments for small businesses. WiFi audits, penetration testing, and remediation. Know where you're exposed and how to fix it.",
       status: "Active",
       statusColor: "text-green-400",
       link: "/security",
-      tags: ["Security", "Pentesting", "Local"],
+      tags: ["Security", "Auditing", "Local"],
     },
   ];
 

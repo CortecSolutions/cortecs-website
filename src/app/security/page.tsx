@@ -152,11 +152,11 @@ export default function SecurityPage() {
             Network Security
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 tracking-tight">
-            Find vulnerabilities{" "}
-            <span className="text-red-400">before someone else does.</span>
+            Know where your{" "}
+            <span className="text-red-400">network is vulnerable.</span>
           </h1>
           <p className="text-xl md:text-2xl text-secondary mb-8 leading-relaxed max-w-3xl mx-auto">
-            WiFi security assessments and penetration testing for small businesses. I find the holes in your network and help you close them.
+            Authorized security assessments for small businesses. I test your WiFi and network security, then help you fix what's exposed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
