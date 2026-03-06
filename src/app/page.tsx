@@ -81,6 +81,9 @@ export default function Home() {
               <a href="/reflect" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Reflect
               </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
+                Blog
+              </a>
               <a href="/security" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Security
               </a>
@@ -321,6 +324,9 @@ export default function Home() {
               </a>
               <a href="/reflect" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Reflect
+              </a>
+              <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm">
+                Blog
               </a>
               <a href="/security" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Security
