@@ -43,24 +43,26 @@ export default function Home() {
     setTimeout(() => setSubmitStatus("idle"), 5000);
   };
 
-  const projects = [
+  const solutions = [
     {
-      title: "Reflect",
-      category: "Personal Development",
-      description: "A USB drive with a complete self-reflection system. Plug in to think clearly, unplug when done. Pattern recognition, goal tracking, and brutally honest feedback.",
-      status: "Live",
-      statusColor: "text-green-400",
-      link: "/reflect",
-      tags: ["AI", "Privacy", "Hardware"],
+      business: "Dental Offices",
+      problem: "Front desk drowning in confirmation calls",
+      result: "98% show rate, zero phone tag",
     },
     {
-      title: "Harvester Security",
-      category: "Network Security",
-      description: "Authorized security assessments for small businesses. WiFi audits, penetration testing, and remediation. Know where you're exposed and how to fix it.",
-      status: "Active",
-      statusColor: "text-green-400",
-      link: "/security",
-      tags: ["Security", "Auditing", "Local"],
+      business: "HVAC Companies",
+      problem: "Dispatchers overwhelmed, customers waiting",
+      result: "Response time cut from 4 hours to 45 minutes",
+    },
+    {
+      business: "Law Firms",
+      problem: "Leads waiting days for callbacks",
+      result: "Every lead qualified in under 5 minutes",
+    },
+    {
+      business: "Property Managers",
+      problem: "Maintenance requests lost in emails and texts",
+      result: "Tenant complaints down 80%",
     },
   ];
 
@@ -71,21 +73,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
-              <img src="/logo-icon.svg" alt="Cortec" className="w-10 h-10" />
-              <span className="gradient-text">Cortec.</span>
+              <img src="/logo-icon.svg" alt="Cortecs" className="w-10 h-10" />
+              <span className="gradient-text">Cortecs.</span>
             </a>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#projects" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Projects
+              <a href="#solutions" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
+                Solutions
               </a>
-              <a href="/reflect" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Reflect
+              <a href="#how-it-works" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
+                How It Works
               </a>
               <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Blog
-              </a>
-              <a href="/security" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
-                Security
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors text-sm font-medium">
                 Contact
@@ -114,18 +113,18 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 slide-up tracking-tight text-white">
-            I like solving problems{" "}
-            <span className="gradient-text">with technology.</span>
+            Custom automation.{" "}
+            <span className="gradient-text">Built for your business.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed slide-up slide-up-delay-1 max-w-3xl mx-auto">
-            Some of these projects are polished. Some are experiments. All of them are real.
+            We build AI systems that run in your office. Not another subscription. A solution that's actually yours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up slide-up-delay-2">
             <a
-              href="#projects"
+              href="#solutions"
               className="gradient-bg text-white px-10 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all text-center hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
             >
-              View Projects
+              See Solutions
             </a>
             <a
               href="#contact"
@@ -145,83 +144,121 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 relative">
+      {/* Solutions Section */}
+      <section id="solutions" className="py-24 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-background" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">What we build</h2>
             <p className="text-secondary text-lg max-w-2xl mx-auto">
-              Things I've built and shipped. Each one solves a real problem.
+              Every business has repetitive tasks eating up time. We build systems that handle them automatically.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <a
+            {solutions.map((solution, index) => (
+              <div
                 key={index}
-                href={project.link}
-                className="group bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 card-hover neon-border block"
+                className="group bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 card-hover neon-border"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-primary font-medium">{project.category}</span>
-                  <span className={`text-sm font-medium ${project.statusColor}`}>{project.status}</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-secondary leading-relaxed mb-6">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-slate-700/50 rounded-full text-xs text-slate-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </a>
+                <span className="text-sm text-primary font-medium">{solution.business}</span>
+                <h3 className="text-xl font-bold mt-2 mb-3 text-white">{solution.problem}</h3>
+                <p className="text-green-400 font-medium">{solution.result}</p>
+              </div>
             ))}
+          </div>
+          <p className="text-center text-secondary mt-12 text-lg">
+            Don't see your industry? We build custom solutions for any business.{" "}
+            <a href="#contact" className="text-primary hover:underline">Let's talk.</a>
+          </p>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              How it <span className="gradient-text">works</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+              <h3 className="text-xl font-bold mb-3">We learn your workflow</h3>
+              <p className="text-secondary">Tell us what's eating your time. We figure out what can be automated.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+              <h3 className="text-xl font-bold mb-3">We build your system</h3>
+              <p className="text-secondary">Custom AI that runs on a Mac Mini in your office. Your data stays with you.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+              <h3 className="text-xl font-bold mb-3">You get time back</h3>
+              <p className="text-secondary">The system handles the busywork. You focus on what matters.</p>
+            </div>
+          </div>
+          <div className="mt-16 gradient-border p-8 bg-slate-900">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <h4 className="text-3xl font-bold gradient-text">$1,500-5,000</h4>
+                <p className="text-secondary mt-2">Setup fee</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-bold gradient-text">$200-500/mo</h4>
+                <p className="text-secondary mt-2">Maintenance</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-bold gradient-text">You own it</h4>
+                <p className="text-secondary mt-2">Hardware is yours</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+      {/* Why Us Section */}
+      <section className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-background" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                Why I{" "}
-                <span className="gradient-text">build</span>
+                Not another <span className="gradient-text">SaaS subscription</span>
               </h2>
               <p className="text-secondary text-xl leading-relaxed mb-6">
-                I like solving problems with technology. Not theoretical problems - real ones. Things that bother me until I fix them.
+                Most "automation" tools are generic cloud software that doesn't fit your workflow. You pay monthly forever for something that almost works.
               </p>
               <p className="text-secondary text-xl leading-relaxed mb-6">
-                Reflect came from wanting a private way to think through problems without judgment. The security work came from realizing how exposed most small businesses are.
+                We build something different. A system designed specifically for your business, running on hardware you own, in your office.
               </p>
               <p className="text-secondary text-xl leading-relaxed">
-                Each project here is something I built because I wanted it to exist. If you have a problem that needs solving, I'm interested in talking.
+                No per-seat pricing. No feature gates. No wondering where your data goes. Just a solution that works.
               </p>
             </div>
             <div className="gradient-border p-8 bg-slate-900 relative z-10">
-              <h3 className="text-3xl font-bold mb-8 text-white">What I work with</h3>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-lg text-white mb-2">Software</h4>
-                  <p className="text-white/70">Python, TypeScript, React, Next.js, Node.js, Swift</p>
+              <h3 className="text-2xl font-bold mb-6 text-white">What you get</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <p className="text-white/80">Custom system built for YOUR workflow</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-lg text-white mb-2">Hardware</h4>
-                  <p className="text-white/70">Raspberry Pi, SDR, WiFi adapters, custom builds</p>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <p className="text-white/80">Runs locally - your data never leaves your office</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-lg text-white mb-2">Security</h4>
-                  <p className="text-white/70">Network reconnaissance, penetration testing, vulnerability assessment</p>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <p className="text-white/80">One invoice instead of 5 subscriptions</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-lg text-white mb-2">AI/Automation</h4>
-                  <p className="text-white/70">Claude, GPT-4, workflow automation, custom integrations</p>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <p className="text-white/80">We maintain and update it for you</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 text-xl">✓</span>
+                  <p className="text-white/80">You own the hardware outright</p>
                 </div>
               </div>
             </div>
@@ -235,9 +272,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Get in touch</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Let's talk</h2>
               <p className="text-secondary text-lg">
-                Have a project idea? Need security help? Just want to talk? Send a message.
+                Tell us what's eating your time. We'll tell you if we can automate it.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -275,7 +312,7 @@ export default function Home() {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
+                  What's eating your time?
                 </label>
                 <textarea
                   id="message"
@@ -285,7 +322,7 @@ export default function Home() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-700 bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none text-foreground placeholder:text-slate-500"
-                  placeholder="What's on your mind?"
+                  placeholder="Tell us about the repetitive tasks you wish you didn't have to do..."
                 />
               </div>
               <button
@@ -297,7 +334,7 @@ export default function Home() {
               </button>
               {submitStatus === "success" && (
                 <p className="text-green-400 text-center font-medium">
-                  Got it. I'll be in touch.
+                  Got it. We'll be in touch within 24 hours.
                 </p>
               )}
               {submitStatus === "error" && (
@@ -315,28 +352,25 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <a href="/" className="flex items-center gap-3 text-2xl font-bold tracking-tight">
-              <img src="/logo-icon.svg" alt="Cortec" className="w-8 h-8" />
-              <span className="gradient-text">Cortec.</span>
+              <img src="/logo-icon.svg" alt="Cortecs" className="w-8 h-8" />
+              <span className="gradient-text">Cortecs.</span>
             </a>
             <div className="flex items-center gap-8">
-              <a href="#projects" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Projects
+              <a href="#solutions" className="text-secondary hover:text-foreground transition-colors text-sm">
+                Solutions
               </a>
-              <a href="/reflect" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Reflect
+              <a href="#how-it-works" className="text-secondary hover:text-foreground transition-colors text-sm">
+                How It Works
               </a>
               <a href="/blog" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Blog
-              </a>
-              <a href="/security" className="text-secondary hover:text-foreground transition-colors text-sm">
-                Security
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors text-sm">
                 Contact
               </a>
             </div>
             <div className="text-secondary text-sm">
-              © {new Date().getFullYear()} Cortec. All rights reserved.
+              © {new Date().getFullYear()} Cortecs. All rights reserved.
             </div>
           </div>
         </div>
