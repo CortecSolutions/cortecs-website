@@ -1,5 +1,38 @@
 export const posts = [
   {
+    slug: "construction-company-automation",
+    title: "What We Build for Construction Companys",
+    metaTitle: "Project Aggregator for Construction Company | Cortecs",
+    metaDescription: "See how we help construction companys automate with custom solutions.",
+    excerpt: "How Cortecs builds custom Project Aggregator solutions for construction companys.",
+    category: "Solutions",
+    readTime: "4 min read",
+    publishedAt: "2026-03-06",
+    content: `
+## The Reality of Project Aggregation
+
+As a construction company, you wear many hats. From estimating to scheduling, and from managing materials to overseeing labor, every day is a battle to stay organized and on top of things. The constant juggling act of coordinating multiple projects, teams, and stakeholders can be overwhelming. You're constantly searching for ways to optimize your workflow, but it's like trying to find a needle in a haystack – it's just not efficient.
+
+The pain of project aggregation is felt across every department. From the estimators who have to sift through countless bid documents to find the relevant info, to the schedulers who spend hours researching and recalculating timelines, every hour lost to manual labor is an hour that could be spent on more critical tasks. This isn't just about getting more done – it's about reducing the stress and uncertainty that comes with not having a clear picture of what's happening on each project. It's about being able to focus on what really matters: building great projects, not just managing the paperwork.
+
+## What Changes with Automation
+
+When you bring automation into the mix, everything changes. The data that was once scattered and hard to access becomes clean and actionable. The spreadsheets and calendars that were once the lifeline of your operations are replaced with software that can actually process the information and provide real-time insights. Suddenly, you're not just reacting to changes – you're anticipating them. You're not just managing the symptoms of disorganization – you're treating the disease itself.
+
+Automation also means that you're no longer at the mercy of email, phone calls, and physical meetings. You're not tied to a desk or waiting for someone to drop you a message. With our project aggregator, you can access all your projects in one place, from any device. You can see the entire timeline, from planning to completion, without having to dig through multiple sources. You can make decisions based on data, not guesswork.
+
+## What We Build for Them
+
+At Cortecs, we don't just build automation systems – we build solutions. We take the complexities of project management and break them down into simple, intuitive tools that actually work. We work closely with construction companies like yours to understand your unique pain points and tailor our solutions to meet your needs. We're not just a vendor – we're partners. We're here to help you succeed, not just to sell you something.
+
+Our project aggregator is just one part of our suite of automation tools. We've helped companies like yours streamline their estimating, reduce their administrative burden, and increase their productivity. We've seen firsthand the impact that automation can have on a business – from reduced stress to increased revenue. And we're always looking for new ways to improve and expand our offerings.
+
+## Visit Cortecs.ca
+
+If you're tired of feeling like you're drowning in paperwork and meetings, it's time to take back control. At Cortecs, we're here to help. Our project aggregator is just the beginning – we're always innovating and pushing the boundaries of what's possible. Visit cortecs.ca to learn more about how we can help your construction company thrive. Let's build a better future, together.
+    `,
+  },
+  {
     slug: "how-to-automate-business-workflows-with-ai",
     title: "How to Automate Business Workflows with AI in 2025",
     metaTitle: "How to Automate Business Workflows with AI | Complete Guide",
