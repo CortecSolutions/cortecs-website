@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance App Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+    }
+    .iphone-frame {
+      width: 380px;
+      height: 780px;
+      background: #1a1a1a;
+      border-radius: 55px;
+      padding: 12px;
+      box-shadow: 0 0 0 3px #2a2a2a, 0 50px 100px rgba(0,0,0,0.5);
+    }
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #0a0a0a 0%, #171717 100%);
+      border-radius: 45px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 35px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+    }
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 28px 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .app-content {
+      padding: 50px 20px 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .greeting {
+      color: #71717a;
+      font-size: 14px;
+    }
+    .title {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .balance-card {
+      background: linear-gradient(135deg, #18181b, #27272a);
+      border: 1px solid #3f3f46;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .balance-label {
+      color: #71717a;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .balance-amount {
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      margin: 8px 0;
+    }
+    .balance-change {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .balance-change svg {
+      width: 14px;
+      height: 14px;
+    }
+    .chart-container {
+      height: 80px;
+      margin-top: 20px;
+      position: relative;
+    }
+    .chart-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.2) 0%, transparent 100%);
+      clip-path: polygon(0 80%, 15% 60%, 30% 70%, 45% 40%, 60% 50%, 75% 20%, 90% 30%, 100% 10%, 100% 100%, 0 100%);
+    }
+    .chart-stroke {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      border: none;
+      background: transparent;
+    }
+    .chart-stroke::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #22c55e;
+      clip-path: polygon(0 0, 15% 0, 15% 100%, 0 100%);
+      transform: translateY(-48px);
+    }
+    .quick-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .action-btn {
+      text-align: center;
+    }
+    .action-icon {
+      width: 56px;
+      height: 56px;
+      background: #27272a;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .action-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #22c55e;
+    }
+    .action-label {
+      color: #a1a1aa;
+      font-size: 12px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .see-all {
+      color: #22c55e;
+      font-size: 13px;
+    }
+    .transaction-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .transaction-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #18181b;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .transaction-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .transaction-icon.green {
+      background: rgba(34, 197, 94, 0.15);
+    }
+    .transaction-icon.green svg {
+      stroke: #22c55e;
+    }
+    .transaction-icon.red {
+      background: rgba(239, 68, 68, 0.15);
+    }
+    .transaction-icon.red svg {
+      stroke: #ef4444;
+    }
+    .transaction-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .transaction-info {
+      flex: 1;
+    }
+    .transaction-name {
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .transaction-date {
+      color: #71717a;
+      font-size: 12px;
+    }
+    .transaction-amount {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .transaction-amount.positive {
+      color: #22c55e;
+    }
+    .transaction-amount.negative {
+      color: #ef4444;
+    }
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: #18181b;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 16px;
+      border-top: 1px solid #27272a;
+    }
+    .nav-item {
+      text-align: center;
+    }
+    .nav-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: #71717a;
+      fill: none;
+    }
+    .nav-item.active svg {
+      stroke: #22c55e;
+    }
+    .nav-item span {
+      display: block;
+      font-size: 10px;
+      color: #71717a;
+      margin-top: 4px;
+    }
+    .nav-item.active span {
+      color: #22c55e;
+    }
+  </style>
+</head>
+<body>
+  <div class="iphone-frame">
+    <div class="iphone-screen">
+      <div class="dynamic-island"></div>
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>100%</span>
+      </div>
+
+      <div class="app-content">
+        <div class="header">
+          <div>
+            <div class="greeting">Good morning</div>
+            <div class="title">Dashboard</div>
+          </div>
+          <div class="avatar">JD</div>
+        </div>
+
+        <div class="balance-card">
+          <div class="balance-label">Total Balance</div>
+          <div class="balance-amount">$48,352.94</div>
+          <div class="balance-change">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
+            +12.5% this month
+          </div>
+          <div class="chart-container">
+            <div class="chart-line"></div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <div class="action-btn">
+            <div class="action-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" /></svg>
+            </div>
+            <div class="action-label">Send</div>
+          </div>
+          <div class="action-btn">
+            <div class="action-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" /></svg>
+            </div>
+            <div class="action-label">Receive</div>
+          </div>
+          <div class="action-btn">
+            <div class="action-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+            </div>
+            <div class="action-label">Pay</div>
+          </div>
+          <div class="action-btn">
+            <div class="action-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+            </div>
+            <div class="action-label">Invest</div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <div class="section-title">Recent Activity</div>
+          <div class="see-all">See all</div>
+        </div>
+
+        <div class="transaction-list">
+          <div class="transaction-item">
+            <div class="transaction-icon green">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" /></svg>
+            </div>
+            <div class="transaction-info">
+              <div class="transaction-name">Deposit</div>
+              <div class="transaction-date">Today, 2:45 PM</div>
+            </div>
+            <div class="transaction-amount positive">+$2,500.00</div>
+          </div>
+          <div class="transaction-item">
+            <div class="transaction-icon red">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" /></svg>
+            </div>
+            <div class="transaction-info">
+              <div class="transaction-name">Transfer to Sarah</div>
+              <div class="transaction-date">Yesterday, 9:12 AM</div>
+            </div>
+            <div class="transaction-amount negative">-$150.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-nav">
+        <div class="nav-item active">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+          <span>Home</span>
+        </div>
+        <div class="nav-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
+          <span>Cards</span>
+        </div>
+        <div class="nav-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+          <span>Analytics</span>
+        </div>
+        <div class="nav-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          <span>Settings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

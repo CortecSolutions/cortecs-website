@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Scenes</title>
+  <style>
+    body { font-family: Arial; margin: 0; }
+    .scene {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 48px;
+    }
+    .scene.active { display: flex; }
+    #scene1 { background: orange; color: white; }
+    #scene2 { background: white; color: black; }
+    #scene3 { background: #f5f5f5; color: black; }
+    #scene4 { background: #e0e0e0; color: black; }
+    #scene5 { background: white; color: black; }
+    #scene6 { background: orange; color: white; }
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    button {
+      padding: 20px 40px;
+      font-size: 24px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scene active" id="scene1">
+  <h1>Scene 1: Title</h1>
+</div>
+
+<div class="scene" id="scene2">
+  <h1>Scene 2: Prepare</h1>
+</div>
+
+<div class="scene" id="scene3">
+  <h1>Scene 3: Width (A)</h1>
+  <p>Step 1</p>
+</div>
+
+<div class="scene" id="scene4">
+  <h1>Scene 4: Length (B)</h1>
+  <p>Step 2</p>
+</div>
+
+<div class="scene" id="scene5">
+  <h1>Scene 5: Size Chart</h1>
+</div>
+
+<div class="scene" id="scene6">
+  <h1>Scene 6: Outro</h1>
+</div>
+
+<div class="controls">
+  <button id="prevBtn">Back</button>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+var current = 1;
+var total = 6;
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (current < total) {
+    document.getElementById('scene' + current).classList.remove('active');
+    current++;
+    document.getElementById('scene' + current).classList.add('active');
+  }
+});
+
+document.getElementById('prevBtn').addEventListener('click', function() {
+  if (current > 1) {
+    document.getElementById('scene' + current).classList.remove('active');
+    current--;
+    document.getElementById('scene' + current).classList.add('active');
+  }
+});
+</script>
+
+</body>
+</html>

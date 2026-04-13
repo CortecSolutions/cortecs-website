@@ -131,54 +131,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              name: "Reflect Drive",
-              description: "A USB drive with a complete self-reflection system. Plug in when you need to think. Unplug when you're done. No trace left behind.",
-              brand: {
-                "@type": "Brand",
-                name: "Cortec",
-              },
-              offers: {
-                "@type": "Offer",
-                price: "79.00",
-                priceCurrency: "CAD",
-                availability: "https://schema.org/InStock",
-                url: "https://www.cortecs.ca/reflect",
-                shippingDetails: {
-                  "@type": "OfferShippingDetails",
-                  shippingDestination: {
-                    "@type": "DefinedRegion",
-                    addressCountry: "CA",
-                  },
-                  deliveryTime: {
-                    "@type": "ShippingDeliveryTime",
-                    businessDays: {
-                      "@type": "OpeningHoursSpecification",
-                      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    },
-                    transitTime: {
-                      "@type": "QuantitativeValue",
-                      minValue: 3,
-                      maxValue: 7,
-                      unitCode: "d",
-                    },
-                  },
-                  shippingRate: {
-                    "@type": "MonetaryAmount",
-                    value: "0",
-                    currency: "CAD",
-                  },
-                },
-              },
-              category: "Personal Development",
-            }),
-          }}
-        />
       </head>
       <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {children}

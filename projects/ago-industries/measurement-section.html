@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGO Sizing - Measurement Section</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .scene {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .scene.active { display: flex; }
+
+    /* Prepare Scene */
+    #scene1 {
+      background: white;
+      gap: 40px;
+    }
+    .step-badge {
+      background: #ff6b00;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    #scene1 h2 {
+      font-size: 52px;
+      color: #333;
+    }
+    .prepare-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .prepare-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 28px;
+    }
+    .check {
+      width: 55px;
+      height: 55px;
+      background: #ff6b00;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      flex-shrink: 0;
+    }
+
+    /* Measurement Scenes */
+    #scene2, #scene3 {
+      background: #f5f5f5;
+      flex-direction: row;
+      padding: 40px;
+      gap: 60px;
+    }
+    .diagram-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .diagram-box img {
+      height: 70vh;
+      width: auto;
+    }
+
+    /* Animated highlight */
+    .highlight {
+      position: absolute;
+      background: rgba(255, 107, 0, 0.25);
+      border: 4px solid #ff6b00;
+      border-radius: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    /* Width highlight - horizontal across body at A line */
+    .highlight-a {
+      top: 44%;
+      left: 35%;
+      width: 30%;
+      height: 5%;
+    }
+
+    /* Length highlight - vertical from collar to hem */
+    .highlight-b {
+      top: 28%;
+      left: 47%;
+      width: 6%;
+      height: 45%;
+    }
+
+    .info-panel {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .info-panel h3 {
+      font-size: 42px;
+      color: #333;
+    }
+    .measure-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #ff6b00;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      width: fit-content;
+    }
+    .info-panel p {
+      font-size: 26px;
+      color: #555;
+      line-height: 1.5;
+    }
+    .tip-box {
+      background: #fff3e0;
+      border-left: 5px solid #ff6b00;
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      font-size: 20px;
+      color: #e65100;
+    }
+
+    /* Size Chart Scene */
+    #scene4 {
+      background: white;
+      gap: 35px;
+      padding: 50px;
+    }
+    #scene4 h2 {
+      font-size: 48px;
+      color: #333;
+    }
+    .size-table {
+      background: #fafafa;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .size-table table {
+      border-collapse: collapse;
+      font-size: 24px;
+    }
+    .size-table th {
+      background: #ff6b00;
+      color: white;
+      padding: 22px 50px;
+      text-align: center;
+    }
+    .size-table td {
+      padding: 20px 50px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .size-table tr:hover td {
+      background: #fff3e0;
+    }
+    .chart-tip {
+      font-size: 22px;
+      color: #666;
+      margin-top: 15px;
+    }
+
+    /* Controls */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      gap: 15px;
+    }
+    .controls button {
+      padding: 18px 35px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #ff6b00;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background: #ff8533;
+    }
+    .progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 6px;
+      background: #ff6b00;
+      transition: width 0.3s;
+    }
+
+    /* Hide controls for recording */
+    body.recording .controls { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Scene 1: Prepare Your Garment -->
+  <div class="scene active" id="scene1">
+    <div class="step-badge">BEFORE YOU START</div>
+    <h2>Prepare Your Garment</h2>
+    <div class="prepare-list">
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Use a garment you already own that <strong>fits well</strong></span>
+      </div>
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Ensure all <strong>buttons and zippers are closed</strong></span>
+      </div>
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Lay it flat with the <strong>front facing down</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 2: Measure Width (A) -->
+  <div class="scene" id="scene2">
+    <div class="diagram-box">
+      <img src="ls_workshirt.jpg" alt="Shirt measurement diagram">
+      <div class="highlight highlight-a"></div>
+    </div>
+    <div class="info-panel">
+      <div class="step-badge">STEP 1</div>
+      <div class="measure-label">A — Width</div>
+      <h3>Measure Side to Side</h3>
+      <p>Measure from <strong>side seam to side seam</strong>, approximately <strong>2 inches below the armpit</strong>.</p>
+      <div class="tip-box">Write down this measurement in inches.</div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Measure Length (B) -->
+  <div class="scene" id="scene3">
+    <div class="diagram-box">
+      <img src="ls_workshirt.jpg" alt="Shirt measurement diagram">
+      <div class="highlight highlight-b"></div>
+    </div>
+    <div class="info-panel">
+      <div class="step-badge">STEP 2</div>
+      <div class="measure-label">B — Length</div>
+      <h3>Measure Collar to Hem</h3>
+      <p>Measure from the <strong>bottom of the collar</strong> down to the <strong>bottom hem</strong> of the garment.</p>
+      <div class="tip-box">This gives you the overall length.</div>
+    </div>
+  </div>
+
+  <!-- Scene 4: Size Chart -->
+  <div class="scene" id="scene4">
+    <div class="step-badge">STEP 3</div>
+    <h2>Find Your Size</h2>
+    <div class="size-table">
+      <table>
+        <tr>
+          <th>Size</th>
+          <th>Width (A)</th>
+          <th>Length (B)</th>
+        </tr>
+        <tr><td>Small</td><td>21"</td><td>29"</td></tr>
+        <tr><td>Medium</td><td>23"</td><td>30"</td></tr>
+        <tr><td>Large</td><td>25"</td><td>31"</td></tr>
+        <tr><td>X-Large</td><td>27"</td><td>32"</td></tr>
+        <tr><td>2X-Large</td><td>29"</td><td>33"</td></tr>
+        <tr><td>3X-Large</td><td>31"</td><td>34"</td></tr>
+      </table>
+    </div>
+    <p class="chart-tip">Between sizes? We recommend sizing up for comfort.</p>
+  </div>
+
+  <div class="progress" id="progress" style="display: none;"></div>
+
+  <!-- Controls hidden for video recording -->
+  <div class="controls" style="display: none;">
+    <button id="prevBtn">← Back</button>
+    <button id="nextBtn">Next →</button>
+    <button id="playBtn">▶ Auto Play</button>
+    <button id="recordBtn">Record Mode</button>
+  </div>
+
+  <script>
+    var current = 1;
+    var total = 4;
+    var isPlaying = false;
+
+    function showScene(n) {
+      document.getElementById('scene' + current).classList.remove('active');
+      current = n;
+      document.getElementById('scene' + current).classList.add('active');
+      document.getElementById('progress').style.width = ((current / total) * 100) + '%';
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      if (current < total) showScene(current + 1);
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      if (current > 1) showScene(current - 1);
+    });
+
+    document.getElementById('playBtn').addEventListener('click', function() {
+      if (isPlaying) return;
+      isPlaying = true;
+      showScene(1);
+      setTimeout(function() { showScene(2); }, 5000);
+      setTimeout(function() { showScene(3); }, 11000);
+      setTimeout(function() { showScene(4); }, 17000);
+      setTimeout(function() { isPlaying = false; }, 23000);
+    });
+
+    document.getElementById('recordBtn').addEventListener('click', function() {
+      document.body.classList.toggle('recording');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') { if (current < total) showScene(current + 1); }
+      if (e.key === 'ArrowLeft') { if (current > 1) showScene(current - 1); }
+      if (e.key === 'r') { document.body.classList.toggle('recording'); }
+    });
+  </script>
+
+</body>
+</html>

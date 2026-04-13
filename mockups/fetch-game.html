@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Fetch Game Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+    }
+    .iphone-frame {
+      width: 380px;
+      height: 780px;
+      background: #1a1a1a;
+      border-radius: 55px;
+      padding: 12px;
+      box-shadow: 0 0 0 3px #2a2a2a, 0 50px 100px rgba(0,0,0,0.5);
+    }
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #fef3c7 0%, #fde68a 50%, #92c83e 100%);
+      border-radius: 45px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 35px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+    }
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 28px 8px;
+      color: #713f12;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 24px 16px;
+    }
+    .score-box {
+      background: rgba(255,255,255,0.9);
+      border-radius: 16px;
+      padding: 12px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .score-label {
+      font-size: 11px;
+      color: #92400e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .score-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #b45309;
+    }
+    .streak-box {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border-radius: 16px;
+      padding: 12px 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+    .streak-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .streak-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+    .game-area {
+      position: relative;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dog-container {
+      text-align: center;
+    }
+    .dog {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(180deg, #a16207 0%, #854d0e 100%);
+      border-radius: 50%;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .dog::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 60px;
+      background: #fef3c7;
+      border-radius: 50%;
+    }
+    .dog-ear {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background: #713f12;
+      border-radius: 50% 50% 50% 50%;
+      top: -10px;
+    }
+    .dog-ear.left { left: 10px; transform: rotate(-20deg); }
+    .dog-ear.right { right: 10px; transform: rotate(20deg); }
+    .dog-eye {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #1c1917;
+      border-radius: 50%;
+      top: 38%;
+    }
+    .dog-eye.left { left: 30%; }
+    .dog-eye.right { right: 30%; }
+    .dog-eye::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      top: 4px;
+      left: 4px;
+    }
+    .dog-nose {
+      position: absolute;
+      width: 30px;
+      height: 22px;
+      background: #1c1917;
+      border-radius: 50%;
+      top: 52%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .dog-tongue {
+      position: absolute;
+      width: 24px;
+      height: 40px;
+      background: #f87171;
+      border-radius: 0 0 50% 50%;
+      top: 62%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .ball {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+      animation: bounce 0.8s ease-in-out infinite;
+    }
+    .ball::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 16px;
+      height: 16px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .dog-status {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #713f12;
+    }
+    .throw-button {
+      margin: 0 24px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .throw-button svg {
+      width: 28px;
+      height: 28px;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 24px;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #713f12;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #92400e;
+    }
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .nav-item {
+      text-align: center;
+    }
+    .nav-item svg {
+      width: 26px;
+      height: 26px;
+      stroke: #a8a29e;
+      fill: none;
+    }
+    .nav-item.active svg {
+      stroke: #16a34a;
+    }
+    .nav-item span {
+      display: block;
+      font-size: 10px;
+      color: #a8a29e;
+      margin-top: 4px;
+    }
+    .nav-item.active span {
+      color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <div class="iphone-frame">
+    <div class="iphone-screen">
+      <div class="dynamic-island"></div>
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>100%</span>
+      </div>
+
+      <div class="game-header">
+        <div class="score-box">
+          <div class="score-label">Score</div>
+          <div class="score-value">2,450</div>
+        </div>
+        <div class="streak-box">
+          <div class="streak-value">7x</div>
+          <div class="streak-label">Streak!</div>
+        </div>
+      </div>
+
+      <div class="game-area">
+        <div class="dog-container">
+          <div class="dog">
+            <div class="dog-ear left"></div>
+            <div class="dog-ear right"></div>
+            <div class="dog-eye left"></div>
+            <div class="dog-eye right"></div>
+            <div class="dog-nose"></div>
+            <div class="dog-tongue"></div>
+          </div>
+          <div class="dog-status">Max is ready to play!</div>
+        </div>
+        <div class="ball"></div>
+      </div>
+
+      <div class="throw-button">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+        </svg>
+        THROW BALL!
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">156</div>
+          <div class="stat-label">Throws Today</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">98%</div>
+          <div class="stat-label">Catch Rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">12</div>
+          <div class="stat-label">Best Streak</div>
+        </div>
+      </div>
+
+      <div class="bottom-nav">
+        <div class="nav-item active">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" /></svg>
+          <span>Play</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" /></svg>
+          <span>Leaderboard</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+          <span>Rewards</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          <span>Profile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

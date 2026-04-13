@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGO Industries - How to Find Your Size</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .scene {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .scene.active { display: flex; }
+
+    /* Scene 1: Title */
+    #scene1 {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+      gap: 30px;
+    }
+    #scene1 img { height: 80px; }
+    #scene1 h1 { font-size: 64px; text-align: center; }
+    #scene1 h2 { font-size: 26px; opacity: 0.9; }
+
+    /* Scene 2: Prepare */
+    #scene2 {
+      background: white;
+      color: #333;
+      gap: 40px;
+    }
+    .step-header {
+      background: #ff6b00;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #scene2 h2 { font-size: 48px; }
+    .prepare-list { display: flex; flex-direction: column; gap: 25px; }
+    .prepare-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 26px;
+    }
+    .check {
+      width: 50px; height: 50px;
+      background: #ff6b00;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    /* Measurement scenes */
+    #scene3, #scene4 {
+      background: #f5f5f5;
+      position: relative;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 0;
+    }
+    .measure-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60vw;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    .measure-container img {
+      max-height: 100vh;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .measurement-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* Width arrow */
+    .width-arrow {
+      position: absolute;
+      top: 72%;
+      left: 25%;
+      width: 50%;
+      height: 8px;
+      background: linear-gradient(90deg, #ff0000, #ff6600);
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.7);
+    }
+    .width-arrow::before, .width-arrow::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 12px solid transparent;
+    }
+    .width-arrow::before {
+      left: -20px;
+      border-right-color: #ff0000;
+    }
+    .width-arrow::after {
+      right: -20px;
+      border-left-color: #ff6600;
+    }
+
+    /* Length arrow */
+    .length-arrow {
+      position: absolute;
+      top: 62%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 28%;
+      background: linear-gradient(180deg, #ff0000, #ff6600);
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(255,0,0,0.7);
+    }
+    .length-arrow::before, .length-arrow::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 12px solid transparent;
+    }
+    .length-arrow::before {
+      top: -20px;
+      border-bottom-color: #ff0000;
+    }
+    .length-arrow::after {
+      bottom: -20px;
+      border-top-color: #ff6600;
+    }
+
+    /* Marker circles */
+    .marker {
+      position: absolute;
+      width: 50px; height: 50px;
+      background: #ff6b00;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: 3px solid white;
+    }
+    .marker-a { top: 70%; right: 20%; }
+    .marker-b { top: 60%; left: 55%; }
+
+    /* Instruction box */
+    .instruction-box {
+      position: absolute;
+      top: 50%;
+      right: 5vw;
+      transform: translateY(-50%);
+      width: 30vw;
+      background: rgba(255, 107, 0, 0.97);
+      padding: 30px 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      color: white;
+    }
+    .instruction-box .step-num {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .instruction-box h3 { font-size: 28px; margin-bottom: 10px; }
+    .instruction-box p { font-size: 18px; opacity: 0.95; font-style: italic; }
+
+    /* Scene 5: Chart */
+    #scene5 {
+      background: white;
+      color: #333;
+      gap: 30px;
+      padding: 50px;
+    }
+    #scene5 h2 { font-size: 42px; }
+    .size-table {
+      background: #f9f9f9;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .size-table table {
+      border-collapse: collapse;
+      font-size: 22px;
+    }
+    .size-table th {
+      background: #ff6b00;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    .size-table td {
+      padding: 18px 40px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .chart-tip { color: #666; font-size: 20px; margin-top: 10px; }
+
+    /* Scene 6: Outro */
+    #scene6 {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+      gap: 25px;
+    }
+    #scene6 img { height: 100px; }
+    #scene6 h1 { font-size: 56px; }
+    #scene6 .tagline { font-size: 28px; opacity: 0.9; }
+    #scene6 .contact { font-size: 24px; margin-top: 20px; }
+
+    /* Controls */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      right: 5vw;
+      width: 30vw;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .controls button {
+      padding: 20px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #ff6b00;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background: #ff8533;
+    }
+    .scene-indicator {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      z-index: 1000;
+      color: white;
+    }
+    .progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 6px;
+      background: #ff6b00;
+      z-index: 1001;
+    }
+    body.recording .controls,
+    body.recording .scene-indicator { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Scene 1: Title -->
+  <div class="scene active" id="scene1">
+    <img src="ago_logo.jpg" alt="AGO Industries">
+    <h1>How to Find Your Size</h1>
+    <h2>Follow these simple steps to get the perfect fit</h2>
+  </div>
+
+  <!-- Scene 2: Prepare -->
+  <div class="scene" id="scene2">
+    <div class="step-header">BEFORE YOU START</div>
+    <h2>Prepare Your Garment</h2>
+    <div class="prepare-list">
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Use a similar garment you already own that fits well</span>
+      </div>
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Ensure all buttons and zippers are closed</span>
+      </div>
+      <div class="prepare-item">
+        <div class="check">✓</div>
+        <span>Lay your garment flat with the <strong>front facing down</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Measure Width -->
+  <div class="scene" id="scene3">
+    <div class="measure-container">
+      <img src="ago_flat_shirt.png" alt="Garment laid flat">
+      <div class="measurement-overlay">
+        <div class="width-arrow"></div>
+        <div class="marker marker-a">A</div>
+      </div>
+    </div>
+    <div class="instruction-box">
+      <div class="step-num">Step 1 — Width (A)</div>
+      <h3>Measure Side Seam to Side Seam</h3>
+      <p>"Approximately 2 inches below the armpit"</p>
+    </div>
+  </div>
+
+  <!-- Scene 4: Measure Length -->
+  <div class="scene" id="scene4">
+    <div class="measure-container">
+      <img src="ago_flat_shirt.png" alt="Garment laid flat">
+      <div class="measurement-overlay">
+        <div class="length-arrow"></div>
+        <div class="marker marker-b">B</div>
+      </div>
+    </div>
+    <div class="instruction-box">
+      <div class="step-num">Step 2 — Length (B)</div>
+      <h3>Measure Collar to Hem</h3>
+      <p>"From the bottom of the collar to the edge of the bottom hem"</p>
+    </div>
+  </div>
+
+  <!-- Scene 5: Size Chart -->
+  <div class="scene" id="scene5">
+    <div class="step-header">STEP 3</div>
+    <h2>Compare Your Measurements</h2>
+    <div class="size-table">
+      <table>
+        <tr>
+          <th>Size</th>
+          <th>Width (A)</th>
+          <th>Length (B)</th>
+        </tr>
+        <tr><td>Small</td><td>21"</td><td>29"</td></tr>
+        <tr><td>Medium</td><td>23"</td><td>30"</td></tr>
+        <tr><td>Large</td><td>25"</td><td>31"</td></tr>
+        <tr><td>X-Large</td><td>27"</td><td>32"</td></tr>
+        <tr><td>2X-Large</td><td>29"</td><td>33"</td></tr>
+        <tr><td>3X-Large</td><td>31"</td><td>34"</td></tr>
+      </table>
+    </div>
+    <p class="chart-tip">Between sizes? We recommend sizing up for a comfortable fit.</p>
+  </div>
+
+  <!-- Scene 6: Outro -->
+  <div class="scene" id="scene6">
+    <img src="ago_logo.jpg" alt="AGO Industries">
+    <h1>AGO Industries</h1>
+    <p class="tagline">Safety Apparel That Fits</p>
+    <p class="contact">www.ago1.com | 519-452-3780</p>
+  </div>
+
+  <div class="scene-indicator" id="indicator">1 / 6</div>
+  <div class="progress-bar" id="progress"></div>
+
+  <div class="controls">
+    <button id="prevBtn">← Back</button>
+    <button id="nextBtn">Next →</button>
+    <button id="playBtn">▶ Auto Play</button>
+    <button id="recordBtn">Record Mode</button>
+  </div>
+
+  <script>
+    var current = 1;
+    var total = 6;
+    var isPlaying = false;
+
+    function showScene(n) {
+      document.getElementById('scene' + current).classList.remove('active');
+      current = n;
+      document.getElementById('scene' + current).classList.add('active');
+      document.getElementById('indicator').textContent = current + ' / ' + total;
+      document.getElementById('progress').style.width = ((current / total) * 100) + '%';
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+      if (current < total) showScene(current + 1);
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+      if (current > 1) showScene(current - 1);
+    });
+
+    document.getElementById('playBtn').addEventListener('click', function() {
+      if (isPlaying) return;
+      isPlaying = true;
+      showScene(1);
+      setTimeout(function() { showScene(2); }, 3500);
+      setTimeout(function() { showScene(3); }, 8500);
+      setTimeout(function() { showScene(4); }, 13500);
+      setTimeout(function() { showScene(5); }, 18500);
+      setTimeout(function() { showScene(6); }, 24000);
+      setTimeout(function() { isPlaying = false; }, 28000);
+    });
+
+    document.getElementById('recordBtn').addEventListener('click', function() {
+      document.body.classList.toggle('recording');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        if (current < total) showScene(current + 1);
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (current > 1) showScene(current - 1);
+      }
+    });
+  </script>
+
+</body>
+</html>
