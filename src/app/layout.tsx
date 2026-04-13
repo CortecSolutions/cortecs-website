@@ -10,22 +10,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cortecs.ca"),
   title: {
-    default: "Cortec Solutions | Custom Software & AI Solutions in Canada",
+    default: "Cortec Solutions | Custom Software & Automation for Busy Teams",
     template: "%s | Cortec Solutions",
   },
   description:
-    "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows. Expert technical consulting for digital transformation and process optimization.",
+    "Custom software, workflow automation, and AI assistants built for busy teams and small businesses. Tools that save you time, cut the busywork, and just work.",
   keywords: [
-    "custom software development",
-    "AI solutions",
-    "business automation",
-    "digital transformation",
-    "technical consulting",
+    "custom software",
     "workflow automation",
-    "software development Canada",
-    "AI-powered tools",
-    "process optimization",
-    "enterprise software",
+    "small business automation",
+    "AI assistants",
+    "custom business tools",
+    "operations automation",
+    "data integration",
+    "business process automation",
+    "custom dashboards",
+    "small team software",
   ],
   authors: [{ name: "Cortec Solutions" }],
   creator: "Cortec Solutions",
@@ -46,23 +46,23 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://www.cortecs.ca",
     siteName: "Cortec Solutions",
-    title: "Cortec Solutions | Custom Software & AI Solutions",
+    title: "Cortec Solutions | Custom Software & Automation for Busy Teams",
     description:
-      "Transform your business with custom software, AI-powered tools, and automated workflows. Expert technical consulting for digital transformation.",
+      "Custom software, workflow automation, and AI assistants built for busy teams. Tools that save you time and just work.",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Cortec Solutions - Custom Software & AI Solutions",
+        alt: "Cortec Solutions - Custom Software & Automation for Busy Teams",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cortec Solutions | Custom Software & AI Solutions",
+    title: "Cortec Solutions | Custom Software & Automation for Busy Teams",
     description:
-      "Transform your business with custom software, AI-powered tools, and automated workflows.",
+      "Custom software, workflow automation, and AI assistants built for busy teams.",
     images: ["/og-image.svg"],
   },
   verification: {
@@ -92,7 +92,7 @@ export default function RootLayout({
               url: "https://www.cortecs.ca",
               logo: "https://www.cortecs.ca/og-image.svg",
               description:
-                "Design, development, and implementation of custom software applications, AI-powered tools, and automated business workflows.",
+                "Custom software, workflow automation, and AI assistants built for busy teams and small businesses.",
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "CA",
@@ -104,11 +104,11 @@ export default function RootLayout({
                 url: "https://www.cortecs.ca/#contact",
               },
               serviceType: [
-                "Custom Software Development",
-                "AI Solutions",
-                "Business Workflow Automation",
-                "Technical Consulting",
-                "Digital Transformation",
+                "Custom Software",
+                "Workflow Automation",
+                "AI Assistants",
+                "Data Integration",
+                "Business Process Automation",
               ],
             }),
           }}

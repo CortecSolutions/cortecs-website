@@ -46,9 +46,9 @@ export default function Home() {
 
   const services = [
     {
-      title: "Custom Software Development",
+      title: "Custom Software",
       description:
-        "End-to-end design, development, and implementation of tailored software applications that solve your unique business challenges.",
+        "Internal tools, dashboards, order systems, customer portals — built around how your business actually works. No bloated subscriptions. Just software that fits.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -56,19 +56,9 @@ export default function Home() {
       ),
     },
     {
-      title: "AI-Powered Solutions",
+      title: "Workflow Automation",
       description:
-        "Intelligent tools and systems leveraging machine learning and AI to automate decisions, analyze data, and enhance productivity.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Business Workflow Automation",
-      description:
-        "Streamline operations with automated workflows that reduce manual tasks, minimize errors, and accelerate your processes.",
+        "If you're copying data between systems, sending the same emails over and over, or tracking things in spreadsheets that should update themselves — I can fix that.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -76,12 +66,22 @@ export default function Home() {
       ),
     },
     {
-      title: "Technical Consulting",
+      title: "AI Assistants",
       description:
-        "Strategic guidance for digital transformation, process optimization, and technology modernization to keep you ahead.",
+        "Smart assistants trained on your company's data — product info, procedures, internal docs. They answer questions and handle tasks so your team doesn't have to.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Data Cleanup & Integration",
+      description:
+        "Before you can automate anything, the data needs to make sense. I help connect your systems, organize what you have, and build a foundation you can actually grow on.",
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
         </svg>
       ),
     },
@@ -99,13 +99,13 @@ export default function Home() {
             </a>
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors">
-                Services
+                What I Do
               </a>
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
               </a>
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
-                Portfolio
+                Work
               </a>
               <a
                 href="#contact"
@@ -123,25 +123,26 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Transform Your Business with{" "}
-              <span className="gradient-text">Intelligent Solutions</span>
+              Custom Software &{" "}
+              <span className="gradient-text">Automation for Busy Teams</span>
             </h1>
             <p className="text-xl text-secondary mb-8 leading-relaxed">
-              We design, develop, and implement custom software applications, AI-powered tools,
-              and automated workflows that drive real results for your business.
+              You&apos;re too busy running your business to deal with clunky tools that
+              don&apos;t fit. I build custom software and automations that save you time,
+              cut the busywork, and just work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
                 className="gradient-bg text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity text-center"
               >
-                Start Your Project
+                Let&apos;s Talk
               </a>
               <a
                 href="#services"
                 className="border border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full text-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-center"
               >
-                Explore Services
+                See What I Build
               </a>
             </div>
           </div>
@@ -152,9 +153,10 @@ export default function Home() {
       <section id="services" className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-4">What I Do</h2>
             <p className="text-secondary text-lg max-w-2xl mx-auto">
-              Comprehensive technical solutions tailored to accelerate your digital transformation
+              I work with small teams and business owners who are too busy to deal with
+              technology that doesn&apos;t work. I build the tools that make your day easier.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -172,43 +174,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">How It Works</h2>
+            <p className="text-secondary text-lg max-w-2xl mx-auto">
+              No long proposals. No six-month timelines. Just a straightforward process
+              that gets you from problem to working solution.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "We Talk",
+                description:
+                  "You tell me what's eating up your time. I ask questions until I understand the real problem — not just the symptoms.",
+              },
+              {
+                step: "02",
+                title: "I Build",
+                description:
+                  "I build a working version fast so you can see it, use it, and tell me what needs to change before we go further.",
+              },
+              {
+                step: "03",
+                title: "You Run It",
+                description:
+                  "The tool goes live. I stick around to make sure it works in the real world, not just in a demo.",
+              },
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl font-bold gradient-text mb-4">{item.step}</div>
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-secondary leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
+      <section id="about" className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Building the Future,{" "}
-                <span className="gradient-text">One Solution at a Time</span>
+                Built by Someone Who{" "}
+                <span className="gradient-text">Gets It</span>
               </h2>
               <p className="text-secondary text-lg leading-relaxed mb-6">
-                At Cortec Solutions, we partner with businesses to navigate the complexities of
-                digital transformation. Our team combines deep technical expertise with a
-                commitment to understanding your unique challenges.
+                I&apos;m Matt. I build custom software and automation tools for people
+                who are too busy to waste time on technology that doesn&apos;t work.
+                Business owners, operations managers, small teams doing big work
+                with not enough hours in the day.
               </p>
               <p className="text-secondary text-lg leading-relaxed mb-8">
-                From concept to deployment, we deliver solutions that are not just technically
-                sound but strategically aligned with your business goals.
+                No enterprise sales pitch. No monthly fees you can&apos;t get out of.
+                Just tools that solve your specific problem, built to run on your terms.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <div className="text-3xl font-bold gradient-text">100%</div>
-                  <div className="text-secondary">Custom Solutions</div>
+                  <div className="text-3xl font-bold gradient-text">Your Data</div>
+                  <div className="text-secondary">Stays on your hardware</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold gradient-text">24/7</div>
-                  <div className="text-secondary">Support Available</div>
+                  <div className="text-3xl font-bold gradient-text">Custom-Fit</div>
+                  <div className="text-secondary">Built for how you work</div>
                 </div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-              <h3 className="text-2xl font-semibold mb-6">Why Choose Us?</h3>
+              <h3 className="text-2xl font-semibold mb-6">Why Work With Me?</h3>
               <ul className="space-y-4">
                 {[
-                  "Tailored solutions designed for your specific needs",
-                  "Transparent communication throughout every project",
-                  "Modern tech stack with future-proof architecture",
-                  "Dedicated support and maintenance services",
+                  "You talk to me directly — no middlemen, no runaround",
+                  "I build fast and iterate based on your feedback",
+                  "Your data stays private — no cloud lock-in",
+                  "I don't disappear after launch",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <svg
@@ -234,14 +278,14 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-50 dark:bg-slate-900/50">
+      <section id="contact" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Let&apos;s Work Together</h2>
+              <h2 className="text-4xl font-bold mb-4">Let&apos;s Figure It Out</h2>
               <p className="text-secondary text-lg">
-                Ready to transform your business? Tell us about your project and we&apos;ll get back
-                to you within 24 hours.
+                Tell me what&apos;s eating up your time. I&apos;ll get back to you within
+                24 hours with honest thoughts on whether I can help.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -290,7 +334,7 @@ export default function Home() {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  How can we help?
+                  What&apos;s the problem?
                 </label>
                 <textarea
                   id="message"
@@ -299,7 +343,7 @@ export default function Home() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Tell us about your project..."
+                  placeholder="What's taking up too much of your time?"
                 />
               </div>
               <button
@@ -311,12 +355,12 @@ export default function Home() {
               </button>
               {submitStatus === "success" && (
                 <p className="text-green-600 dark:text-green-400 text-center">
-                  Thank you! We&apos;ll be in touch soon.
+                  Got it! I&apos;ll be in touch soon.
                 </p>
               )}
               {submitStatus === "error" && (
                 <p className="text-red-600 dark:text-red-400 text-center">
-                  Something went wrong. Please try again or email us directly.
+                  Something went wrong. Please try again or email me directly.
                 </p>
               )}
             </form>
@@ -334,20 +378,20 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-8">
               <a href="#services" className="text-secondary hover:text-foreground transition-colors">
-                Services
+                What I Do
               </a>
               <a href="#about" className="text-secondary hover:text-foreground transition-colors">
                 About
               </a>
               <a href="/portfolio" className="text-secondary hover:text-foreground transition-colors">
-                Portfolio
+                Work
               </a>
               <a href="#contact" className="text-secondary hover:text-foreground transition-colors">
                 Contact
               </a>
             </div>
             <div className="text-secondary text-sm">
-              © {new Date().getFullYear()} Cortec Solutions. All rights reserved.
+              &copy; {new Date().getFullYear()} Cortec Solutions. All rights reserved.
             </div>
           </div>
         </div>
