@@ -23,28 +23,26 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   title: {
-    default: "Cortec | Custom Tech Solutions",
-    template: "%s | Cortec",
+    default: "Cortecs | AI Agents That Build Your Software",
+    template: "%s | Cortecs",
   },
   description:
-    "I like solving problems with technology. Projects ranging from self-reflection tools to network security. Some polished, some experiments, all real.",
+    "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark. Your data never leaves your building.",
   keywords: [
-    "custom software",
-    "network security",
-    "penetration testing",
-    "wifi security",
-    "self reflection tool",
-    "personal development",
-    "tech solutions",
-    "small business security",
-    "security assessment",
-    "custom development",
-    "raspberry pi",
-    "automation",
+    "AI agents",
+    "AI agent orchestration",
+    "custom software automation",
+    "private AI",
+    "on-premise AI",
+    "NVIDIA DGX Spark",
+    "business automation",
+    "small business AI",
+    "AI for freight",
+    "AI for contractors",
   ],
-  authors: [{ name: "Cortec" }],
-  creator: "Cortec",
-  publisher: "Cortec",
+  authors: [{ name: "Cortecs" }],
+  creator: "Cortecs",
+  publisher: "Cortecs",
   robots: {
     index: true,
     follow: true,
@@ -60,24 +58,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: "https://www.cortecs.ca",
-    siteName: "Cortec",
-    title: "Cortec | Custom Tech Solutions",
+    siteName: "Cortecs",
+    title: "Cortecs | AI Agents That Build Your Software",
     description:
-      "I like solving problems with technology. Projects from self-reflection tools to network security.",
+      "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark.",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Cortec - Custom Tech Solutions",
+        alt: "Cortecs - AI Agents That Build Your Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cortec | Custom Tech Solutions",
+    title: "Cortecs | AI Agents That Build Your Software",
     description:
-      "I like solving problems with technology. Projects from self-reflection tools to network security.",
+      "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark.",
     images: ["/og-image.svg"],
   },
   verification: {
@@ -114,11 +112,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Cortec",
+              name: "Cortecs",
               url: "https://www.cortecs.ca",
               logo: "https://www.cortecs.ca/logo.svg",
               description:
-                "Custom tech solutions - from self-reflection tools to network security assessments.",
+                "AI agent orchestration that builds custom software and automations for businesses. Powered by NVIDIA DGX Spark. Your data stays yours.",
               address: {
                 "@type": "PostalAddress",
                 addressRegion: "ON",
@@ -128,7 +126,7 @@ export default function RootLayout({
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
-                email: "mgrandy@rogers.com",
+                email: "matt@cortecs.ca",
               },
             }),
           }}
