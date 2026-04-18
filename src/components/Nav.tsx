@@ -6,8 +6,8 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
-  { href: "#about", label: "About" },
+  { href: "#process", label: "How it works" },
+  { href: "#why", label: "Why Cortecs" },
   { href: "#faq", label: "FAQ" },
 ];
 
