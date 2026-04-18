@@ -22,7 +22,18 @@
 
 # misc
 .DS_Store
+._*
 *.pem
+
+# dev notes / project assets that shouldn't live in the website repo
+/projects
+/mockups
+/scripts
+PROJECT_NOTES.md
+SESSION_NOTES.md
+session_notes*.md
+session-notes*.md
+*.backup
 
 # debug
 npm-debug.log*
