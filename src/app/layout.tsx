@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
 const inter = Inter({
@@ -137,6 +138,7 @@ export default function RootLayout({
             Skip to content
           </a>
           <Nav />
+          <ScrollProgress />
           <main id="main" className="pt-16">
             {children}
           </main>

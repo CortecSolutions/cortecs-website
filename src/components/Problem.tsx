@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -81,16 +82,71 @@ export function Problem() {
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
           The tools are here, they work, and most of the small businesses
-          around you haven&apos;t started using them yet. A 10-minute task done
-          50 times a week is 35 hours a month. Here&apos;s what that looks like
-          in practice.
+          around you haven&apos;t started using them yet. Here&apos;s the math
+          — and a few examples of what it looks like in practice.
         </motion.p>
 
-        <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
+        <motion.div
+          custom={3}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mt-14 grid gap-10 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 md:grid-cols-3 md:items-end md:p-12"
+        >
+          <div className="md:col-span-1">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-muted)]">
+              A task you do 50×/week
+            </p>
+            <div className="mt-3 flex items-baseline gap-1">
+              <span className="text-5xl font-semibold tracking-tight text-[var(--fg)] md:text-6xl">
+                10
+              </span>
+              <span className="text-2xl font-semibold text-[var(--fg-muted)] md:text-3xl">
+                min
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 text-[var(--fg-muted)] md:justify-center">
+            <span className="h-px flex-1 bg-[var(--border)]" />
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.75}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+            <span className="h-px flex-1 bg-[var(--border)]" />
+          </div>
+
+          <div className="md:col-span-1">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+              Given back, every month
+            </p>
+            <div className="mt-3 flex items-baseline gap-1">
+              <AnimatedNumber
+                to={35}
+                suffix="+"
+                className="text-5xl font-semibold tracking-tight text-[var(--fg)] md:text-7xl"
+              />
+              <span className="ml-2 text-2xl font-semibold text-[var(--fg-muted)] md:text-3xl">
+                hours
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
           {examples.map((item, i) => (
             <motion.li
               key={item.before}
-              custom={3 + i}
+              custom={4 + i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"

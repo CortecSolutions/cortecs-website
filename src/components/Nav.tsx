@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -11,8 +11,48 @@ const LINKS = [
   { href: "#faq", label: "FAQ" },
 ];
 
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (elements.length === 0) return;
+
+    const visibility = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          visibility.set(entry.target.id, entry.intersectionRatio);
+        }
+        let bestId: string | null = null;
+        let bestRatio = 0;
+        for (const [id, ratio] of visibility) {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        }
+        if (bestRatio > 0) setActive(bestId);
+      },
+      {
+        rootMargin: "-30% 0px -50% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}
+
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection(LINKS.map((l) => l.href.slice(1)));
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_75%,transparent)] backdrop-blur-xl">
@@ -32,16 +72,37 @@ export function Nav() {
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {LINKS.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-sm text-[var(--fg-muted)] transition hover:text-[var(--fg)]"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+          {LINKS.map((l) => {
+            const isActive = active === l.href.slice(1);
+            return (
+              <li key={l.href} className="relative">
+                <a
+                  href={l.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={[
+                    "text-sm transition",
+                    isActive
+                      ? "text-[var(--fg)]"
+                      : "text-[var(--fg-muted)] hover:text-[var(--fg)]",
+                  ].join(" ")}
+                >
+                  {l.label}
+                </a>
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active"
+                    transition={{
+                      type: "spring",
+                      stiffness: 420,
+                      damping: 36,
+                    }}
+                    className="absolute -bottom-1.5 left-0 right-0 h-px bg-[var(--accent)]"
+                    aria-hidden="true"
+                  />
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-3">

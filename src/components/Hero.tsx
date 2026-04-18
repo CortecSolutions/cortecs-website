@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type Variants,
+} from "framer-motion";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -16,20 +22,35 @@ const fadeUp: Variants = {
 };
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0px", "-60px"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       aria-labelledby="hero-headline"
       className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden"
     >
-      <div
+      <motion.div
         aria-hidden="true"
+        style={{ y: glowY, scale: glowScale }}
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div className="absolute left-1/2 top-[38%] h-[72vmin] w-[72vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent)] opacity-[0.06] blur-3xl" />
-      </div>
+      </motion.div>
 
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 md:py-28">
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="mx-auto w-full max-w-6xl px-6 py-24 md:py-28"
+      >
         <motion.p
           custom={0}
           variants={fadeUp}
@@ -109,7 +130,7 @@ export function Hero() {
           <span className="inline-block h-px w-8 bg-[var(--border)]" />
           <span className="uppercase tracking-[0.2em]">Scroll</span>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

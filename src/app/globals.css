@@ -51,6 +51,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fixed nav is 4rem tall; give anchored sections breathing room so jump
+   targets don't sit flush under the nav. */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
