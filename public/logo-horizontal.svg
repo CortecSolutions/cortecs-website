@@ -1,76 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
-  <defs>
-    <linearGradient id="cortecGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0ea5e9"/>
-      <stop offset="50%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Brain Circuit Icon (elongated oval, taller than wide) -->
-  <g transform="translate(40, 40)">
-    <!-- Brain outline - left hemisphere -->
-    <path d="M-2 -32 C-10 -32, -22 -24, -22 0 C-22 24, -10 32, -2 32"
-          stroke="url(#cortecGradient)"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"/>
-
-    <!-- Brain outline - right hemisphere -->
-    <path d="M2 -32 C10 -32, 22 -24, 22 0 C22 24, 10 32, 2 32"
-          stroke="url(#cortecGradient)"
-          stroke-width="2"
-          fill="none"
-          stroke-linecap="round"/>
-
-    <!-- Center divider -->
-    <line x1="0" y1="-28" x2="0" y2="-18" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="0" y1="18" x2="0" y2="28" stroke="url(#cortecGradient)" stroke-width="1.5" stroke-linecap="round"/>
-
-    <!-- Left hemisphere circuits -->
-    <path d="M-4 -22 L-4 -16 L-11 -16" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-4" cy="-22" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="-11" cy="-16" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M-4 -6 L-10 -6 L-10 0 L-16 0" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-4" cy="-6" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="-16" cy="0" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M-4 6 L-10 6 L-10 14 L-13 14" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-4" cy="6" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="-13" cy="14" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M-4 22 L-4 16 L-8 16" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="-4" cy="22" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="-8" cy="16" r="1.5" fill="url(#cortecGradient)"/>
-
-    <!-- Right hemisphere circuits (mirrored) -->
-    <path d="M4 -22 L4 -16 L11 -16" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="4" cy="-22" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="11" cy="-16" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M4 -6 L10 -6 L10 0 L16 0" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="4" cy="-6" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="16" cy="0" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M4 6 L10 6 L10 14 L13 14" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="4" cy="6" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="13" cy="14" r="2" fill="url(#cortecGradient)"/>
-
-    <path d="M4 22 L4 16 L8 16" stroke="url(#cortecGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="4" cy="22" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="8" cy="16" r="1.5" fill="url(#cortecGradient)"/>
-
-    <!-- Center spine nodes -->
-    <circle cx="0" cy="-16" r="2" fill="url(#cortecGradient)"/>
-    <circle cx="0" cy="16" r="2" fill="url(#cortecGradient)"/>
-  </g>
-
-  <!-- Wordmark -->
-  <text x="90" y="50"
-        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
-        font-size="36"
-        font-weight="700"
-        fill="url(#cortecGradient)"
-        letter-spacing="3">CORTEC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <rect x="10" y="20" width="60" height="10" rx="1.5" fill="#0f172a"/>
+  <rect x="10" y="42" width="60" height="18" rx="1.5" fill="#0f172a"/>
+  <text x="95" y="50"
+        dominant-baseline="central"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="44"
+        font-weight="600"
+        letter-spacing="-1"
+        fill="#0f172a">cortecs</text>
 </svg>

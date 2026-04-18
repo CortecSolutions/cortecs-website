@@ -1,14 +1,13 @@
+import { LogoIcon } from "./Logo";
+
 export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--bg)] py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end">
-        <div className="flex items-center gap-2">
-          <span
-            className="inline-block h-5 w-5 rounded bg-[var(--accent)]"
-            aria-hidden="true"
-          />
-          <span className="text-sm font-semibold text-[var(--fg)]">Cortecs</span>
+        <div className="flex items-center gap-2.5 text-[var(--fg)]">
+          <LogoIcon className="h-4 w-auto" title="Cortecs logo" />
+          <span className="text-sm font-semibold">Cortecs</span>
         </div>
 
         <nav

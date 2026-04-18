@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import { LogoIcon } from "./Logo";
 
 const LINKS = [
   { href: "#services", label: "Services" },
@@ -62,13 +63,11 @@ export function Nav() {
       >
         <a
           href="#top"
-          className="flex items-center gap-2 text-base font-semibold tracking-tight text-[var(--fg)]"
+          aria-label="Cortecs — home"
+          className="flex items-center gap-2.5 text-base font-semibold tracking-tight text-[var(--fg)]"
         >
-          <span
-            className="inline-block h-6 w-6 rounded-md bg-[var(--accent)]"
-            aria-hidden="true"
-          />
-          Cortecs
+          <LogoIcon className="h-[18px] w-auto" title="Cortecs logo" />
+          <span>Cortecs</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
