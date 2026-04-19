@@ -37,6 +37,10 @@ const examples = [
     before: "Answering the same customer questions over and over",
     after: "A small assistant that handles the routine ones in your voice.",
   },
+  {
+    before: "Hunting through old emails and files for a past order or spec",
+    after: "One search across everything the business keeps. Right answer on page one.",
+  },
 ];
 
 export function Problem() {

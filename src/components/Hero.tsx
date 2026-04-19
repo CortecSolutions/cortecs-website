@@ -67,10 +67,10 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-7 max-w-[20ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
+          className="mt-7 max-w-[18ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
         >
-          A working app for your business, built in{" "}
-          <span className="text-[var(--accent)]">fifteen minutes</span>.
+          AI consulting and training for{" "}
+          <span className="text-[var(--accent)]">small businesses</span>.
         </motion.h1>
 
         <motion.p
@@ -80,8 +80,9 @@ export function Hero() {
           animate="show"
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
-          On-site or remote. Walk away with a real prototype and a
-          plain-English plan for what comes next.
+          Assessments, tool setup, and hands-on training for the business
+          you already run. On-site in London and surrounding area. Remote
+          anywhere.
         </motion.p>
 
         <motion.div
