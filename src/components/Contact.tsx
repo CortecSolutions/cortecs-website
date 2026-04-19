@@ -50,7 +50,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-headline"
-      className="relative border-t border-[var(--border)]"
+      className="relative border-t border-[var(--border)] bg-[var(--bg-alt)]"
     >
       <div className="mx-auto grid w-full max-w-6xl gap-16 px-6 py-28 md:grid-cols-[1fr_1.1fr] md:py-36">
         <div>

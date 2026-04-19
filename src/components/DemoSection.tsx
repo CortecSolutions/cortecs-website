@@ -23,13 +23,13 @@ const steps = [
   },
   {
     n: "02",
-    title: "One short meeting",
-    body: "Thirty to sixty minutes, on-site or over video. The work gets built live, not after the call.",
+    title: "One short call",
+    body: "Thirty to sixty minutes, on-site or over the phone. Walk through how the work actually happens today. The call gets recorded so nothing gets missed.",
   },
   {
     n: "03",
-    title: "Leave with a working tool",
-    body: "A real prototype that does the task on real inputs, plus a plain-English plan for what comes next.",
+    title: "A working prototype back in your inbox",
+    body: "Within a few days, a real tool that does the task on real inputs — plus a plain-English plan for what comes next.",
   },
 ];
 
@@ -47,9 +47,9 @@ export function DemoSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--accent)]"
+          className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg-muted)]"
         >
-          See it in fifteen minutes
+          Try it with one task
         </motion.p>
 
         <motion.h2
@@ -61,7 +61,7 @@ export function DemoSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[20ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          A working prototype for your business, in one short meeting.
+          One call. One working prototype, days later.
         </motion.h2>
 
         <motion.p
@@ -72,9 +72,9 @@ export function DemoSection() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
-          The fastest way to see whether AI fits the business. No slides.
-          No platform pitch. A small, working thing that does a real task,
-          built while you watch.
+          The fastest way to see whether AI fits the business. No slides,
+          no platform pitch. Describe what eats the week on a short call,
+          and a working tool shows up a few days later.
         </motion.p>
 
         <ol className="mt-16 grid gap-6 md:grid-cols-3">
@@ -88,7 +88,7 @@ export function DemoSection() {
               viewport={{ once: true, margin: "-60px" }}
               className="flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 md:p-8"
             >
-              <span className="font-mono text-xs tracking-[0.22em] text-[var(--accent)]">
+              <span className="font-mono text-xs tracking-[0.22em] text-[var(--fg-muted)]">
                 {s.n}
               </span>
               <h3 className="mt-4 text-lg font-semibold tracking-tight text-[var(--fg)] md:text-xl">
@@ -111,7 +111,7 @@ export function DemoSection() {
             href="#contact"
             className="inline-flex items-center gap-2 rounded-full bg-[var(--fg)] px-6 py-3.5 text-sm font-medium text-[var(--bg)] transition hover:opacity-90"
           >
-            Book a demo
+            Book an intro call
             <svg
               viewBox="0 0 24 24"
               className="h-4 w-4"

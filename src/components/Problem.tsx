@@ -48,7 +48,7 @@ export function Problem() {
     <section
       id="problem"
       aria-labelledby="problem-headline"
-      className="relative border-t border-[var(--border)]"
+      className="relative border-t border-[var(--border)] bg-[var(--bg-alt)]"
     >
       <div className="mx-auto w-full max-w-6xl px-6 py-28 md:py-36">
         <motion.p
@@ -71,10 +71,7 @@ export function Problem() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[20ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Your business has tasks that take hours.{" "}
-          <span className="text-[var(--accent)]">
-            AI can do them in seconds.
-          </span>
+          Your business has tasks that take hours. AI can do them in seconds.
         </motion.h2>
 
         <motion.p
@@ -130,7 +127,7 @@ export function Problem() {
           </div>
 
           <div className="md:col-span-1">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-muted)]">
               Given back, every month
             </p>
             <div className="mt-3 flex items-baseline gap-1">
@@ -167,7 +164,7 @@ export function Problem() {
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden="true"
-                  className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                  className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--fg)]"
                 />
                 <p className="font-medium text-[var(--fg)]">{item.after}</p>
               </div>

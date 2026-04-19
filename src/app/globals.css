@@ -6,6 +6,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
   --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-accent: var(--accent);
@@ -14,8 +15,9 @@
 }
 
 :root {
-  /* Near-white, near-black, single accent (Cortecs sky). */
+  /* Warm off-white, near-black, single accent (Cortecs sky). */
   --bg: #fafaf9;
+  --bg-alt: #f2f2f1;
   --fg: #0a0a0a;
   --fg-muted: #52525b;
   --border: #e5e5e5;
@@ -34,10 +36,11 @@
 
 .dark {
   --bg: #0a0a0a;
+  --bg-alt: #101010;
   --fg: #f5f5f4;
   --fg-muted: #a1a1aa;
   --border: #1f1f1f;
-  --card: #0f0f0f;
+  --card: #171717;
   --accent: #38bdf8;
   --accent-fg: #0a0a0a;
 

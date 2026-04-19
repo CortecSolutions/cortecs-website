@@ -6,7 +6,6 @@ import { ThemeToggle } from "./ThemeToggle";
 import { LogoIcon } from "./Logo";
 
 const LINKS = [
-  { href: "#services", label: "Services" },
   { href: "#process", label: "How it works" },
   { href: "#why", label: "Why Cortecs" },
   { href: "#faq", label: "FAQ" },

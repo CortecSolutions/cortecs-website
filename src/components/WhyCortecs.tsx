@@ -17,28 +17,20 @@ const fadeUp: Variants = {
 
 const reasons = [
   {
-    title: "A real person in a real place",
-    body: "Based in London, Ontario. On-site when you want it, remote when you don't. You'll know who's answering your email.",
+    title: "Local presence",
+    body: "On-site in London and surrounding area. One point of contact from intro call through installation. You'll know who's answering your email.",
   },
   {
-    title: "Private infrastructure, if you need it",
-    body: "I run my own AI hardware. For clients with sensitive data — client records, financials, employee info — there's an option that doesn't send anything to OpenAI.",
+    title: "Private infrastructure when the data calls for it",
+    body: "For sensitive work — client records, financials, employee info — there's a setup option that keeps everything on private hardware and off public cloud AI entirely.",
   },
   {
-    title: "Works with the tools you already pay for",
+    title: "Works with the tools already in place",
     body: "Microsoft 365, Google Workspace, QuickBooks, your existing accounting or dispatch software. No rip-and-replace.",
   },
   {
-    title: "Pragmatic scope",
-    body: "No six-figure enterprise migrations. A clear plan, a small first step, and something working inside a few weeks.",
-  },
-  {
-    title: "Hands-on training",
-    body: "I sit with your team, on your files, using your workflows. Not a slideshow. People keep using what they learn on real work.",
-  },
-  {
     title: "Honest about what AI can't do",
-    body: "If a task needs human judgment, I'll tell you. If an existing tool is already good enough, I'll tell you that too. You won't be sold something you don't need.",
+    body: "If a task needs human judgment, the plan says so. If an existing tool is already good enough, the plan says that too. No sales pressure for software the business doesn't need.",
   },
 ];
 
@@ -70,7 +62,7 @@ export function WhyCortecs() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[22ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Built for small businesses in London, Ontario — not for the enterprise playbook.
+          Custom solutions built for your business.
         </motion.h2>
 
         <motion.p
@@ -81,11 +73,11 @@ export function WhyCortecs() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
-          Big-consultancy pitches aren&apos;t made for a 15-person shop.
-          Here&apos;s what&apos;s different about working with me.
+          Every business runs differently. The plan starts from how yours
+          actually works — no templates, no reused decks.
         </motion.p>
 
-        <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
           {reasons.map((r, i) => (
             <motion.li
               key={r.title}

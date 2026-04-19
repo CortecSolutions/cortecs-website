@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     "AI consulting London Ontario",
     "small business AI",
     "AI training",
-    "Microsoft Copilot training",
-    "ChatGPT for business",
+    "AI automation",
     "private AI",
     "on-premise AI",
+    "AI for small business Southwestern Ontario",
   ],
   authors: [{ name: "Matt" }],
   creator: "Matt",
@@ -122,7 +122,7 @@ const structuredData = {
       provider: { "@id": businessId },
       areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
       description:
-        "Hands-on training for small-business teams on Claude, Microsoft Copilot, and related AI tools using the business's own files and workflows.",
+        "Hands-on training for small-business teams on the right AI tools for their work, using the business's own files and workflows.",
     },
     {
       "@type": "Service",

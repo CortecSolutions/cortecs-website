@@ -37,7 +37,7 @@ export function Hero() {
       ref={sectionRef}
       id="top"
       aria-labelledby="hero-headline"
-      className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden"
+      className="relative isolate overflow-hidden"
     >
       <motion.div
         aria-hidden="true"
@@ -49,7 +49,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="mx-auto w-full max-w-6xl px-6 py-24 md:py-28"
+        className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28"
       >
         <motion.p
           custom={0}
@@ -69,8 +69,7 @@ export function Hero() {
           animate="show"
           className="mt-7 max-w-[18ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
         >
-          AI consulting and training for{" "}
-          <span className="text-[var(--accent)]">small businesses</span>.
+          AI consulting and training for small businesses.
         </motion.h1>
 
         <motion.p
@@ -127,7 +126,6 @@ export function Hero() {
           aria-hidden="true"
         >
           <span className="inline-block h-px w-8 bg-[var(--border)]" />
-          <span className="uppercase tracking-[0.2em]">Scroll</span>
         </motion.div>
       </motion.div>
     </section>

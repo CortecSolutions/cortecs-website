@@ -26,15 +26,15 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "The consultation is a flat fee and I'll tell you what it is on the intro call — no hidden packages. After that, you only spend what the tools themselves cost (usually $20-$50 per person per month for something like Claude or Copilot). Custom work is scoped per project. Nothing is billed hourly, and there are no retainers.",
+    a: "The intro call is free. The on-site or remote assessment is a $250 flat fee. After that, you only spend what the tools themselves cost (typically $20-$50 per person per month for mainstream AI tools, when they're the right fit). Custom work is scoped and billed per project. Ongoing help is ad-hoc — you pay for what you actually use when you need it, not a monthly retainer.",
   },
   {
     q: "Is my data safe?",
     a: "That depends on which setup you choose, and I'll walk you through the options. For sensitive work — client records, financials, HR — I can set up tools that keep your data on your own systems or on private infrastructure I run. For everyday work, the major providers are generally fine, and I'll tell you honestly which is which.",
   },
   {
-    q: "Why not just use ChatGPT on my own?",
-    a: "You absolutely can, and I'll tell you so if that's the right answer. What I help with is the next step: connecting it to your actual files, your actual workflows, and your actual team so it saves real time instead of sitting in another browser tab.",
+    q: "Why not just try the AI tools myself?",
+    a: "You absolutely can, and sometimes that's the right answer. What I help with is the next step: picking the tools that actually fit your work, connecting them to your real files and workflows, and training your team — so AI saves real time instead of sitting in another browser tab.",
   },
 ];
 
@@ -66,7 +66,7 @@ export function FAQ() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[22ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Straight answers to the questions owners actually ask.
+          Frequently asked questions.
         </motion.h2>
 
         <div className="mt-16 divide-y divide-[var(--border)] border-y border-[var(--border)]">

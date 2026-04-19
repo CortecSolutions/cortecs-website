@@ -13,7 +13,11 @@ import { AnimatePresence, motion } from "framer-motion";
 const CHAT_URL =
   process.env.NEXT_PUBLIC_CHAT_URL?.replace(/\/$/, "") ||
   "https://chat.cortecs.ca";
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+// Public site key — safe to ship in the client bundle. Env var is the preferred
+// source (so dev/preview can use a different key), but the fallback keeps the
+// widget working even if Cloudflare Pages env vars aren't configured.
+const TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAC_huR0IDRIRscM0";
 const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js";
 
 const SESSION_KEY = "cortecs.chat.sessionId";

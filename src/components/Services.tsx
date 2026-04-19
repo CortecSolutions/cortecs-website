@@ -29,20 +29,20 @@ const services: Service[] = [
     eyebrow: "Start here",
     title: "AI Adoption Consultation",
     blurb:
-      "A one-hour working session to look at how your business actually runs and find where AI will save real time.",
+      "The main on-ramp: from an intro call through to tools installed and the team trained. A full path from \"curious about AI\" to AI actually running on real work.",
     points: [
-      "On-site or remote, your call",
-      "Written recommendations you can act on",
-      "Tool selection matched to what you already use",
+      "Free intro call + same-day recommendations document",
+      "$250 on-site or remote assessment (one hour)",
+      "Written implementation plan, tool setup, and team training",
     ],
-    outcome: "Leave with a short list of what to try first, and why.",
+    outcome: "A business running on AI tools that actually fit the work.",
     emphasis: "primary",
   },
   {
     eyebrow: "When your team is ready",
     title: "AI Training & Onboarding",
     blurb:
-      "Hands-on training for you and your staff on Claude, Copilot, and the day-to-day tools that fit your work.",
+      "Hands-on training for you and your staff on the right AI tools for the work, chosen to fit what your business already runs on.",
     points: [
       "Small-group sessions, in your office or over video",
       "Real tasks from your business, not generic demos",
@@ -97,24 +97,11 @@ export function Services() {
           Three ways to work together.
         </motion.h2>
 
-        <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
-        >
-          Most clients start with a consultation and go from there. Nothing
-          here is a long contract, and you won&apos;t hear a pitch for software
-          you don&apos;t need.
-        </motion.p>
-
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
             <motion.article
               key={s.title}
-              custom={3 + i}
+              custom={2 + i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
