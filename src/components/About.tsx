@@ -44,7 +44,7 @@ export function About() {
             viewport={{ once: true, margin: "-80px" }}
             className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl"
           >
-            Matt Grandy.
+            Matt.
           </motion.h2>
 
           <motion.p

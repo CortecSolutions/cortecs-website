@@ -67,11 +67,10 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-7 max-w-[18ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
+          className="mt-7 max-w-[20ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
         >
-          Practical AI for the{" "}
-          <span className="text-[var(--accent)]">business you already run</span>
-          .
+          A working app for your business, built in{" "}
+          <span className="text-[var(--accent)]">fifteen minutes</span>.
         </motion.h1>
 
         <motion.p
@@ -81,9 +80,8 @@ export function Hero() {
           animate="show"
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
-          I help small business owners in London and surrounding area find
-          where AI actually saves hours, set up the tools, train the team,
-          and step back.
+          On-site or remote. Walk away with a real prototype and a
+          plain-English plan for what comes next.
         </motion.p>
 
         <motion.div
@@ -97,7 +95,7 @@ export function Hero() {
             href="#contact"
             className="inline-flex items-center gap-2 rounded-full bg-[var(--fg)] px-6 py-3.5 text-sm font-medium text-[var(--bg)] transition hover:opacity-90"
           >
-            Start a conversation
+            Book an intro call
             <svg
               viewBox="0 0 24 24"
               className="h-4 w-4"

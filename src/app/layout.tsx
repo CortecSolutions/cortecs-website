@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ChatWidget } from "@/components/ChatWidget";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
     "private AI",
     "on-premise AI",
   ],
-  authors: [{ name: "Matt Grandy" }],
-  creator: "Matt Grandy",
+  authors: [{ name: "Matt" }],
+  creator: "Matt",
   publisher: "Cortecs",
   robots: {
     index: true,
@@ -97,7 +98,7 @@ const localBusinessJsonLd = {
     longitude: -81.2453,
   },
   priceRange: "$$",
-  founder: { "@type": "Person", name: "Matt Grandy" },
+  founder: { "@type": "Person", name: "Matt" },
   email: "matt@cortecs.ca",
   sameAs: [],
 };
@@ -143,6 +144,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </Providers>
       </body>
     </html>
