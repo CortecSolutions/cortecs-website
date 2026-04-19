@@ -15,7 +15,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 text-2xl font-bold">
@@ -88,7 +88,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block bg-white dark:bg-slate-800 rounded-xl p-6 hover:shadow-lg transition-shadow border border-slate-100 dark:border-slate-700"
+                className="block bg-slate-800 rounded-xl p-6 hover:shadow-lg transition-shadow border border-slate-700"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
                   <div className="flex-1">
@@ -111,7 +111,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900/50">
+      <section className="py-16 px-6 bg-slate-900/50">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
           <p className="text-secondary mb-8">
@@ -127,7 +127,7 @@ export default function BlogPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-slate-200 dark:border-slate-800">
+      <footer className="py-12 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link href="/" className="flex items-center gap-3 text-2xl font-bold">

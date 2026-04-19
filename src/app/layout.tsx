@@ -1,19 +1,63 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Providers } from "./providers";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { ChatWidget } from "@/components/ChatWidget";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
-});
+const SITE_URL = "https://www.cortecs.ca";
+const SITE_TITLE =
+  "Cortecs — AI consulting for small businesses in London, Ontario";
+const SITE_DESC =
+  "Practical AI consulting and training for small businesses in London, Ontario. On-site and remote assessments, hands-on tool setup, private infrastructure. No enterprise jargon.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.cortecs.ca"),
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_TITLE, template: "%s · Cortecs" },
+  description: SITE_DESC,
+  keywords: [
+    "AI consulting London Ontario",
+    "small business AI",
+    "AI training",
+    "AI automation",
+    "private AI",
+    "on-premise AI",
+    "AI for small business Southwestern Ontario",
+  ],
+  authors: [{ name: "Matt" }],
+  creator: "Matt",
+  publisher: "Cortecs",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: SITE_URL,
+    siteName: "Cortecs",
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: [
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Cortecs — AI consulting for small businesses in London, Ontario" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    images: ["/og-image.png"],
+  },
+  alternates: { canonical: SITE_URL },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -22,118 +66,119 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  title: {
-    default: "Cortecs | AI Agents That Build Your Software",
-    template: "%s | Cortecs",
-  },
-  description:
-    "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark. Your data never leaves your building.",
-  keywords: [
-    "AI agents",
-    "AI agent orchestration",
-    "custom software automation",
-    "private AI",
-    "on-premise AI",
-    "NVIDIA DGX Spark",
-    "business automation",
-    "small business AI",
-    "AI for freight",
-    "AI for contractors",
-  ],
-  authors: [{ name: "Cortecs" }],
-  creator: "Cortecs",
-  publisher: "Cortecs",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_CA",
-    url: "https://www.cortecs.ca",
-    siteName: "Cortecs",
-    title: "Cortecs | AI Agents That Build Your Software",
-    description:
-      "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark.",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Cortecs - AI Agents That Build Your Software",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Cortecs | AI Agents That Build Your Software",
-    description:
-      "Multi-agent AI orchestration that builds custom software and automations for your business. Powered by NVIDIA DGX Spark.",
-    images: ["/og-image.svg"],
-  },
   verification: {
     google: "Xj4IrHQq5AJgGeZHrCsjtlnqbcO9h7uuCaLrcqc3ZQI",
   },
-  alternates: {
-    canonical: "https://www.cortecs.ca",
-  },
+};
+
+// LocalBusiness + Service schema graph — critical for London, ON local search.
+// Address uses only city/region (no street — Matt works from home).
+const businessId = `${SITE_URL}/#business`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": businessId,
+      name: "Cortecs",
+      url: SITE_URL,
+      description:
+        "AI consulting and training for small businesses in London, Ontario and surrounding area.",
+      image: `${SITE_URL}/og-image.png`,
+      areaServed: [
+        { "@type": "City", name: "London" },
+        { "@type": "AdministrativeArea", name: "Middlesex County" },
+        { "@type": "AdministrativeArea", name: "Ontario" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "London",
+        addressRegion: "ON",
+        addressCountry: "CA",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 42.9849,
+        longitude: -81.2453,
+      },
+      priceRange: "$$",
+      founder: { "@type": "Person", name: "Matt" },
+      email: "matt@cortecs.ca",
+      sameAs: [],
+    },
+    {
+      "@type": "Service",
+      name: "AI Adoption Consultation",
+      serviceType: "AI consulting",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "One-hour working session to identify where AI saves a small business real time, with written recommendations and tool selection matched to the existing stack.",
+    },
+    {
+      "@type": "Service",
+      name: "AI Training & Onboarding",
+      serviceType: "AI training",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "Hands-on training for small-business teams on the right AI tools for their work, using the business's own files and workflows.",
+    },
+    {
+      "@type": "Service",
+      name: "Custom Automation",
+      serviceType: "AI automation",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "Private, tightly scoped automations built for specific business tasks when off-the-shelf AI tools can't do the job. Runs on the client's stack or on private on-premise infrastructure.",
+    },
+  ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html
+      lang="en"
+      className={`${inter.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-50JBTCFSQF"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-50JBTCFSQF');
-            `,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Cortecs",
-              url: "https://www.cortecs.ca",
-              logo: "https://www.cortecs.ca/logo.svg",
-              description:
-                "AI agent orchestration that builds custom software and automations for businesses. Powered by NVIDIA DGX Spark. Your data stays yours.",
-              address: {
-                "@type": "PostalAddress",
-                addressRegion: "ON",
-                addressCountry: "CA",
-              },
-              sameAs: [],
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "matt@cortecs.ca",
-              },
-            }),
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-50JBTCFSQF"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-50JBTCFSQF');",
           }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
+      <body className="bg-[var(--bg)] font-sans text-[var(--fg)] antialiased">
+        <Providers>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[var(--accent-fg)]"
+          >
+            Skip to content
+          </a>
+          <Nav />
+          <ScrollProgress />
+          <main id="main" className="pt-16">
+            {children}
+          </main>
+          <Footer />
+          <ChatWidget />
+        </Providers>
       </body>
     </html>
   );
