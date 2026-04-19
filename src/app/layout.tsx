@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESC,
     images: [
-      { url: "/og-image.svg", width: 1200, height: 630, alt: "Cortecs" },
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Cortecs — AI consulting for small businesses in London, Ontario" },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESC,
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
   alternates: { canonical: SITE_URL },
   icons: {
@@ -71,36 +71,69 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness structured data — critical for London, ON local search.
+// LocalBusiness + Service schema graph — critical for London, ON local search.
 // Address uses only city/region (no street — Matt works from home).
-const localBusinessJsonLd = {
+const businessId = `${SITE_URL}/#business`;
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Cortecs",
-  url: SITE_URL,
-  description:
-    "AI consulting and training for small businesses in London, Ontario and surrounding area.",
-  image: `${SITE_URL}/og-image.svg`,
-  areaServed: [
-    { "@type": "City", name: "London" },
-    { "@type": "AdministrativeArea", name: "Middlesex County" },
-    { "@type": "AdministrativeArea", name: "Ontario" },
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": businessId,
+      name: "Cortecs",
+      url: SITE_URL,
+      description:
+        "AI consulting and training for small businesses in London, Ontario and surrounding area.",
+      image: `${SITE_URL}/og-image.png`,
+      areaServed: [
+        { "@type": "City", name: "London" },
+        { "@type": "AdministrativeArea", name: "Middlesex County" },
+        { "@type": "AdministrativeArea", name: "Ontario" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "London",
+        addressRegion: "ON",
+        addressCountry: "CA",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 42.9849,
+        longitude: -81.2453,
+      },
+      priceRange: "$$",
+      founder: { "@type": "Person", name: "Matt" },
+      email: "matt@cortecs.ca",
+      sameAs: [],
+    },
+    {
+      "@type": "Service",
+      name: "AI Adoption Consultation",
+      serviceType: "AI consulting",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "One-hour working session to identify where AI saves a small business real time, with written recommendations and tool selection matched to the existing stack.",
+    },
+    {
+      "@type": "Service",
+      name: "AI Training & Onboarding",
+      serviceType: "AI training",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "Hands-on training for small-business teams on Claude, Microsoft Copilot, and related AI tools using the business's own files and workflows.",
+    },
+    {
+      "@type": "Service",
+      name: "Custom Automation",
+      serviceType: "AI automation",
+      provider: { "@id": businessId },
+      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
+      description:
+        "Private, tightly scoped automations built for specific business tasks when off-the-shelf AI tools can't do the job. Runs on the client's stack or on private on-premise infrastructure.",
+    },
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "London",
-    addressRegion: "ON",
-    addressCountry: "CA",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 42.9849,
-    longitude: -81.2453,
-  },
-  priceRange: "$$",
-  founder: { "@type": "Person", name: "Matt" },
-  email: "matt@cortecs.ca",
-  sameAs: [],
 };
 
 export default function RootLayout({
@@ -116,7 +149,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessJsonLd),
+            __html: JSON.stringify(structuredData),
           }}
         />
         <script

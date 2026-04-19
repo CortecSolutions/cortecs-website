@@ -70,7 +70,7 @@ export function WhyCortecs() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[22ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Built for the way small businesses actually work.
+          Built for small businesses in London, Ontario — not for the enterprise playbook.
         </motion.h2>
 
         <motion.p
