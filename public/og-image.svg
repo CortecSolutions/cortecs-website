@@ -1,16 +1,16 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#0a0a0a"/>
-  <circle cx="920" cy="260" r="280" fill="#38bdf8" opacity="0.05"/>
-  <g transform="translate(80, 90)" fill="#f5f5f4">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <circle cx="920" cy="260" r="280" fill="#ffffff" opacity="0.04"/>
+  <g transform="translate(80, 90)" fill="#ffffff">
     <rect x="0" y="0" width="80" height="13" rx="2"/>
     <rect x="0" y="29" width="80" height="24" rx="2"/>
   </g>
-  <text x="180" y="132" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="600" letter-spacing="-1" fill="#f5f5f4">cortecs</text>
-  <text x="80" y="290" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="64" font-weight="600" letter-spacing="-1.5" fill="#f5f5f4">AI consulting and training</text>
-  <text x="80" y="370" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="64" font-weight="600" letter-spacing="-1.5" fill="#f5f5f4">for <tspan fill="#38bdf8">small businesses</tspan>.</text>
-  <text x="80" y="460" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#a1a1aa">Assessments, tool setup, hands-on team training.</text>
-  <text x="80" y="500" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#a1a1aa">On-site in London, Ontario. Remote anywhere.</text>
+  <text x="180" y="132" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="600" letter-spacing="-1" fill="#ffffff">cortecs</text>
+  <text x="80" y="290" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="64" font-weight="600" letter-spacing="-1.5" fill="#ffffff">AI consulting and training</text>
+  <text x="80" y="370" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="64" font-weight="600" letter-spacing="-1.5" fill="#ffffff">for small businesses.</text>
+  <text x="80" y="460" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#64748b">Assessments, tool setup, hands-on team training.</text>
+  <text x="80" y="500" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#64748b">On-site in London, Ontario. Remote anywhere.</text>
   <g transform="translate(80, 550)">
-    <text x="0" y="18" font-family="ui-monospace, 'SF Mono', 'Menlo', monospace" font-size="20" font-weight="500" letter-spacing="2" fill="#71717a">CORTECS.CA</text>
+    <text x="0" y="18" font-family="ui-monospace, 'SF Mono', 'Menlo', monospace" font-size="20" font-weight="500" letter-spacing="2" fill="#64748b">CORTECS.CA</text>
   </g>
 </svg>
