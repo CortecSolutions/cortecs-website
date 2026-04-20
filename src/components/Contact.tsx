@@ -119,7 +119,7 @@ export function Contact() {
                 London, Ontario
               </span>
               <br />
-              <span>On-site visits within a two-hour drive. Remote anywhere.</span>
+              <span>On-site or remote anywhere in the world.</span>
             </p>
           </motion.div>
         </div>
