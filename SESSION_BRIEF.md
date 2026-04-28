@@ -22,6 +22,8 @@ backend. Voice and palette are locked — see "Locked rules" below.
 - Active branch: `rebrand-navy-2026-04-20`
 - `main` tip: `8ca59bc` (the live site)
 - Branch tip on top of `8ca59bc`:
+  - `57e0ec5` copy: strip remaining location refs; align CTA to form intent
+  - `3573314` docs: refresh SESSION_BRIEF after homepage simplification
   - `d27cc6b` feat: simplify homepage to Hero + IntakeForm; archive 6 sections
   - `14d7fde` copy(hero): capability-led H1/subhead; strip location refs
   - `1897000` docs: add SESSION_BRIEF for cross-Claude handoff
@@ -77,8 +79,8 @@ copy looks washed out, the only allowed move is darkening `--fg-muted` to
 
 1. **Hero** — H1: *"AI consulting and custom solutions for your business."*
    Subhead: *"From identifying the opportunities to building the tools
-   that capture them."* Single CTA "Book an intro call" → `#intake`. No
-   eyebrow, no location text.
+   that capture them."* Single CTA "Tell me about your business" →
+   `#intake`. No eyebrow, no location text.
 2. **IntakeForm** (id `intake`) — heading "Three questions." Subhead
    "Short answers are fine. A reply lands within 24 hours." Three
    required fields:
@@ -88,11 +90,11 @@ copy looks washed out, the only allowed move is darkening `--fg-muted` to
    Submit "Send" → POST to `/intake`. Success replaces form with "Got
    it. I'll reach out within 24 hours." Honeypot `name="website"` +
    invisible Turnstile (interaction-only).
-3. **Footer** (rendered by layout, not page) — `© 2026 Cortecs ·
-   London, Ontario` (still has location text — see Open Questions §1).
+3. **Footer** (rendered by layout, not page) — `© {year} Cortecs`,
+   logo, "Get in touch" → `#intake`, mailto link. Location stripped.
 4. **ChatWidget** (rendered by layout, floating bottom-right) —
-   unchanged. Header text inside widget still says "Live · London,
-   Ontario" (Open Questions §1).
+   header eyebrow now "Live" (location stripped). Widget panel role
+   "Chat with Matt".
 
 The shell (layout.tsx) wraps the page with `<Nav />` (logo + theme
 toggle + "Get in touch" CTA → `#intake`; section links emptied),
@@ -185,33 +187,33 @@ once deployed.
 
 ## Open questions / decisions still pending
 
-1. **Other "London, Ontario" text on the page.** Block 2 stripped Hero,
-   but the same string is still visible in **Footer.tsx** (line 25,
-   `© 2026 Cortecs · London, Ontario`) and **ChatWidget.tsx** (line
-   338, `Live · London, Ontario`). Block 2's stated scope was Hero
-   only, so I left these alone. If "no geographic references anywhere
-   on the page" is the intent, both should be stripped.
-2. **layout.tsx SEO/metadata still London-targeted.** The page metadata
-   (title/description/keywords) and the `LocalBusiness` schema.org
-   graph in layout.tsx still position Cortecs as London/Ontario-based.
-   Stripping would tank local search rankings. Decision needed: is the
-   site geo-bound for SEO purposes even though visible copy is now
-   capability-led?
-3. **CF Pages split-brain resolution.** Two `cortecs-website` projects
+1. **Nav header CTA inconsistency.** Hero CTA is now "Tell me about
+   your business" (matches form's first question). Nav header still
+   says "Get in touch" because the longer label won't fit the pill
+   width without breaking the nav layout. Acceptable since "Get in
+   touch" is neutral and doesn't promise a call — but it's a copy
+   inconsistency worth flagging. Options: (a) leave as-is, (b) shorten
+   nav CTA to "Get in touch" → "Send a note" or similar, (c) restyle
+   the nav pill to fit the longer label.
+2. **CF Pages split-brain resolution.** Two `cortecs-website` projects
    in CF; direct-upload one serves prod, git-connected one's last build
    failed ~50 days ago. Path A: move custom domains onto git-connected,
    fix build, delete direct-upload (downtime risk). Path B: connect
    git to direct-upload retroactively (CF may not allow; might need
    recreation).
-4. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
+3. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
    `/`. Reflect Drive is still a real shipping product ($79 CAD).
    Options: (a) rebuild `/reflect` on navy palette, (b) add a Products
    section to home, (c) leave invisible.
-5. **Visual polish.** Site still feels "generic / no wow" to Matt.
+4. **Visual polish.** Site still feels "generic / no wow" to Matt.
    Options discussed but not applied: dark mode default, subtle
    grid/grain texture, bolder hero type, stronger hero glow, home-lab
    photo. With the page now down to two sections, the visual weight
    problem may be different. Worth a fresh look.
+5. **Backend lives only on Spark 2.** `~/cortecs-chat/` (db.js,
+   discord-bot.js, server.js) is not in any git repo. Hardware
+   failure on Spark 2 = lost work. Worth pushing to a private repo
+   when convenient. Not urgent.
 
 **Closed this session:**
 - ~~Hero H1 walkback~~ → locked to "AI consulting and custom solutions
@@ -219,6 +221,13 @@ once deployed.
 - ~~Step 4 'or software' phrasing~~ → moot, Process section archived.
 - ~~Edits Matt wanted before deploying~~ → done (homepage simplification
   + intake form).
+- ~~Footer/ChatWidget London refs~~ → stripped in `57e0ec5`.
+- ~~layout.tsx SEO targeting London~~ → replaced LocalBusiness schema
+  with generic Organization; metadata title/desc/keywords stripped of
+  geo terms. Tradeoff accepted: site loses London local-search rank,
+  reversible later.
+- ~~CTA mismatch (call vs form)~~ → Hero CTA now "Tell me about your
+  business". Nav stays "Get in touch" (see Open Questions §1).
 
 ---
 
