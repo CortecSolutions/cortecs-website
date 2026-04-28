@@ -222,6 +222,12 @@ once deployed.
   business". Nav stays "Get in touch" (locked — neutral copy, fits
   pill width, three-CTA mix is fine since each fits its context).
   Footer CTA: "Get in touch".
+- ~~Deploy~~ → 2026-04-28: `wrangler pages deploy out/` against
+  `cortecs-website` (direct-upload project), `--branch=main`,
+  commit `96a0fcc`. Live on cortecs.ca + www.cortecs.ca (both 200,
+  new title served). Preview URL:
+  `https://04704d4e.cortecs-website.pages.dev`. Token used was
+  one-shot (`cortecs-website wrangler deploy`), revoked after.
 
 ---
 
