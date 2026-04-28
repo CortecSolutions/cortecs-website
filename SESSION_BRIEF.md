@@ -9,8 +9,10 @@ rest of the repo. Last updated 2026-04-28 by Spark 2 Claude.*
 
 Cortecs.ca redesign branch `rebrand-navy-2026-04-20` is **staged but not
 deployed**. Live site still serves the original sky-blue redesign (commit
-`8ca59bc`). Matt wants to do more editing before shipping. Voice and
-palette are locked — see "Locked rules" below.
+`8ca59bc`). Homepage was just radically simplified to **Hero → IntakeForm
+→ Footer** — six section components moved to `_archive/`, and a new
+intake form posts to a new `/intake` Discord-relay endpoint on the chat
+backend. Voice and palette are locked — see "Locked rules" below.
 
 ---
 
@@ -19,15 +21,16 @@ palette are locked — see "Locked rules" below.
 - Repo: `CortecSolutions/cortecs-website`
 - Active branch: `rebrand-navy-2026-04-20`
 - `main` tip: `8ca59bc` (the live site)
-- Branch tip: `fbd81cf` → `8289a5e` → `d910f1f` → `8ca59bc`
+- Branch tip on top of `8ca59bc`:
+  - `d27cc6b` feat: simplify homepage to Hero + IntakeForm; archive 6 sections
+  - `14d7fde` copy(hero): capability-led H1/subhead; strip location refs
+  - `1897000` docs: add SESSION_BRIEF for cross-Claude handoff
   - `fbd81cf` chore: remove orphan sub-pages, add 301 redirects to home
   - `8289a5e` copy: on-site or remote anywhere in the world
   - `d910f1f` feat(brand): rebrand to locked navy/white/slate palette
-- **Uncommitted on Hero.tsx** (open question — see Open Questions §1):
-  - H1 changed from `AI consulting and training for small businesses.` to
-    `AI consulting and custom solutions for businesses.`
-- **Untracked file** `REDESIGN_SPEC.md` (Josh-call handoff spec from
-  2026-04-17). Reference only; mostly superseded by what shipped.
+- Working tree clean except untracked `REDESIGN_SPEC.md` (Josh-call
+  handoff spec from 2026-04-17, reference only).
+- Build verified clean (`next build` — 3 routes, no TS errors).
 
 ---
 
@@ -55,9 +58,6 @@ copy looks washed out, the only allowed move is darkening `--fg-muted` to
   the business, or the plan.
 - **Tool names out** (Claude, Copilot, ChatGPT, OpenAI). Recommendations
   match each client's stack; the site can't commit to platforms.
-  Exception: `/reflect` legitimately mentions Claude Pro because that's
-  the actual product requirement. (`/reflect` is currently redirected,
-  so this is moot today.)
 - **"Just feels off" = stop defending the draft.** Matt means it. Go
   fully different direction, don't iterate on the same framing.
 - Craftsman register, not founder-memoir. Declarative statements about
@@ -68,96 +68,167 @@ copy looks washed out, the only allowed move is darkening `--fg-muted` to
 - **Do not deploy.** Matt has more editing to do.
 - CF API token from 2026-04-19 was revoked; needs a new one when ready.
 - CF Pages git auto-deploy is **broken** (split-brain — see Open
-  Questions §4). Pushing to GitHub does NOT update the live site.
+  Questions §3). Pushing to GitHub does NOT update the live site.
   Shipping requires `wrangler pages deploy out/ --project-name=cortecs-website --branch=main`.
 
 ---
 
 ## Live page structure (in order)
 
-1. **Hero** — current H1: see uncommitted change above. Subhead:
-   "Assessments, tool setup, and hands-on training for the business
-   you already run. On-site in London and surrounding area. Remote
-   anywhere."
-2. **Problem** — "Your business has tasks that take hours. AI can do
-   them in seconds." Animated 35+ stat. 6-card before/after grid.
-3. **Demo section** — "One call. One working prototype, days later."
-   3-step (bring one task / short phone call / working prototype in
-   inbox). The "built live in 15 min" framing was pulled — actual flow
-   is call → record → Whisper → Claude plans → Spark executes, days
-   not minutes.
-4. **How it works (Process)** — 4 steps:
-   1. Free 15–30 min intro call
-   2. Same-day recs document
-   3. $250 on-site/remote assessment
-   4. Implementation, setup, and team training (standalone training
-      available) — "Custom automation or software if needed"
-5. **Why Cortecs** — H2 "Custom solutions built for your business." 4
-   cards: Local presence / Private infrastructure when the data calls
-   for it / Works with the tools already in place / Honest about what
-   AI can't do.
-6. **What to count on (About)** — "Three commitments.": 01 Available
-   365 days a year. 02 Quick turnaround. 03 Efficient solutions. No
-   bio content about Matt.
-7. **FAQ** — 5 Qs: Isn't AI only for big companies? / Will AI replace
-   my staff? / What does it cost? ($250 mentioned here) / Is my data
-   safe? / Why not just try the AI tools myself?
-8. **Contact** — form with mailto fallback + chat widget in corner.
+1. **Hero** — H1: *"AI consulting and custom solutions for your business."*
+   Subhead: *"From identifying the opportunities to building the tools
+   that capture them."* Single CTA "Book an intro call" → `#intake`. No
+   eyebrow, no location text.
+2. **IntakeForm** (id `intake`) — heading "Three questions." Subhead
+   "Short answers are fine. A reply lands within 24 hours." Three
+   required fields:
+   - "What does your business do?" (textarea, 2000 chars)
+   - "What's a task that takes too long or feels manual?" (textarea, 2000)
+   - "Best way to reach you?" (text, 200) with hint "Email or phone."
+   Submit "Send" → POST to `/intake`. Success replaces form with "Got
+   it. I'll reach out within 24 hours." Honeypot `name="website"` +
+   invisible Turnstile (interaction-only).
+3. **Footer** (rendered by layout, not page) — `© 2026 Cortecs ·
+   London, Ontario` (still has location text — see Open Questions §1).
+4. **ChatWidget** (rendered by layout, floating bottom-right) —
+   unchanged. Header text inside widget still says "Live · London,
+   Ontario" (Open Questions §1).
+
+The shell (layout.tsx) wraps the page with `<Nav />` (logo + theme
+toggle + "Get in touch" CTA → `#intake`; section links emptied),
+`<ScrollProgress />`, `<main>`, `<Footer />`, `<ChatWidget />`.
 
 ---
 
-## Live infrastructure (chat widget)
+## Archived components (`src/components/_archive/`)
 
-- Backend: `~/cortecs-chat/` on Spark 2 (Fastify + better-sqlite3 +
-  discord.js). Systemd service `cortecs-chat.service`, port 3210.
+Moved 2026-04-28 in commit `d27cc6b`. Files preserved with git history.
+Imports rewired so each still type-checks in place. None are imported
+by the live build.
+
+- `Problem.tsx` — "Your business has tasks that take hours. AI can do
+  them in seconds." Animated 35+ stat + 6-card before/after grid.
+  (Imports `../AnimatedNumber`.)
+- `DemoSection.tsx` — "One call. One working prototype, days later."
+  3-step flow.
+- `Process.tsx` — 4-step process (intro call → recs → $250 assessment
+  → implementation/training). Step 4 said "Custom automation or
+  software if needed" — moot now since archived.
+- `WhyCortecs.tsx` — H2 "Custom solutions built for your business." 4
+  cards including "Local presence" with London/Ontario reference.
+- `About.tsx` — "Three commitments." 01 Available 365 days a year /
+  02 Quick turnaround / 03 Efficient solutions.
+- `FAQ.tsx` — 5 Qs (small biz / replace staff / cost / data safety /
+  DIY). The $250 fee was mentioned here.
+
+`Contact.tsx` was **not** archived (it was replaced rather than
+deferred). Still in `src/components/` but unimported.
+
+---
+
+## Intake form + backend
+
+### Frontend (`src/components/IntakeForm.tsx`)
+
+- `"use client"` React component, posts JSON to `/intake` on
+  `chat.cortecs.ca` (env var `NEXT_PUBLIC_CHAT_URL` overrides; falls
+  back to the production tunnel).
+- Cloudflare Turnstile invisible widget, executed on submit. Site key
+  reads `NEXT_PUBLIC_TURNSTILE_SITE_KEY` with hardcoded fallback (same
+  pattern as `ChatWidget`).
+- Honeypot field `name="website"` (hidden) — populated bots get a
+  silent 200.
+- Failure copy: rate-limit → "Too many submissions from this network.
+  Try again in a minute." / captcha → "Couldn't verify you're human.
+  Try again." / network → "Connection issue — try again."
+- Reuses the global `window.turnstile` declaration from
+  `ChatWidget.tsx` — do **not** redeclare or you'll hit a TS duplicate
+  declaration error.
+
+### Backend (`~/cortecs-chat/` on Spark 2 — NOT in this git repo)
+
+Files touched on 2026-04-28:
+
+- `db.js` — added `intakes` table (`id`, `created_at`, `business`,
+  `task`, `contact`, `ip`) + `idx_intakes_created` + `insertIntake`
+  query.
+- `discord-bot.js` — added `postIntakeToDiscord({ business, task,
+  contact })` which sends an embed (color `0x0f172a`) to the parent
+  channel of `CHANNEL_ID`. Also `truncateField` helper (1024-char cap
+  per Discord embed field).
+- `server.js` — added `POST /intake` route. Reuses `verifyTurnstile`,
+  `checkRate`, `clientIp`. Body shape `{ business, task, contact,
+  honeypot?, turnstileToken }`. 2000-char cap on business/task,
+  200-char cap on contact, all required.
+
+Restart with `systemctl --user restart cortecs-chat.service`. Verified
+on `localhost:3210` 2026-04-28: empty body → 400, missing turnstile
+→ 401, honeypot → 200 silent. Production tunnel `chat.cortecs.ca`
+already routes to `:3210` — `/intake` is reachable from the live site
+once deployed.
+
+---
+
+## Live infrastructure (chat widget — unchanged)
+
+- Backend: `~/cortecs-chat/` (Fastify + better-sqlite3 + discord.js).
+  Systemd service `cortecs-chat.service` (user systemd, no sudo), port
+  3210.
 - Tunnel: cloudflared, `chat.cortecs.ca → localhost:3210`. Service
-  `cortecs-tunnel.service`. Tunnel id `9012b7a3-ec1e-48f7-861d-cb2289253181`.
+  `cortecs-tunnel.service`. Tunnel id
+  `9012b7a3-ec1e-48f7-861d-cb2289253181`.
 - Discord: Matt's server, channel `#site-chat`. Bot "Cortecs Chat".
 - Anti-spam: Cloudflare Turnstile (managed mode) + Bot Fight Mode.
-- Rate limit: 20 msg/min/IP, 2000-char cap, honeypot.
+- Rate limit: 20 msg/min/IP, shared across `/send` and `/intake`.
 
 ---
 
 ## Open questions / decisions still pending
 
-1. **Uncommitted Hero H1 change.** Local edit walks H1 back from "AI
-   consulting and training for small businesses." to "AI consulting and
-   custom solutions for businesses." That **contradicts** the Josh-call
-   pivot away from leading with custom software. Was this Matt's edit?
-   Keep / revert / revise to a third option?
-2. **Step 4 of Process** still reads "Custom automation or software if
-   needed" — Matt re-added "or software" despite the pivot. Strip,
-   keep, or soften?
-3. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
-   `/`. Reflect Drive is still a real shipping product ($79 CAD).
-   Options: (a) rebuild `/reflect` on navy palette, (b) add a Products
-   section to home, (c) leave invisible (relies on direct marketing).
-4. **CF Pages split-brain resolution.** Two `cortecs-website` projects
+1. **Other "London, Ontario" text on the page.** Block 2 stripped Hero,
+   but the same string is still visible in **Footer.tsx** (line 25,
+   `© 2026 Cortecs · London, Ontario`) and **ChatWidget.tsx** (line
+   338, `Live · London, Ontario`). Block 2's stated scope was Hero
+   only, so I left these alone. If "no geographic references anywhere
+   on the page" is the intent, both should be stripped.
+2. **layout.tsx SEO/metadata still London-targeted.** The page metadata
+   (title/description/keywords) and the `LocalBusiness` schema.org
+   graph in layout.tsx still position Cortecs as London/Ontario-based.
+   Stripping would tank local search rankings. Decision needed: is the
+   site geo-bound for SEO purposes even though visible copy is now
+   capability-led?
+3. **CF Pages split-brain resolution.** Two `cortecs-website` projects
    in CF; direct-upload one serves prod, git-connected one's last build
    failed ~50 days ago. Path A: move custom domains onto git-connected,
-   fix build, delete direct-upload (downtime risk during cutover).
-   Path B: connect git to direct-upload retroactively (CF doesn't
-   always allow; may need recreation).
+   fix build, delete direct-upload (downtime risk). Path B: connect
+   git to direct-upload retroactively (CF may not allow; might need
+   recreation).
+4. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
+   `/`. Reflect Drive is still a real shipping product ($79 CAD).
+   Options: (a) rebuild `/reflect` on navy palette, (b) add a Products
+   section to home, (c) leave invisible.
 5. **Visual polish.** Site still feels "generic / no wow" to Matt.
    Options discussed but not applied: dark mode default, subtle
    grid/grain texture, bolder hero type, stronger hero glow, home-lab
-   photo. Matt chose to push live and defer. Which (if any) for this
-   session?
-6. **What edits did Matt want before shipping the rebrand?** He said
-   "more editing to do" but didn't list specifics. ThinkPad Claude
-   should ask him to dump his list before recommending changes — don't
-   guess.
+   photo. With the page now down to two sections, the visual weight
+   problem may be different. Worth a fresh look.
+
+**Closed this session:**
+- ~~Hero H1 walkback~~ → locked to "AI consulting and custom solutions
+  for your business."
+- ~~Step 4 'or software' phrasing~~ → moot, Process section archived.
+- ~~Edits Matt wanted before deploying~~ → done (homepage simplification
+  + intake form).
 
 ---
 
 ## Not-yet-done follow-ups (lower priority)
 
 - `~/inbox/copy-revision-v2.md` — agent's full section rewrite doc,
-  mostly NOT applied since Matt iterated directly on components.
-  Worth scanning for sections never addressed.
+  mostly NOT applied. Most sections it rewrites are now archived, so
+  most of it is moot. Worth a scan for hero/footer copy ideas.
 - Lighthouse pass (Puppeteer x86 Chrome crashed on ARM Spark 2; use
   pagespeed.web.dev or `sudo snap install chromium`).
-- Home-lab photo for Why section.
 - Chat widget dark mode testing.
 - Business cards (Florida trip — separate exercise).
 
