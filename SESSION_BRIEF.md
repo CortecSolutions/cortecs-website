@@ -187,30 +187,22 @@ once deployed.
 
 ## Open questions / decisions still pending
 
-1. **Nav header CTA inconsistency.** Hero CTA is now "Tell me about
-   your business" (matches form's first question). Nav header still
-   says "Get in touch" because the longer label won't fit the pill
-   width without breaking the nav layout. Acceptable since "Get in
-   touch" is neutral and doesn't promise a call — but it's a copy
-   inconsistency worth flagging. Options: (a) leave as-is, (b) shorten
-   nav CTA to "Get in touch" → "Send a note" or similar, (c) restyle
-   the nav pill to fit the longer label.
-2. **CF Pages split-brain resolution.** Two `cortecs-website` projects
+1. **CF Pages split-brain resolution.** Two `cortecs-website` projects
    in CF; direct-upload one serves prod, git-connected one's last build
    failed ~50 days ago. Path A: move custom domains onto git-connected,
    fix build, delete direct-upload (downtime risk). Path B: connect
    git to direct-upload retroactively (CF may not allow; might need
    recreation).
-3. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
+2. **Reflect Drive has no on-brand presence.** `/reflect` was 301'd to
    `/`. Reflect Drive is still a real shipping product ($79 CAD).
    Options: (a) rebuild `/reflect` on navy palette, (b) add a Products
    section to home, (c) leave invisible.
-4. **Visual polish.** Site still feels "generic / no wow" to Matt.
+3. **Visual polish.** Site still feels "generic / no wow" to Matt.
    Options discussed but not applied: dark mode default, subtle
    grid/grain texture, bolder hero type, stronger hero glow, home-lab
    photo. With the page now down to two sections, the visual weight
    problem may be different. Worth a fresh look.
-5. **Backend lives only on Spark 2.** `~/cortecs-chat/` (db.js,
+4. **Backend lives only on Spark 2.** `~/cortecs-chat/` (db.js,
    discord-bot.js, server.js) is not in any git repo. Hardware
    failure on Spark 2 = lost work. Worth pushing to a private repo
    when convenient. Not urgent.
@@ -227,7 +219,9 @@ once deployed.
   geo terms. Tradeoff accepted: site loses London local-search rank,
   reversible later.
 - ~~CTA mismatch (call vs form)~~ → Hero CTA now "Tell me about your
-  business". Nav stays "Get in touch" (see Open Questions §1).
+  business". Nav stays "Get in touch" (locked — neutral copy, fits
+  pill width, three-CTA mix is fine since each fits its context).
+  Footer CTA: "Get in touch".
 
 ---
 
