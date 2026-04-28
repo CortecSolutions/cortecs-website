@@ -5,11 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { LogoIcon } from "./Logo";
 
-const LINKS = [
-  { href: "#process", label: "How it works" },
-  { href: "#why", label: "Why Cortecs" },
-  { href: "#faq", label: "FAQ" },
-];
+const LINKS: { href: string; label: string }[] = [];
 
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState<string | null>(null);
@@ -105,7 +101,7 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href="#intake"
             className="hidden rounded-full bg-[var(--fg)] px-4 py-2 text-sm font-medium text-[var(--bg)] transition hover:opacity-90 md:inline-flex"
           >
             Get in touch
@@ -160,7 +156,7 @@ export function Nav() {
               ))}
               <li>
                 <a
-                  href="#contact"
+                  href="#intake"
                   onClick={() => setOpen(false)}
                   className="block rounded-xl bg-[var(--fg)] px-4 py-3 text-center text-sm font-medium text-[var(--bg)]"
                 >

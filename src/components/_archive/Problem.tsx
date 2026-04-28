@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { AnimatedNumber } from "./AnimatedNumber";
+import { AnimatedNumber } from "../AnimatedNumber";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
