@@ -51,48 +51,37 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28"
       >
-        <motion.p
+        <motion.h1
+          id="hero-headline"
           custom={0}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg-muted)]"
+          className="max-w-[18ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
         >
-          London, Ontario · AI Consulting
-        </motion.p>
-
-        <motion.h1
-          id="hero-headline"
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="mt-7 max-w-[18ch] text-4xl font-semibold leading-[1.02] tracking-tight text-[var(--fg)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem]"
-        >
-          AI consulting and training for small businesses.
+          AI consulting and custom solutions for your business.
         </motion.h1>
 
         <motion.p
-          custom={2}
+          custom={1}
           variants={fadeUp}
           initial="hidden"
           animate="show"
           className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)] md:text-xl"
         >
-          Assessments, tool setup, and hands-on training for the business
-          you already run. On-site in London and surrounding area. Remote
-          anywhere.
+          From identifying the opportunities to building the tools that
+          capture them.
         </motion.p>
 
         <motion.div
-          custom={3}
+          custom={2}
           variants={fadeUp}
           initial="hidden"
           animate="show"
           className="mt-10 flex flex-wrap gap-3"
         >
           <a
-            href="#contact"
+            href="#intake"
             className="inline-flex items-center gap-2 rounded-full bg-[var(--fg)] px-6 py-3.5 text-sm font-medium text-[var(--bg)] transition hover:opacity-90"
           >
             Book an intro call
@@ -109,16 +98,10 @@ export function Hero() {
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </a>
-          <a
-            href="#process"
-            className="inline-flex items-center rounded-full border border-[var(--border)] px-6 py-3.5 text-sm font-medium text-[var(--fg)] transition hover:border-[var(--fg)]"
-          >
-            See how it works
-          </a>
         </motion.div>
 
         <motion.div
-          custom={5}
+          custom={3}
           variants={fadeUp}
           initial="hidden"
           animate="show"
