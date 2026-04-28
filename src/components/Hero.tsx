@@ -84,7 +84,7 @@ export function Hero() {
             href="#intake"
             className="inline-flex items-center gap-2 rounded-full bg-[var(--fg)] px-6 py-3.5 text-sm font-medium text-[var(--bg)] transition hover:opacity-90"
           >
-            Book an intro call
+            Tell me about your business
             <svg
               viewBox="0 0 24 24"
               className="h-4 w-4"

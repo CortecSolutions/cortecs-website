@@ -335,7 +335,7 @@ export function ChatWidget() {
               <header className="flex items-center justify-between gap-3 border-b border-[var(--border)] px-5 py-4">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-muted)]">
-                    Live · London, Ontario
+                    Live
                   </p>
                   <p className="mt-0.5 text-sm font-semibold text-[var(--fg)]">
                     Chat with Matt

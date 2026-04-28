@@ -14,23 +14,21 @@ const inter = Inter({
 });
 
 const SITE_URL = "https://www.cortecs.ca";
-const SITE_TITLE =
-  "Cortecs — AI consulting for small businesses in London, Ontario";
+const SITE_TITLE = "Cortecs — AI consulting and custom solutions";
 const SITE_DESC =
-  "Practical AI consulting and training for small businesses in London, Ontario. On-site and remote assessments, hands-on tool setup, private infrastructure. No enterprise jargon.";
+  "AI consulting and custom solutions for your business. From identifying the opportunities to building the tools that capture them.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: SITE_TITLE, template: "%s · Cortecs" },
   description: SITE_DESC,
   keywords: [
-    "AI consulting London Ontario",
-    "small business AI",
+    "AI consulting",
     "AI training",
     "AI automation",
+    "custom AI solutions",
     "private AI",
     "on-premise AI",
-    "AI for small business Southwestern Ontario",
   ],
   authors: [{ name: "Matt" }],
   creator: "Matt",
@@ -42,13 +40,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_CA",
     url: SITE_URL,
     siteName: "Cortecs",
     title: SITE_TITLE,
     description: SITE_DESC,
     images: [
-      { url: "/og-image.png", width: 1200, height: 630, alt: "Cortecs — AI consulting for small businesses in London, Ontario" },
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Cortecs — AI consulting and custom solutions" },
     ],
   },
   twitter: {
@@ -71,67 +68,26 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness + Service schema graph — critical for London, ON local search.
-// Address uses only city/region (no street — Matt works from home).
 const businessId = `${SITE_URL}/#business`;
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       "@id": businessId,
       name: "Cortecs",
       url: SITE_URL,
       description:
-        "AI consulting and training for small businesses in London, Ontario and surrounding area.",
+        "AI consulting and custom solutions for your business.",
       image: `${SITE_URL}/og-image.png`,
-      areaServed: [
-        { "@type": "City", name: "London" },
-        { "@type": "AdministrativeArea", name: "Middlesex County" },
-        { "@type": "AdministrativeArea", name: "Ontario" },
-      ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "London",
-        addressRegion: "ON",
-        addressCountry: "CA",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 42.9849,
-        longitude: -81.2453,
-      },
-      priceRange: "$$",
+      logo: `${SITE_URL}/og-image.png`,
       founder: { "@type": "Person", name: "Matt" },
-      email: "matt@cortecs.ca",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "matt@cortecs.ca",
+      },
       sameAs: [],
-    },
-    {
-      "@type": "Service",
-      name: "AI Adoption Consultation",
-      serviceType: "AI consulting",
-      provider: { "@id": businessId },
-      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
-      description:
-        "One-hour working session to identify where AI saves a small business real time, with written recommendations and tool selection matched to the existing stack.",
-    },
-    {
-      "@type": "Service",
-      name: "AI Training & Onboarding",
-      serviceType: "AI training",
-      provider: { "@id": businessId },
-      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
-      description:
-        "Hands-on training for small-business teams on the right AI tools for their work, using the business's own files and workflows.",
-    },
-    {
-      "@type": "Service",
-      name: "Custom Automation",
-      serviceType: "AI automation",
-      provider: { "@id": businessId },
-      areaServed: { "@type": "AdministrativeArea", name: "Ontario" },
-      description:
-        "Private, tightly scoped automations built for specific business tasks when off-the-shelf AI tools can't do the job. Runs on the client's stack or on private on-premise infrastructure.",
     },
   ],
 };

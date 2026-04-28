@@ -14,15 +14,12 @@ export function Footer() {
           aria-label="Footer"
           className="flex flex-wrap gap-x-8 gap-y-3 text-sm"
         >
-          <a href="#services" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">Services</a>
-          <a href="#process" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">Process</a>
-          <a href="#faq" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">FAQ</a>
-          <a href="#contact" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">Contact</a>
+          <a href="#intake" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">Get in touch</a>
           <a href="mailto:matt@cortecs.ca" className="text-[var(--fg-muted)] transition hover:text-[var(--fg)]">matt@cortecs.ca</a>
         </nav>
 
         <p className="text-xs text-[var(--fg-muted)]">
-          © {year} Cortecs · London, Ontario
+          © {year} Cortecs
         </p>
       </div>
     </footer>
