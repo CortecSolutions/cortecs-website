@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { AnimatedNumber } from "../AnimatedNumber";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -30,16 +30,24 @@ const examples = [
     after: "Email triaged by priority, drafts waiting for the five that matter.",
   },
   {
+    before: "Writing up notes after every meeting",
+    after: "Audio in, action items and decisions out, sent before you're back to your desk.",
+  },
+  {
     before: "Pulling a weekly report together from four different tools",
     after: "The report written, the numbers checked, sitting in your inbox Monday morning.",
   },
   {
-    before: "Answering the same customer questions over and over",
-    after: "A small assistant that handles the routine ones in your voice.",
+    before: "Jumping between five tools to see how the business is running",
+    after: "One page that pulls from all of them — what's selling, what's owed, what's stuck.",
   },
   {
     before: "Hunting through old emails and files for a past order or spec",
     after: "One search across everything the business keeps. Right answer on page one.",
+  },
+  {
+    before: "Checking spreadsheets to see which vendors still have current insurance",
+    after: "A list that watches itself, and pings you the week before something expires.",
   },
 ];
 
@@ -71,7 +79,8 @@ export function Problem() {
           viewport={{ once: true, margin: "-80px" }}
           className="mt-6 max-w-[20ch] text-3xl font-semibold leading-[1.08] tracking-tight text-[var(--fg)] sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          Your business has tasks that take hours. AI can do them in seconds.
+          Your business has manual tasks that take hours. AI can do them in
+          seconds, once trained and integrated in your system.
         </motion.h2>
 
         <motion.p
@@ -143,34 +152,26 @@ export function Problem() {
           </div>
         </motion.div>
 
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
+        <div className="mt-20 max-w-3xl space-y-14 md:mt-24 md:space-y-16">
           {examples.map((item, i) => (
-            <motion.li
+            <motion.div
               key={item.before}
               custom={4 + i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className="flex flex-col gap-4 bg-[var(--bg)] p-7 md:p-8"
             >
-              <div className="flex items-start gap-3">
-                <span
-                  aria-hidden="true"
-                  className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--fg-muted)] opacity-60"
-                />
-                <p className="text-[var(--fg-muted)]">{item.before}</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span
-                  aria-hidden="true"
-                  className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--fg)]"
-                />
-                <p className="font-medium text-[var(--fg)]">{item.after}</p>
-              </div>
-            </motion.li>
+              <p className="text-base leading-relaxed text-[var(--fg-muted)] md:text-lg">
+                Instead of{" "}
+                {item.before.charAt(0).toLowerCase() + item.before.slice(1)},
+              </p>
+              <p className="mt-3 text-xl font-semibold leading-snug tracking-tight text-[var(--fg)] md:text-2xl lg:text-[1.75rem]">
+                {item.after}
+              </p>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
