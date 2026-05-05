@@ -20,13 +20,13 @@ const steps = [
     step: "01",
     title: "Free intro call",
     duration: "15-30 minutes · by phone",
-    body: "A short conversation about your business. Within the day, you'll receive a recommendations document with different options.",
+    body: "A short conversation about your business — what you do, what's manual, where AI might help. If it's a fit, we'll book the assessment as the next step.",
   },
   {
     step: "02",
     title: "On-site or remote assessment",
-    duration: "One hour · $250 flat fee",
-    body: "An in-depth assessment of how the business actually operates. The pathway forward is tailored to what that reveals — tools, priorities, and timing all shaped to the business.",
+    duration: "One hour · $500 flat fee",
+    body: "An in-depth look at how the business actually operates. You'll leave with a written recommendations document — tools, priorities, and timing all shaped to what the business actually needs.",
   },
   {
     step: "03",

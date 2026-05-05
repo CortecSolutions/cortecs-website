@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "The intro call is free. The on-site or remote assessment is a $250 flat fee. After that, you only spend what the tools themselves cost (typically $20-$50 per person per month for mainstream AI tools, when they're the right fit). Custom work is scoped and billed per project. Ongoing help is ad-hoc — you pay for what you actually use when you need it, not a monthly retainer.",
+    a: "The intro call is free. The on-site or remote assessment is a $500 flat fee — that's where you get the written recommendations. After that, you only spend what the tools themselves cost (typically $20-$50 per person per month for mainstream AI tools, when they're the right fit). Custom work is scoped and billed per project. Ongoing help is ad-hoc — you pay for what you actually use when you need it, not a monthly retainer.",
   },
   {
     q: "Is my data safe?",

@@ -31,8 +31,8 @@ const services: Service[] = [
     blurb:
       "The main on-ramp: from an intro call through to tools installed and the team trained. A full path from \"curious about AI\" to AI actually running on real work.",
     points: [
-      "Free intro call + same-day recommendations document",
-      "$250 on-site or remote assessment (one hour)",
+      "Free intro call to qualify the fit",
+      "On-site or remote assessment (one hour)",
       "Written implementation plan, tool setup, and team training",
     ],
     outcome: "A business running on AI tools that actually fit the work.",

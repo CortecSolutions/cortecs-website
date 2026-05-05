@@ -113,15 +113,15 @@ by the live build.
   (Imports `../AnimatedNumber`.)
 - `DemoSection.tsx` — "One call. One working prototype, days later."
   3-step flow.
-- `Process.tsx` — 4-step process (intro call → recs → $250 assessment
-  → implementation/training). Step 4 said "Custom automation or
-  software if needed" — moot now since archived.
+- `Process.tsx` — 4-step process (intro call → $500 assessment with
+  recs doc → implementation/training). Step 4 said "Custom automation
+  or software if needed" — moot now since archived.
 - `WhyCortecs.tsx` — H2 "Custom solutions built for your business." 4
   cards including "Local presence" with London/Ontario reference.
 - `About.tsx` — "Three commitments." 01 Available 365 days a year /
   02 Quick turnaround / 03 Efficient solutions.
 - `FAQ.tsx` — 5 Qs (small biz / replace staff / cost / data safety /
-  DIY). The $250 fee was mentioned here.
+  DIY). The $500 fee is mentioned here.
 
 `Contact.tsx` was **not** archived (it was replaced rather than
 deferred). Still in `src/components/` but unimported.
